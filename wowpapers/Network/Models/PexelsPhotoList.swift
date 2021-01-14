@@ -1,5 +1,5 @@
 //
-//  PhotosResponse.swift
+//  PexelsPhotoList.swift
 //  wowpapers
 //
 //  Created by Isaac Royo Raso on 13/1/21.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct PhotosResponse: Decodable {
-    let photos: [PhotosResponse]
+struct PexelsPhotoList: Decodable {
+    let photos: [PexelsPhoto]
     let totalResults: Int
     let perPage: Int
     let page: Int

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5FD250D45B710FE8783E9337 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5FD25D6FA71F4554AE688987 /* .gitignore */; };
+		5FD2561A88F6CF36618B7E1A /* PhotoOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25E8410A20DB1A000AD20 /* PhotoOrigin.swift */; };
+		5FD25C634C39103483DDF4A0 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25D03C01146397FAD5AC0 /* NetworkResponse.swift */; };
 		5FD25F833EE9CC196CD78E79 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25086305FCEEB3822BE4C /* ApiService.swift */; };
 		FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E03D25AF51360000D409 /* AppDelegate.swift */; };
 		FE30E04225AF51370000D409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04125AF51370000D409 /* Assets.xcassets */; };
@@ -17,17 +19,19 @@
 		FE30E07825AF5FF80000D409 /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E07725AF5FF80000D409 /* Output.swift */; };
 		FE30E07B25AF611C0000D409 /* WowContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E07A25AF611C0000D409 /* WowContentView.swift */; };
 		FE30E07E25AF61560000D409 /* WowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E07D25AF61560000D409 /* WowViewModel.swift */; };
-		FE30E08225AF61FB0000D409 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08125AF61FB0000D409 /* Photo.swift */; };
+		FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08125AF61FB0000D409 /* PhotoModel.swift */; };
 		FE30E08525AF62560000D409 /* Photographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08425AF62560000D409 /* Photographer.swift */; };
-		FE30E08825AF62DE0000D409 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08725AF62DE0000D409 /* PhotoResponse.swift */; };
-		FE30E08C25AF64180000D409 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08B25AF64180000D409 /* PhotosResponse.swift */; };
+		FE30E08825AF62DE0000D409 /* PexelsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08725AF62DE0000D409 /* PexelsPhoto.swift */; };
+		FE30E08C25AF64180000D409 /* PexelsPhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08B25AF64180000D409 /* PexelsPhotoList.swift */; };
 		FE30E09025AF646A0000D409 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08F25AF646A0000D409 /* NetworkError.swift */; };
 		FE30E09325AF64A90000D409 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E09225AF64A90000D409 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5FD25086305FCEEB3822BE4C /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		5FD25D03C01146397FAD5AC0 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		5FD25D6FA71F4554AE688987 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		5FD25E8410A20DB1A000AD20 /* PhotoOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOrigin.swift; sourceTree = "<group>"; };
 		FE30E03A25AF51360000D409 /* wowpapers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wowpapers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE30E03D25AF51360000D409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE30E04125AF51370000D409 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,10 +43,10 @@
 		FE30E07725AF5FF80000D409 /* Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
 		FE30E07A25AF611C0000D409 /* WowContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowContentView.swift; sourceTree = "<group>"; };
 		FE30E07D25AF61560000D409 /* WowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowViewModel.swift; sourceTree = "<group>"; };
-		FE30E08125AF61FB0000D409 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		FE30E08125AF61FB0000D409 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		FE30E08425AF62560000D409 /* Photographer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photographer.swift; sourceTree = "<group>"; };
-		FE30E08725AF62DE0000D409 /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
-		FE30E08B25AF64180000D409 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
+		FE30E08725AF62DE0000D409 /* PexelsPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PexelsPhoto.swift; sourceTree = "<group>"; };
+		FE30E08B25AF64180000D409 /* PexelsPhotoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PexelsPhotoList.swift; sourceTree = "<group>"; };
 		FE30E08F25AF646A0000D409 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FE30E09225AF64A90000D409 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +129,7 @@
 				FE30E08F25AF646A0000D409 /* NetworkError.swift */,
 				FE30E09225AF64A90000D409 /* NetworkManager.swift */,
 				5FD25086305FCEEB3822BE4C /* ApiService.swift */,
+				5FD25D03C01146397FAD5AC0 /* NetworkResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -132,8 +137,9 @@
 		FE30E06025AF53A20000D409 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE30E08125AF61FB0000D409 /* Photo.swift */,
+				FE30E08125AF61FB0000D409 /* PhotoModel.swift */,
 				FE30E08425AF62560000D409 /* Photographer.swift */,
+				5FD25E8410A20DB1A000AD20 /* PhotoOrigin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,8 +147,8 @@
 		FE30E06B25AF53D20000D409 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE30E08725AF62DE0000D409 /* PhotoResponse.swift */,
-				FE30E08B25AF64180000D409 /* PhotosResponse.swift */,
+				FE30E08725AF62DE0000D409 /* PexelsPhoto.swift */,
+				FE30E08B25AF64180000D409 /* PexelsPhotoList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,16 +226,18 @@
 			files = (
 				FE30E09325AF64A90000D409 /* NetworkManager.swift in Sources */,
 				FE30E08525AF62560000D409 /* Photographer.swift in Sources */,
-				FE30E08C25AF64180000D409 /* PhotosResponse.swift in Sources */,
-				FE30E08825AF62DE0000D409 /* PhotoResponse.swift in Sources */,
+				FE30E08C25AF64180000D409 /* PexelsPhotoList.swift in Sources */,
+				FE30E08825AF62DE0000D409 /* PexelsPhoto.swift in Sources */,
 				FE30E07825AF5FF80000D409 /* Output.swift in Sources */,
 				FE30E07B25AF611C0000D409 /* WowContentView.swift in Sources */,
 				FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */,
 				FE30E07E25AF61560000D409 /* WowViewModel.swift in Sources */,
-				FE30E08225AF61FB0000D409 /* Photo.swift in Sources */,
+				FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */,
 				FE30E09025AF646A0000D409 /* NetworkError.swift in Sources */,
 				FE30E07525AF5E6E0000D409 /* Constants.swift in Sources */,
 				5FD25F833EE9CC196CD78E79 /* ApiService.swift in Sources */,
+				5FD2561A88F6CF36618B7E1A /* PhotoOrigin.swift in Sources */,
+				5FD25C634C39103483DDF4A0 /* NetworkResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

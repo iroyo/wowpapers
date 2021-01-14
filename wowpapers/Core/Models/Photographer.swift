@@ -8,7 +8,6 @@
 import Foundation
 
 struct Photographer {
-    let id: Int
     let url: String
     let name: String
 }

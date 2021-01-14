@@ -10,9 +10,7 @@ import Foundation
 extension HTTPURLResponse {
 
     var isSuccessful: Bool {
-        get {
-            (200...299).contains(statusCode)
-        }
+        (200...299).contains(statusCode)
     }
 }
 
@@ -25,11 +23,11 @@ struct NetworkManager<T: Decodable> {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
 
-    func makeRequest(
+    func request(
             _ url: String,
             params: [String: String] = [String: String](),
             headers: [String: String] = [String: String](),
-            completeWith: @escaping (Output<T>) -> Void
+            completeWith: @escaping (Output<NetworkResponse<T>>) -> Void
     ) {
 
         func abortBecause(_ problem: NetworkError) {
@@ -61,7 +59,7 @@ struct NetworkManager<T: Decodable> {
                 do {
                     let result = try decoder.decode(T.self, from: data)
                     DispatchQueue.main.async {
-                        completeWith(.success(result))
+                        completeWith(.success(NetworkResponse(result, response.allHeaderFields)))
                     }
                 } catch let error {
                         completeWith(.error(error))

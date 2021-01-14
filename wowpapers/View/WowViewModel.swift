@@ -11,7 +11,9 @@ import Foundation
 class WowViewModel: ObservableObject {
     
     func getNewWallpaper() {
-        getPhotos()
+        getPhotos { output in
+            print(output)
+        }
     }    
     
 }

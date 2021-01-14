@@ -4,18 +4,22 @@
 
 import Foundation
 
-func getPhotos() {
-    NetworkManager<PhotosResponse>().makeRequest("search", params: [
+func getPhotos(_ completeWith: @escaping (Output<PhotoProvider>) -> Void) {
+    NetworkManager<PexelsPhotoList>().request("search", params: [
         "orientation": "landscape",
         "page": String(Int.random(in: 0...1000)),
         "query": "nature",
         "per_page": "1",
+    ], headers: [
+        "Authorization": Constants.PEXELS_KEY
     ]) { output in
-        switch output {
-        case .error(let problem):
-            print(problem)
-        case .success(let result):
-            print(result)
-        }
+        completeWith(output.map { response in
+            if let photo = response.result.photos.first {
+                return .external(photo.convert())
+            } else {
+                throw NetworkError.invalidURL
+            }
+        })
+
     }
 }

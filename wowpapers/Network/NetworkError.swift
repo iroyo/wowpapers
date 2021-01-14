@@ -10,4 +10,5 @@ import Foundation
 enum NetworkError : Error {
     case invalidURL
     case invalidResponse(Int = 500)
+    case emptyResponse
 }
