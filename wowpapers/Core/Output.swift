@@ -23,4 +23,11 @@ enum Output<T> {
             return .error(problem)
         }
     }
+
+}
+
+func when<T>(_ output: Output<T>, successful: (T) -> Void) {
+    if case Output.success(let data) = output {
+        successful(data)
+    }
 }

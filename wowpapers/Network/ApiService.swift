@@ -17,7 +17,7 @@ func getPhotos(_ completeWith: @escaping (Output<PhotoProvider>) -> Void) {
             if let photo = response.result.photos.first {
                 return .external(photo.convert())
             } else {
-                throw NetworkError.invalidURL
+                throw NetworkError.emptyResponse
             }
         })
 

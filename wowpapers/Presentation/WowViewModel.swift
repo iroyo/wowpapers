@@ -9,10 +9,14 @@ import Combine
 import Foundation
 
 class WowViewModel: ObservableObject {
+
+    @Published var photoProvider: PhotoProvider = PhotoProvider.system("")
     
     func getNewWallpaper() {
         getPhotos { output in
-            print(output)
+            if case Output.success(let data) = output {
+                self.photoProvider = data
+            }
         }
     }    
     
