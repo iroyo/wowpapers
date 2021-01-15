@@ -51,25 +51,23 @@ struct NetworkManager<T: Decodable> {
             request.addValue(value, forHTTPHeaderField: key)
         }
 
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) -> () in
-            if let response = response as? HTTPURLResponse {
-                guard let data = data, response.isSuccessful else {
-                    return abortBecause(.invalidResponse(response.statusCode))
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let response = response as? HTTPURLResponse else {
+                return completeWith(.error(error ?? NetworkError.invalidResponse()))
+            }
+            guard let data = data, response.isSuccessful else {
+                return abortBecause(.invalidResponse(response.statusCode))
+            }
+            do {
+                let result = try decoder.decode(T.self, from: data)
+                DispatchQueue.main.async {
+                    completeWith(.success(NetworkResponse(result, response.allHeaderFields)))
                 }
-                do {
-                    let result = try decoder.decode(T.self, from: data)
-                    DispatchQueue.main.async {
-                        completeWith(.success(NetworkResponse(result, response.allHeaderFields)))
-                    }
-                } catch let error {
-                        completeWith(.error(error))
-                }
-            } else {
-                abortBecause(.invalidResponse())
+            } catch let error {
+                completeWith(.error(error))
             }
         }
         task.resume()
-
     }
 
 }
