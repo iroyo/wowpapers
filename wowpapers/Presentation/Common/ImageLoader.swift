@@ -7,11 +7,12 @@ import Foundation
 class ImageLoader: ObservableObject {
 
     enum LoadState {
-        case loading, success, failure
+        case loading
+        case failure
+        case success(Data)
     }
 
-    var data = Data()
-    var state = LoadState.loading
+    @Published var state = LoadState.loading
 
     init(url: String) {
         guard let parsedURL = URL(string: url) else {
@@ -20,8 +21,7 @@ class ImageLoader: ObservableObject {
 
         let task = URLSession.shared.dataTask(with: parsedURL) { data, response, error in
             if let data = data, data.count > 0 {
-                self.data = data
-                self.state = .success
+                self.state = .success(data)
             } else {
                 self.state = .failure
             }

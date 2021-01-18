@@ -4,25 +4,42 @@
 
 import SwiftUI
 
-extension AsyncImage where Placeholder == Text {
-
-    init(_ url: String) {
-        self.init(url) {
-            Text("Loading")
-        }
+func DefaultAsyncImage(_ url: String) -> AsyncImage<Text, Text> {
+    AsyncImage<Text, Text>(url, failure: { Text("Error") }, placeholder: { Text("Loading") }) { image in
+        Image(nsImage: image).resizable()
     }
-
 }
 
-struct AsyncImage<Placeholder>: View where Placeholder: View {
+struct AsyncImage<Placeholder: View, Failure: View>: View {
 
-    @StateObject private var loader: ImageLoader
+    @ObservedObject private var loader: ImageLoader
 
-    init(_ url: String, @ViewBuilder placeholder: () -> Placeholder) {
-        _loader = StateObject(wrappedValue: ImageLoader(url: url))
+    private let image: (NSImage) -> Image
+    private let placeholder: Placeholder
+    private let failure: Failure
+
+    init(_ url: String,
+         @ViewBuilder failure: () -> Failure,
+         @ViewBuilder placeholder: () -> Placeholder,
+         @ViewBuilder image: @escaping (NSImage) -> Image = Image.init(nsImage:)
+    ) {
+        loader = ImageLoader(url: url)
+        self.placeholder = placeholder()
+        self.failure = failure()
+        self.image = image
     }
 
+    @ViewBuilder
     var body: some View {
-        Text("")
+        switch loader.state {
+        case .loading: placeholder
+        case .failure: failure
+        case .success(let data):
+            if let result = NSImage(data: data) {
+                image(result)
+            } else {
+                failure
+            }
+        }
     }
 }

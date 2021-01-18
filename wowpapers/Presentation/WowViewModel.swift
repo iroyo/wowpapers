@@ -10,12 +10,20 @@ import Foundation
 
 class WowViewModel: ObservableObject {
 
-    @Published var photoProvider: PhotoProvider = PhotoProvider.system("")
+    @Published var photo: Photo?
+
+    init() {
+        photo = nil
+        getNewWallpaper()
+    }
     
     func getNewWallpaper() {
         getPhotos { output in
             if case Output.success(let data) = output {
-                self.photoProvider = data
+                if case PhotoProvider.external(let photo) = data {
+                    print(photo.thumbnailSrc)
+                    self.photo = photo
+                }
             }
         }
     }    

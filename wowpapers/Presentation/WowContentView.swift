@@ -13,11 +13,11 @@ struct WowContentView: View {
 
     var body: some View {
         VStack {
-            AsyncImage("")
-            switch viewModel.photoProvider {
-            case .system: Text("System")
-            case .external(let photo): Text(photo.photographer.name)
+            if let photo = viewModel.photo {
+                DefaultAsyncImage(photo.thumbnailSrc)
+                        .aspectRatio(16 / 9, contentMode: .fit)
             }
+            Spacer()
             Button("New Wallpaper", action: viewModel.getNewWallpaper)
                     .frame(maxWidth: .infinity)
                     .padding()

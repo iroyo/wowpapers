@@ -24,7 +24,7 @@ struct PexelsPhoto: Decodable {
                 height: height,
                 color: avgColor,
                 origin: .pexels,
-                thumbnailSrc: src.small,
+                thumbnailSrc: src.medium,
                 originalSrc: src.original,
                 photographer: Photographer(url: photographerUrl, name: photographer)
         )
