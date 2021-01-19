@@ -16,9 +16,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         popover.contentViewController = NSHostingController(rootView: WowContentView())
-        popover.contentSize = NSSize(width: 360, height: 320)
+        popover.contentSize = NSSize(width: 380, height: 320)
         popover.behavior = .transient
-        popover.animates = false
+        popover.animates = true
 
         // Create the status item
         statusItem.button?.image = NSImage(named: "Icon")

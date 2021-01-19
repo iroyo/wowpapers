@@ -14,7 +14,7 @@ class WowViewModel: ObservableObject {
 
     init() {
         photo = nil
-        getNewWallpaper()
+        //getNewWallpaper()
     }
     
     func getNewWallpaper() {
