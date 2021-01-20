@@ -15,7 +15,7 @@ struct WowContentView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .center) {
-                CircularProgress()
+                LoadingPlaceholder()
             }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(16 / 9, contentMode: .fill)

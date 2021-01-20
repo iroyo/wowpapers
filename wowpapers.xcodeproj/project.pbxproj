@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FD250CB80A06678FFDA0175 /* CommonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD2592A14BCB5517CD11284 /* CommonUI.swift */; };
 		5FD250D45B710FE8783E9337 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5FD25D6FA71F4554AE688987 /* .gitignore */; };
 		5FD2561A88F6CF36618B7E1A /* PhotoOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25E8410A20DB1A000AD20 /* PhotoOrigin.swift */; };
 		5FD25751E45CED6E92844BD2 /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25587DD7037D955E301C6 /* CircularProgress.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		5FD25086305FCEEB3822BE4C /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		5FD25587DD7037D955E301C6 /* CircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
+		5FD2592A14BCB5517CD11284 /* CommonUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUI.swift; sourceTree = "<group>"; };
 		5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		5FD25D03C01146397FAD5AC0 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		5FD25D6FA71F4554AE688987 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */,
 				5FD25587DD7037D955E301C6 /* CircularProgress.swift */,
 				FEDB6AD025B8AC3C0082147F /* Colors.swift */,
+				5FD2592A14BCB5517CD11284 /* CommonUI.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				5FD25C634C39103483DDF4A0 /* NetworkResponse.swift in Sources */,
 				5FD25A3831EE46A83DB6FDE5 /* AsyncImage.swift in Sources */,
 				5FD25751E45CED6E92844BD2 /* CircularProgress.swift in Sources */,
+				5FD250CB80A06678FFDA0175 /* CommonUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

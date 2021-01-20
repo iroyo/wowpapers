@@ -6,11 +6,12 @@ import SwiftUI
 
 struct CircularProgress: View {
 
-    let size: CGFloat = 50
-    let color: Color = Color(red: 0.263, green: 0.667, blue: 0.545)
+    private let thickness: CGFloat
+    private let size: CGFloat
+    private let color: Color
 
     private var border: CGFloat {
-        (10 * size) / 100
+        (thickness * size) / 100
     }
 
     private var radius: CGFloat {
@@ -19,6 +20,12 @@ struct CircularProgress: View {
 
     @State private var angle: Double = 0
     @State private var rotation: Double = -90
+
+    init(size: CGFloat = 50, thickness: CGFloat = 10, color: Color = Color(red: 0.263, green: 0.667, blue: 0.545)) {
+        self.size = size
+        self.color = color
+        self.thickness = thickness
+    }
 
     var repeatingAnimation: Animation {
         Animation.linear(duration: 6).repeatForever(autoreverses: false)
@@ -36,7 +43,7 @@ struct CircularProgress: View {
     }
 }
 
-struct CircularProgressShape: Shape {
+fileprivate struct CircularProgressShape: Shape {
     static let MAX_ANGLE: Double = 270 * 6
 
     private let minDegreeDistance: Double = 22.5
@@ -81,18 +88,16 @@ struct CircularProgressShape: Shape {
     }
 }
 
-struct Outline: ViewModifier {
+fileprivate struct Outline: ViewModifier {
     var color: Color
     var size: CGFloat
     var border: CGFloat
 
     func body(content: Content) -> some View {
         ZStack(alignment: .bottomTrailing) {
-            Circle()
-                    .strokeBorder(color, lineWidth: border)
-                    .frame(width: size, height: size)
+            Circle().strokeBorder(color, lineWidth: border)
             content
-        }
+        }.frame(width: size, height: size)
     }
 }
 
