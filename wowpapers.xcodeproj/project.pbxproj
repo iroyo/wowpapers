@@ -27,6 +27,7 @@
 		FE30E08C25AF64180000D409 /* PexelsPhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08B25AF64180000D409 /* PexelsPhotoList.swift */; };
 		FE30E09025AF646A0000D409 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08F25AF646A0000D409 /* NetworkError.swift */; };
 		FE30E09325AF64A90000D409 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E09225AF64A90000D409 /* NetworkManager.swift */; };
+		FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDB6AD025B8AC3C0082147F /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		FE30E08B25AF64180000D409 /* PexelsPhotoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PexelsPhotoList.swift; sourceTree = "<group>"; };
 		FE30E08F25AF646A0000D409 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FE30E09225AF64A90000D409 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FEDB6AD025B8AC3C0082147F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			children = (
 				5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */,
 				5FD25587DD7037D955E301C6 /* CircularProgress.swift */,
+				FEDB6AD025B8AC3C0082147F /* Colors.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				FE30E09325AF64A90000D409 /* NetworkManager.swift in Sources */,
 				FE30E08525AF62560000D409 /* Photographer.swift in Sources */,
 				FE30E08C25AF64180000D409 /* PexelsPhotoList.swift in Sources */,
+				FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */,
 				FE30E08825AF62DE0000D409 /* PexelsPhoto.swift in Sources */,
 				FE30E07825AF5FF80000D409 /* Output.swift in Sources */,
 				FE30E07B25AF611C0000D409 /* WowContentView.swift in Sources */,

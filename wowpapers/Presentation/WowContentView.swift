@@ -14,18 +14,12 @@ struct WowContentView: View {
 
     var body: some View {
         VStack {
-            //if let photo = viewModel.photo {
-            //    DefaultAsyncImage(photo.thumbnailSrc)
-            //            .aspectRatio(16 / 9, contentMode: .fit)
-            //            .frame(width: 380)
-            //}
             ZStack(alignment: .center) {
                 CircularProgress()
             }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(16 / 9, contentMode: .fill)
                     .fixedSize(horizontal: false, vertical: true)
-                    .background(Color.orange)
             Button("New Wallpaper") {
                 isShown.toggle()
             }.padding()
