@@ -28,7 +28,7 @@ struct CircularProgress: View {
 struct CircularProgressShape: Shape {
     static let MAX_ANGLE: Double = 270 * 6
 
-    private let minDegreeDistance: Double = 45
+    private let minDegreeDistance: Double = 22.5
     private let maxDegreeDistance: Double = 270
     private let circleRadius: CGFloat
 
