@@ -10,7 +10,7 @@ struct LoadingPlaceholder : View {
     var body: some View {
         HStack {
             CircularProgress(size: 28, thickness: 14, color: .primary).withOutline()
-            Text("Loading...")
+            Text("Loading").padding(.leading, 4)
         }
     }
 }

@@ -10,10 +10,11 @@
 		5FD250CB80A06678FFDA0175 /* CommonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD2592A14BCB5517CD11284 /* CommonUI.swift */; };
 		5FD250D45B710FE8783E9337 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5FD25D6FA71F4554AE688987 /* .gitignore */; };
 		5FD2561A88F6CF36618B7E1A /* PhotoOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25E8410A20DB1A000AD20 /* PhotoOrigin.swift */; };
-		5FD25751E45CED6E92844BD2 /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25587DD7037D955E301C6 /* CircularProgress.swift */; };
 		5FD25A3831EE46A83DB6FDE5 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */; };
+		5FD25A7F2F3F8741153BF7F8 /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD250AEA48D040AD1B97219 /* CircularProgress.swift */; };
 		5FD25C634C39103483DDF4A0 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25D03C01146397FAD5AC0 /* NetworkResponse.swift */; };
 		5FD25F833EE9CC196CD78E79 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25086305FCEEB3822BE4C /* ApiService.swift */; };
+		5FD25FAEED8EB7D94C53FB63 /* LinearProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD256A8F3BC3E35E87FE0DF /* LinearProgress.swift */; };
 		FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E03D25AF51360000D409 /* AppDelegate.swift */; };
 		FE30E04225AF51370000D409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04125AF51370000D409 /* Assets.xcassets */; };
 		FE30E04525AF51370000D409 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04425AF51370000D409 /* Preview Assets.xcassets */; };
@@ -33,7 +34,8 @@
 
 /* Begin PBXFileReference section */
 		5FD25086305FCEEB3822BE4C /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		5FD25587DD7037D955E301C6 /* CircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
+		5FD250AEA48D040AD1B97219 /* CircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgress.swift; sourceTree = "<group>"; };
+		5FD256A8F3BC3E35E87FE0DF /* LinearProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgress.swift; sourceTree = "<group>"; };
 		5FD2592A14BCB5517CD11284 /* CommonUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUI.swift; sourceTree = "<group>"; };
 		5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		5FD25D03C01146397FAD5AC0 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
@@ -70,13 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5FD253889AC9E349FCC79943 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				5FD250AEA48D040AD1B97219 /* CircularProgress.swift */,
+				5FD256A8F3BC3E35E87FE0DF /* LinearProgress.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
 		5FD255F03F46139C58501DCD /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */,
-				5FD25587DD7037D955E301C6 /* CircularProgress.swift */,
 				FEDB6AD025B8AC3C0082147F /* Colors.swift */,
 				5FD2592A14BCB5517CD11284 /* CommonUI.swift */,
+				5FD253889AC9E349FCC79943 /* Progress */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -260,8 +271,9 @@
 				5FD2561A88F6CF36618B7E1A /* PhotoOrigin.swift in Sources */,
 				5FD25C634C39103483DDF4A0 /* NetworkResponse.swift in Sources */,
 				5FD25A3831EE46A83DB6FDE5 /* AsyncImage.swift in Sources */,
-				5FD25751E45CED6E92844BD2 /* CircularProgress.swift in Sources */,
 				5FD250CB80A06678FFDA0175 /* CommonUI.swift in Sources */,
+				5FD25A7F2F3F8741153BF7F8 /* CircularProgress.swift in Sources */,
+				5FD25FAEED8EB7D94C53FB63 /* LinearProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -344,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

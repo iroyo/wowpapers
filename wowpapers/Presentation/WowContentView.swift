@@ -9,23 +9,22 @@ import SwiftUI
 
 struct WowContentView: View {
 
+    // "https://images.pexels.com/photos/1646311/pexels-photo-1646311.jpeg?auto=compress&cs=tinysrgb&h=350"
+
     @State var isShown: Bool = false
     @StateObject var viewModel = WowViewModel()
 
     var body: some View {
         VStack {
-            ZStack(alignment: .center) {
-                LoadingPlaceholder()
+            ZStack {
+                LinearProgress()
             }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(16 / 9, contentMode: .fill)
                     .fixedSize(horizontal: false, vertical: true)
-            Button("New Wallpaper") {
-                isShown.toggle()
+            Button("Apply Wallpaper") {
+
             }.padding()
-            if isShown {
-                Color.red.frame(height: 300)
-            }
         }.frame(width: 380)
     }
 }
