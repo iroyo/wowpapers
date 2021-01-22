@@ -89,9 +89,9 @@ fileprivate struct CircularProgressShape: Shape {
 }
 
 fileprivate struct Outline: ViewModifier {
-    var color: Color
-    var size: CGFloat
-    var border: CGFloat
+    let color: Color
+    let size: CGFloat
+    let border: CGFloat
 
     func body(content: Content) -> some View {
         ZStack(alignment: .bottomTrailing) {

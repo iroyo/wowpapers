@@ -17,7 +17,7 @@ struct WowContentView: View {
     var body: some View {
         VStack {
             ZStack {
-                LinearProgress()
+                LinearProgress().withTrack()
             }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(16 / 9, contentMode: .fill)
