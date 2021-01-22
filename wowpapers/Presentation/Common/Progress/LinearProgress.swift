@@ -32,7 +32,7 @@ struct LinearProgress: View {
 }
 
 fileprivate struct LinearProgressShape: Shape {
-    private let breakPointPercentage: CGFloat = 50
+    private let breakPointPercentage: CGFloat = 35
 
     let thickness: CGFloat
 
