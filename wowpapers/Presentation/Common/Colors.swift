@@ -15,11 +15,9 @@ extension Color {
         if hex.hasPrefix("#") {
             let start = hex.index(hex.startIndex, offsetBy: 1)
             let hexColor = String(hex[start...])
-
             if hexColor.count == 6 {
                 let scanner = Scanner(string: hexColor)
                 var hexNumber: UInt64 = 0
-
                 if scanner.scanHexInt64(&hexNumber) {
                     r = Double((hexNumber & 0xff000000) >> 24) / 255
                     g = Double((hexNumber & 0x00ff0000) >> 16) / 255
