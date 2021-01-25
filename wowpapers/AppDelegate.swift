@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        popover.contentViewController = NSHostingController(rootView: WowContentView())
+        popover.contentViewController = NSHostingController(rootView: MainContentView())
         popover.contentSize = NSSize(width: 380, height: 320)
         popover.behavior = .transient
         popover.animates = true
