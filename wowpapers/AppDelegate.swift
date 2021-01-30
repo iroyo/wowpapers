@@ -10,10 +10,10 @@ import SwiftUI
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    let popover = NSPopover.init()
-    let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
-    
+
+    private let popover = NSPopover()
+    private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         popover.contentViewController = NSHostingController(rootView: MainContentView())
         popover.contentSize = NSSize(width: 320, height: 360)
@@ -24,13 +24,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.button?.image = NSImage(named: "Icon")
         statusItem.button?.action = #selector(togglePopover)
     }
-    
+
     @objc func togglePopover(_ sender: AnyObject?) {
         if let button = statusItem.button {
             if popover.isShown {
                 popover.performClose(sender)
             } else {
                 popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+                popover.contentViewController?.view.window?.becomeKey()
             }
         }
     }

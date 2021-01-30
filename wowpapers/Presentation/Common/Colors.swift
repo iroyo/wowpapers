@@ -34,5 +34,7 @@ extension Color {
     
     static let primary = Color("colorPrimary")
     static let surface = Color("colorSurface")
+    static let fab = Color("colorFAB")
+    static let fabLight = Color("colorFABLight")
     
 }
