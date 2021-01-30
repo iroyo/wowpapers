@@ -10,6 +10,7 @@ struct WallpaperView: View {
 
     var body: some View {
         BasicAsyncImage(url)
+                .frame(maxWidth: .infinity)
                 .aspectRatio(16 / 9, contentMode: .fill)
                 .fixedSize(horizontal: false, vertical: true)
     }
