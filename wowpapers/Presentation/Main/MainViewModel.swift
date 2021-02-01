@@ -10,8 +10,10 @@ import Foundation
 
 class MainViewModel: ObservableObject {
 
+    @Published var state: MainViewState = .loading
+
     func newWallpaper() {
-       print("getNewWallpaper")
+        state = .loading
     }
 
     func applyWallpaper() {
@@ -21,5 +23,9 @@ class MainViewModel: ObservableObject {
     func saveWallpaper() {
         print("saveWallpaper")
     }
-    
+
+}
+
+enum MainViewState {
+    case idle, loading, result
 }
