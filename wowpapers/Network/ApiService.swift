@@ -4,18 +4,19 @@
 
 import Foundation
 
-func getPhotos(_ completeWith: @escaping (Output<PhotoProvider>) -> Void) {
+func getPhotos(_ completeWith: @escaping (Output<PhotoPair>) -> Void) {
     NetworkManager<PexelsPhotoList>().request("search", params: [
         "orientation": "landscape",
         "page": String(Int.random(in: 0...1000)),
         "query": "nature",
-        "per_page": "1",
+        "per_page": "2",
     ], headers: [
         "Authorization": Constants.PEXELS_KEY
     ]) { output in
         completeWith(output.map { response in
-            if let photo = response.result.photos.first {
-                return .external(photo.convert())
+            let photos = response.result.photos
+            if  !photos.isEmpty {
+                return PhotoPair(photos.map { photo in photo.convert() }, origin: .pexels)
             } else {
                 throw NetworkError.emptyResponse
             }

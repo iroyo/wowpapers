@@ -15,7 +15,6 @@ struct Photo: SourceProvider {
     let width: Int
     let height: Int
     let color: String
-    let origin: PhotoOrigin
     let thumbnailSrc: String
     let originalSrc: String
     let photographer: Photographer
@@ -25,16 +24,15 @@ struct Photo: SourceProvider {
     }
 }
 
-enum PhotoProvider: SourceProvider {
-    case system(String)
-    case external(Photo)
+struct PhotoPair {
+    let first: Photo
+    let second: Photo
+    let origin: PhotoOrigin
 
-    var src: String {
-        switch self {
-        case .system(let src): return src
-        case .external(let photo): return photo.src
-        }
+    init(_ photos: [Photo], origin: PhotoOrigin) {
+        first = photos[0]
+        second = photos[1]
+        self.origin = origin
     }
-
 }
 
