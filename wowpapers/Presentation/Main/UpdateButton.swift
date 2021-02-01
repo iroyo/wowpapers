@@ -39,13 +39,16 @@ struct UpdateButton: View {
             let style = UpdateButtonStyle(isLoading, backgroundColor)
             Button(action: action) {
                 icon
-            }.buttonStyle(style).onHover { isHovered in
-                hovering = isHovered
             }
+                .buttonStyle(style)
+                .disabled(isLoading)
+                .onHover { isHovered in
+                    hovering = isHovered
+                }
             if isLoading {
                 CircularProgress(size: 48, color: Color.white).withOutline()
             }
-        }.transition(.opacity).animation(Animation.default.delay(0.1), value: state)
+        }.transition(.opacity).animation(Animation.default.delay(0.1), value: isLoading)
     }
 
     var icon: some View {

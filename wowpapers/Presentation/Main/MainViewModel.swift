@@ -12,8 +12,17 @@ class MainViewModel: ObservableObject {
 
     @Published var state: MainViewState = .loading
 
+    init() {
+        newWallpaper()
+    }
+
     func newWallpaper() {
         state = .loading
+        getPhotos { output in
+            if case let .success(photos) = output  {
+                self.state = .result(photos)
+            }
+        }
     }
 
     func applyWallpaper() {
@@ -27,5 +36,5 @@ class MainViewModel: ObservableObject {
 }
 
 enum MainViewState {
-    case idle, loading, result
+    case loading, result(PhotoPair)
 }
