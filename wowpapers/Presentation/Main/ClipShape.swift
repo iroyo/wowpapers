@@ -6,13 +6,13 @@ import SwiftUI
 
 enum CutConfiguration {
 
-    case top, bottom
+    case above, below
 
     var configuration: (angle: Angle, point: UnitPoint) {
         switch self {
-        case .top:
+        case .above:
             return (.degrees(180), .top)
-        case .bottom:
+        case .below:
             return (.degrees(0), .bottom)
         }
     }

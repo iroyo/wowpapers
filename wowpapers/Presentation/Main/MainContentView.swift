@@ -7,19 +7,22 @@
 
 import SwiftUI
 
+
 struct MainContentView: View {
 
     @StateObject var viewModel = MainViewModel()
+
+    let 🔼 = 1
 
     var body: some View {
         ZStack {
             VStack(spacing: 16) {
                 WallpaperOption($viewModel.state) { pair in
                     pair.first
-                }.clipShape(Clipper(.bottom)).cornerRadius(8)
+                }.clipShape(Clipper(.below)).cornerRadius(8)
                 WallpaperOption($viewModel.state) { pair in
                     pair.second
-                }.clipShape(Clipper(.top)).cornerRadius(8)
+                }.clipShape(Clipper(.above)).cornerRadius(8)
             }
             UpdateButton(state: $viewModel.state, action: viewModel.newWallpaper)
         }.padding().frame(width: 320)
