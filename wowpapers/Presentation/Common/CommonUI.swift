@@ -11,9 +11,21 @@ func BasicAsyncImage(_ url: String) -> AsyncImage<ImagePlaceholder, Text> {
     }
 }
 
-struct MaxWidthButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label.frame(maxWidth: .infinity)
+fileprivate struct FillParent : ViewModifier {
+    let aspectRatio: CGFloat
+
+    func body(content: Content) -> some View {
+        content.frame(maxWidth: .infinity)
+            .aspectRatio(aspectRatio, contentMode: .fill)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+
+}
+
+extension View {
+
+    func fillParentWith(aspectRatio: CGFloat) -> some View {
+        self.modifier(FillParent(aspectRatio: aspectRatio))
     }
 }
 
