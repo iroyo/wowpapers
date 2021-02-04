@@ -10,6 +10,8 @@ import Foundation
 
 class MainViewModel: ObservableObject {
 
+    var cancellableSet: Set<AnyCancellable> = []
+
     @Published var state: MainViewState = .loading
 
     init() {
@@ -18,11 +20,17 @@ class MainViewModel: ObservableObject {
 
     func newWallpaper() {
         state = .loading
-        getPhotos { output in
-            if case let .success(photos) = output  {
-                self.state = .result(photos)
-            }
-        }
+        PexelsApi.photos(query: "nature")
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("finished")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }, receiveValue: { list in
+                self.state = .result(PhotoPair(list.photos.map { photo in photo.convert() }, origin: .pexels))
+            }).store(in: &cancellableSet)
     }
 
     func applyWallpaper() {

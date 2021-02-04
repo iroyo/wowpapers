@@ -12,8 +12,6 @@ struct MainContentView: View {
 
     @StateObject var viewModel = MainViewModel()
 
-    let 🔼 = 1
-
     var body: some View {
         ZStack {
             VStack(spacing: 16) {

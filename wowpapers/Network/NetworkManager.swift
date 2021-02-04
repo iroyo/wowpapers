@@ -5,6 +5,7 @@
 //  Created by Isaac Royo Raso on 13/1/21.
 //
 
+import Combine
 import Foundation
 
 extension HTTPURLResponse {
@@ -14,60 +15,37 @@ extension HTTPURLResponse {
     }
 }
 
-struct NetworkManager<T: Decodable> {
+extension Publisher {
+
+    func unwrap<T>() -> AnyPublisher<T, Error>
+        where Output == NetworkResponse<T>, Failure == Error {
+        map { response -> T in response.result }.eraseToAnyPublisher()
+    }
+}
+
+struct NetworkManager {
 
     private let decoder = JSONDecoder()
-    private let BASE_URL = "https://api.pexels.com/v1/"
 
     init() {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
 
-    func request(
-            _ url: String,
-            params: [String: String] = [String: String](),
-            headers: [String: String] = [String: String](),
-            completeWith: @escaping (Output<NetworkResponse<T>>) -> Void
-    ) {
-
-        func abortBecause(_ problem: NetworkError) {
-            completeWith(.error(problem))
-        }
-
-        guard var components = URLComponents(string: BASE_URL + url) else {
-            return abortBecause(.invalidURL)
-        }
-
-        components.queryItems = params.map { key, value in
-            URLQueryItem(name: key, value: value)
-        }
-
-        guard let url = components.url else {
-            return abortBecause(.invalidURL)
-        }
-
-        var request = URLRequest(url: url)
-        headers.forEach { key, value in
-            request.addValue(value, forHTTPHeaderField: key)
-        }
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let response = response as? HTTPURLResponse else {
-                return completeWith(.error(error ?? NetworkError.invalidResponse()))
-            }
-            guard let data = data, response.isSuccessful else {
-                return abortBecause(.invalidResponse(response.statusCode))
-            }
-            do {
-                let result = try decoder.decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    completeWith(.success(NetworkResponse(result, response.allHeaderFields)))
+    func execute<T: Decodable>(_ request: URLRequest) -> AnyPublisher<NetworkResponse<T>, Error> {
+        URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { (data: Data, response: URLResponse) -> NetworkResponse<T> in
+                print(data)
+                guard let response = response as? HTTPURLResponse else {
+                    throw NetworkError.invalidResponse()
                 }
-            } catch let error {
-                completeWith(.error(error))
+                guard response.isSuccessful else {
+                    throw NetworkError.invalidResponse(response.statusCode)
+                }
+                let result = try decoder.decode(T.self, from: data)
+                return NetworkResponse(result, response.allHeaderFields)
             }
-        }
-        task.resume()
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 
 }
