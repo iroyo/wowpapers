@@ -4,7 +4,7 @@
 
 import Combine
 
-protocol PhotoRepository {
+protocol PhotoDataSource {
 
     func getPhotosFrom(category: String) -> AnyPublisher<[Photo], Error>
 

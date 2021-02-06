@@ -21,18 +21,17 @@ extension HTTPURLResponse {
 extension Publisher {
 
     func result<T>() -> AnyPublisher<T, Failure> where Output == NetworkResponse<T> {
-        map { response -> T in
-            response.result
+        map { response -> T in response.result }.eraseToAnyPublisher()
+    }
+
+    func convert<T, R : Convertible>() -> AnyPublisher<[T], Failure> where Output == Array<R>, R.Item == T {
+        map { array -> [T] in
+            array.map { r -> T in
+                r.convert()
+            }
         }.eraseToAnyPublisher()
     }
 
-    /*
-    func convert<T>() -> AnyPublisher<T, Failure> where Output: Convertible {
-        map { output in
-            output.convert()
-        }.eraseToAnyPublisher()
-    }
-     */
 }
 
 enum HTTPMethod<T: Encodable> {

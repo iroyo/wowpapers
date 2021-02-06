@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PexelsPhoto: Decodable {
+struct PexelsPhoto: Decodable, Convertible {
     let id: Int
     let width: Int
     let height: Int
