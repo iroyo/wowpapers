@@ -20,17 +20,6 @@ class MainViewModel: ObservableObject {
 
     func newWallpaper() {
         state = .loading
-        PexelsApi.photos(query: "nature")
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("finished")
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }, receiveValue: { list in
-                self.state = .result(PhotoPair(list.photos.map { photo in photo.convert() }, origin: .pexels))
-            }).store(in: &cancellableSet)
     }
 
     func applyWallpaper() {
