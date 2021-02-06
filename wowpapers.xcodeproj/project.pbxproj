@@ -41,7 +41,6 @@
 		FE30E04525AF51370000D409 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04425AF51370000D409 /* Preview Assets.xcassets */; };
 		FE30E04825AF51370000D409 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04625AF51370000D409 /* Main.storyboard */; };
 		FE30E07525AF5E6E0000D409 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E07425AF5E6E0000D409 /* Constants.swift */; };
-		FE30E07825AF5FF80000D409 /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E07725AF5FF80000D409 /* Output.swift */; };
 		FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08125AF61FB0000D409 /* PhotoModel.swift */; };
 		FE30E08525AF62560000D409 /* Photographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08425AF62560000D409 /* Photographer.swift */; };
 		FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDB6AD025B8AC3C0082147F /* Colors.swift */; };
@@ -85,7 +84,6 @@
 		FE30E04925AF51370000D409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE30E04A25AF51370000D409 /* wowpapers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wowpapers.entitlements; sourceTree = "<group>"; };
 		FE30E07425AF5E6E0000D409 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FE30E07725AF5FF80000D409 /* Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
 		FE30E08125AF61FB0000D409 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		FE30E08425AF62560000D409 /* Photographer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photographer.swift; sourceTree = "<group>"; };
 		FEDB6AD025B8AC3C0082147F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				FE30E06025AF53A20000D409 /* Models */,
-				FE30E07725AF5FF80000D409 /* Output.swift */,
 				5FD2583C713CE4A3170FE275 /* PhotoProvider.swift */,
 			);
 			path = Core;
@@ -350,7 +347,6 @@
 			files = (
 				FE30E08525AF62560000D409 /* Photographer.swift in Sources */,
 				FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */,
-				FE30E07825AF5FF80000D409 /* Output.swift in Sources */,
 				FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */,
 				FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */,
 				FE30E07525AF5E6E0000D409 /* Constants.swift in Sources */,
