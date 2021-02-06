@@ -7,9 +7,11 @@ import Foundation
 struct NetworkResponse<T> {
     let result: T
     let headers: NSDictionary
+    let timeInterval: TimeInterval
 
-    init(_ result: T, _ headers: [AnyHashable: Any]) {
+    init(_ result: T, _ timeInterval: TimeInterval, _ headers: [AnyHashable: Any]) {
         self.result = result
+        self.timeInterval = timeInterval
         self.headers = headers as NSDictionary
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 enum NetworkError : Error {
     case invalidURL
+    case invalidBody
     case invalidResponse(Int = 500)
     case emptyResponse
 }

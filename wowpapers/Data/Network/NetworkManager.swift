@@ -92,7 +92,7 @@ struct NetworkManager<T: Encodable> {
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
         }
-
+        let started = Date()
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { (data: Data, response: URLResponse) -> NetworkResponse<R> in
                 guard let response = response as? HTTPURLResponse else {
@@ -101,8 +101,9 @@ struct NetworkManager<T: Encodable> {
                 guard response.isSuccessful else {
                     throw NetworkError.invalidResponse(response.statusCode)
                 }
+                let interval = Date().timeIntervalSince(started)
                 let result = try decoder.decode(R.self, from: data)
-                return NetworkResponse(result, response.allHeaderFields)
+                return NetworkResponse(result, interval, response.allHeaderFields)
             }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
@@ -137,7 +138,7 @@ struct NetworkManager<T: Encodable> {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.httpBody = try encoder.encode(body)
             } catch {
-                print(String(describing: error))
+                throw NetworkError.invalidBody
             }
         }
 
