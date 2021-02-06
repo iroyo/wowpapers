@@ -17,52 +17,6 @@ extension HTTPURLResponse {
     }
 }
 
-
-extension Publisher {
-
-    func result<T>() -> AnyPublisher<T, Failure> where Output == NetworkResponse<T> {
-        map { response -> T in response.result }.eraseToAnyPublisher()
-    }
-
-    func convert<T, R : Convertible>() -> AnyPublisher<[T], Failure> where Output == Array<R>, R.Item == T {
-        map { array -> [T] in
-            array.map { r -> T in
-                r.convert()
-            }
-        }.eraseToAnyPublisher()
-    }
-
-}
-
-enum HTTPMethod<T: Encodable> {
-    case get
-    case delete
-    case put(body: T)
-    case post(body: T)
-    case patch(body: T)
-
-    var name: String {
-        switch self {
-        case .get: return "GET"
-        case .put: return "PUT"
-        case .post: return "POST"
-        case .patch: return "PATCH"
-        case .delete: return "DELETE"
-        }
-    }
-
-    var body: T? {
-        switch self {
-        case .put(let body): return body
-        case .post(let body): return body
-        case .patch(let body): return body
-        default: return nil
-        }
-    }
-
-}
-
-
 struct NetworkManager<T: Encodable> {
 
     private let decoder = JSONDecoder()
