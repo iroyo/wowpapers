@@ -37,10 +37,7 @@ struct UpdateButton: View {
         ZStack {
             let backgroundColor = hovering ? hoverFabColor : normalFabColor
             let style = UpdateButtonStyle(hovering, backgroundColor)
-            Button(action: action) {
-                icon
-            }
-                .buttonStyle(style)
+            icon.buttonStyle(style)
                 .disabled(isLoading)
                 .onHover { isHovered in
                     hovering = isHovered
@@ -52,9 +49,11 @@ struct UpdateButton: View {
     }
 
     var icon: some View {
-        Image(systemName: "shuffle")
-            .frame(width: 16, height: 16)
-            .foregroundColor(Color.white)
+        Button(action: action) {
+            Image(systemName: "shuffle")
+                .frame(width: 16, height: 16)
+                .foregroundColor(Color.white)
+        }
     }
 }
 
