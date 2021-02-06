@@ -10,7 +10,8 @@ import Foundation
 
 class MainViewModel: ObservableObject {
 
-    var cancellableSet: Set<AnyCancellable> = []
+    private var cancellableSet: Set<AnyCancellable> = []
+    private let photoProvider: PhotoProvider = PhotoManager()
 
     @Published var state: MainViewState = .loading
 
@@ -20,6 +21,9 @@ class MainViewModel: ObservableObject {
 
     func newWallpaper() {
         state = .loading
+        photoProvider.searchPhotoPair(from: "mountain").sink(receiveCompletion: { _ in  }) { model in
+            self.state = .result(model)
+        }.store(in: &cancellableSet)
     }
 
     func applyWallpaper() {
@@ -33,5 +37,5 @@ class MainViewModel: ObservableObject {
 }
 
 enum MainViewState {
-    case loading, result(PhotoPair)
+    case loading, result(PhotoModel)
 }

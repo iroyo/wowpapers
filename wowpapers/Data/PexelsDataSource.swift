@@ -7,7 +7,7 @@ import Foundation
 
 struct PexelsDataSource: PhotoDataSource {
 
-    func getPhotosFrom(category: String) -> AnyPublisher<[Photo], Error> {
+    func getPhotos(from category: String) -> AnyPublisher<[Photo], Error> {
         PexelsApi.searchRandomPhotoPair(query: category).result()
             .map(\.photos)
             .convert()

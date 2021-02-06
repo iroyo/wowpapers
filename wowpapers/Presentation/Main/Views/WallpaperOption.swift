@@ -8,18 +8,9 @@ struct WallpaperOption: View {
 
     @State private var isHovering = false
     @Binding private var state: MainViewState
-    @StateObject private var loader: CustomImageLoader
-    private let converter: (PhotoPair) -> Photo
+    private let converter: (PhotoModel) -> PhotoData
 
-    private var result: CustomImageLoader.LoadState {
-        if case let MainViewState.result(pair) = state {
-            loader.load(url: converter(pair).thumbnailSrc)
-        }
-        return loader.imageState
-    }
-
-    init(_ state: Binding<MainViewState>, block: @escaping (PhotoPair) -> Photo) {
-        _loader = StateObject(wrappedValue: CustomImageLoader())
+    init(_ state: Binding<MainViewState>, block: @escaping (PhotoModel) -> PhotoData) {
         _state = state
         converter = block
     }
@@ -36,12 +27,12 @@ struct WallpaperOption: View {
 
     @ViewBuilder
     private var content: some View {
-        switch result {
+        switch state {
         case .loading: Rectangle().fill(Color.gray)
-        case .failure: Text("failure")
-        case .success(let data):
-            if let result = NSImage(data: data) {
-                ResultImage(nsImage: result)
+        case .result(let data):
+            let photo = converter(data)
+            if let result = NSImage(data: photo.data) {
+                ResultImage(image: result, photo: photo)
             } else {
                 Text("failure")
             }
@@ -52,37 +43,10 @@ struct WallpaperOption: View {
 
 fileprivate struct ResultImage: View {
 
-    let nsImage: NSImage
+    let image: NSImage
+    let photo: PhotoData
 
     var body: some View {
-        Image(nsImage: nsImage).resizable()
-    }
-}
-
-fileprivate class CustomImageLoader: ObservableObject {
-
-    enum LoadState {
-        case loading
-        case failure
-        case success(Data)
-    }
-
-    @Published var imageState = LoadState.loading
-
-    func load(url: String) {
-        guard let parsedURL = URL(string: url) else {
-            fatalError("Invalid URL: \(url)")
-        }
-
-        let task = URLSession.shared.dataTask(with: parsedURL) { data, response, error in
-            DispatchQueue.main.async {
-                if let data = data, data.count > 0 {
-                    self.imageState = .success(data)
-                } else {
-                    self.imageState = .failure
-                }
-            }
-        }
-        task.resume()
+        Image(nsImage: image).resizable()
     }
 }

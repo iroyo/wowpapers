@@ -6,6 +6,6 @@ import Combine
 
 protocol PhotoDataSource {
 
-    func getPhotosFrom(category: String) -> AnyPublisher<[Photo], Error>
+    func getPhotos(from category: String) -> AnyPublisher<[Photo], Error>
 
 }

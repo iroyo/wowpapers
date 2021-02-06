@@ -7,32 +7,42 @@
 
 import Foundation
 
-protocol SourceProvider {
-    var src: String { get }
-}
-
-struct Photo: SourceProvider {
+struct Photo {
     let width: Int
     let height: Int
     let color: String
-    let thumbnailSrc: String
     let originalSrc: String
+    let thumbnailSrc: String
+    let originType: PhotoOrigin
     let photographer: Photographer
-
-    var src: String {
-        originalSrc
-    }
 }
 
 struct PhotoPair {
-    let first: Photo
-    let second: Photo
-    let origin: PhotoOrigin
+    let top: Photo
+    let bottom: Photo
 
-    init(_ photos: [Photo], origin: PhotoOrigin) {
-        first = photos[0]
-        second = photos[1]
-        self.origin = origin
+    init(_ photos: [Photo]) {
+        top = photos[0]
+        bottom = photos[1]
     }
 }
+
+struct PhotoData {
+    let photo: Photo
+    let data: Data
+}
+
+struct PhotoModel {
+    let top: PhotoData
+    let bottom: PhotoData
+
+    init(_ pair: PhotoPair, _ topData: Data, _ bottomData: Data) {
+        top = PhotoData(photo: pair.top, data: topData)
+        bottom = PhotoData(photo: pair.bottom, data: bottomData)
+    }
+}
+
+
+
+
 

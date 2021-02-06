@@ -16,10 +16,10 @@ struct MainContentView: View {
         ZStack {
             VStack(spacing: 16) {
                 WallpaperOption($viewModel.state) { pair in
-                    pair.first
+                    pair.top
                 }.clipShape(Clipper(.below)).cornerRadius(8)
                 WallpaperOption($viewModel.state) { pair in
-                    pair.second
+                    pair.bottom
                 }.clipShape(Clipper(.above)).cornerRadius(8)
             }
             UpdateButton(state: $viewModel.state, action: viewModel.newWallpaper)
