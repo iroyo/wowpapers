@@ -36,7 +36,7 @@ struct UpdateButton: View {
     var body: some View {
         ZStack {
             let backgroundColor = hovering ? hoverFabColor : normalFabColor
-            let style = UpdateButtonStyle(isLoading, backgroundColor)
+            let style = UpdateButtonStyle(hovering, backgroundColor)
             Button(action: action) {
                 icon
             }
@@ -62,11 +62,11 @@ struct UpdateButton: View {
 fileprivate struct UpdateButtonStyle: ButtonStyle {
 
     private let color: Color
-    private let isLoading: Bool
+    private let isHovering: Bool
 
-    init(_ isLoading: Bool, _ color: Color) {
+    init(_ isHovering: Bool, _ color: Color) {
         self.color = color
-        self.isLoading = isLoading
+        self.isHovering = isHovering
     }
 
     private let size: CGFloat = 48
@@ -84,7 +84,7 @@ fileprivate struct UpdateButtonStyle: ButtonStyle {
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: y)
             .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 1)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
-            .animation(isLoading ? nil : animation)
+            .animation(isHovering ? animation : nil)
 
     }
 }
