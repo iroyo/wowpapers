@@ -5,13 +5,15 @@
 import Combine
 import Foundation
 
+typealias PhotoPair = (above: PhotoData, below: PhotoData)
+
 enum ProviderType {
     case pexels
 }
 
 protocol PhotoProvider {
 
-    func searchPhotoPair(from category: String) -> AnyPublisher<PhotoModel, Error>
+    func searchPhotoPair(from category: String) -> AnyPublisher<PhotoPair, Error>
 
 }
 
@@ -29,15 +31,16 @@ struct PhotoManager: PhotoProvider {
         }
     }
 
-    func searchPhotoPair(from category: String) -> AnyPublisher<PhotoModel, Error> {
-        provider(category).map { photos in
-            PhotoPair(photos)
-        }.flatMap { pair in
+    func searchPhotoPair(from category: String) -> AnyPublisher<PhotoPair, Error> {
+        provider(category).flatMap { photos in
             Publishers.Zip(
-                getPhotoData(url: pair.top.thumbnailSrc),
-                getPhotoData(url: pair.bottom.thumbnailSrc)
-            ).map { topURL, bottomURL in
-                PhotoModel(pair, topURL, bottomURL)
+                getPhotoData(url: photos[0].thumbnailSrc),
+                getPhotoData(url: photos[1].thumbnailSrc)
+            ).map { firstURL, secondURL in
+                (
+                    PhotoData(photo: photos[0], data: firstURL),
+                    PhotoData(photo: photos[1], data: secondURL)
+                )
             }
         }.eraseToAnyPublisher()
     }
@@ -47,7 +50,9 @@ struct PhotoManager: PhotoProvider {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { data, response in data }
+            .tryMap { data, response in
+                data
+            }
             .eraseToAnyPublisher()
     }
 

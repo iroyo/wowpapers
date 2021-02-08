@@ -15,14 +15,14 @@ struct MainContentView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 16) {
-                WallpaperOption($viewModel.state) { pair in
-                    pair.top
-                }.clipShape(Clipper(.below)).cornerRadius(8)
-                WallpaperOption($viewModel.state) { pair in
-                    pair.bottom
-                }.clipShape(Clipper(.above)).cornerRadius(8)
+                WallpaperOption(viewModel.aboveWallpaper)
+                    .clipShape(Clipper(.below))
+                    .cornerRadius(8)
+                WallpaperOption(viewModel.belowWallpaper)
+                    .clipShape(Clipper(.above))
+                    .cornerRadius(8)
             }
-            UpdateButton(state: $viewModel.state, action: viewModel.newWallpaper)
+            UpdateButton(isLoading: $viewModel.loading, action: viewModel.newWallpaper)
         }.padding().frame(width: 320)
     }
 }

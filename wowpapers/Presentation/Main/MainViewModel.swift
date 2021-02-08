@@ -13,16 +13,26 @@ class MainViewModel: ObservableObject {
     private var cancellableSet: Set<AnyCancellable> = []
     private let photoProvider: PhotoProvider = PhotoManager()
 
-    @Published var state: MainViewState = .loading
+    @Published var loading: Bool = true
+    @Published var wallpapers: Resource<PhotoPair> = .waiting
+
+    var aboveWallpaper: Resource<PhotoData> {
+        wallpapers.map(\.above)
+    }
+
+    var belowWallpaper: Resource<PhotoData> {
+        wallpapers.map(\.below)
+    }
 
     init() {
         newWallpaper()
     }
 
     func newWallpaper() {
-        state = .loading
-        photoProvider.searchPhotoPair(from: "mountain").sink(receiveCompletion: { _ in  }) { model in
-            self.state = .result(model)
+        loading = true
+        photoProvider.searchPhotoPair(from: "mountain").sinkToResource { resource in
+            self.loading = false
+            self.wallpapers = resource
         }.store(in: &cancellableSet)
     }
 
@@ -30,12 +40,4 @@ class MainViewModel: ObservableObject {
         print("applyWallpaper")
     }
 
-    func saveWallpaper() {
-        print("saveWallpaper")
-    }
-
-}
-
-enum MainViewState {
-    case loading, result(PhotoModel)
 }

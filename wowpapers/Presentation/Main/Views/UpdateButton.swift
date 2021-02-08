@@ -6,28 +6,20 @@ import SwiftUI
 
 struct UpdateButton: View {
 
-    @Binding var state: MainViewState
+    @Binding var isLoading: Bool
     let normalFabColor: Color
     let hoverFabColor: Color
     let action: () -> Void
 
-    var isLoading: Bool {
-        if case MainViewState.loading = state {
-            return true
-        } else {
-            return false
-        }
-    }
-
     @State private var hovering: Bool = false
 
     init(
-        state: Binding<MainViewState>,
+        isLoading: Binding<Bool>,
         normalColor: Color = Color.fabNormal,
         hoverColor: Color = Color.fabLight,
         action: @escaping () -> ()
     ) {
-        _state = state
+        _isLoading = isLoading
         normalFabColor = normalColor
         hoverFabColor = hoverColor
         self.action = action

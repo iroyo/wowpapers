@@ -7,12 +7,11 @@ import SwiftUI
 struct WallpaperOption: View {
 
     @State private var isHovering = false
-    @Binding private var state: MainViewState
-    private let converter: (PhotoModel) -> PhotoData
+    private var data: Resource<PhotoData>
 
-    init(_ state: Binding<MainViewState>, block: @escaping (PhotoModel) -> PhotoData) {
-        _state = state
-        converter = block
+
+    init(_ data: Resource<PhotoData>) {
+        self.data = data
     }
 
     var body: some View {
@@ -27,15 +26,15 @@ struct WallpaperOption: View {
 
     @ViewBuilder
     private var content: some View {
-        switch state {
-        case .loading: Rectangle().fill(Color.gray)
-        case .result(let data):
-            let photo = converter(data)
-            if let result = NSImage(data: photo.data) {
-                ResultImage(image: result, photo: photo)
+        switch data {
+        case .waiting: Rectangle().fill(Color.gray)
+        case .loaded(let data):
+            if let result = NSImage(data: data.data) {
+                ResultImage(image: result, photo: data)
             } else {
                 Text("failure")
             }
+        case .failed(let error): Text(error.localizedDescription)
         }
     }
 
