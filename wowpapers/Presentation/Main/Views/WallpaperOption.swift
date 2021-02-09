@@ -34,7 +34,7 @@ struct WallpaperOption: View {
             } else {
                 Text("failure")
             }
-        case .failed(let error): Text(error.localizedDescription)
+        case .failed(let error): Text(error.localizedDescription).frame(maxHeight: .infinity)
         }
     }
 

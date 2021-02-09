@@ -20,9 +20,9 @@ struct PexelsPhoto: Decodable, Convertible {
 
     func convert() -> Photo {
         Photo(
+            color: avgColor,
             width: width,
             height: height,
-            color: avgColor,
             originalSrc: src.original,
             thumbnailSrc: src.medium,
             photographer: Photographer(url: photographerUrl, name: photographer),

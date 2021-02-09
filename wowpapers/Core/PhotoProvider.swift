@@ -7,6 +7,7 @@ import Foundation
 
 enum ProviderType : CaseIterable {
     case pexels
+    case pixabay
 }
 
 protocol PhotoProvider {
@@ -18,6 +19,7 @@ protocol PhotoProvider {
 struct PhotoManager: PhotoProvider {
 
     private let pexelsProvider = PexelsDataSource()
+    private let pixabayProvider = PixabayDataSource()
 
     private var providerType: ProviderType {
         let randomIndex = Int.random(in: 0..<ProviderType.allCases.count)
@@ -27,6 +29,7 @@ struct PhotoManager: PhotoProvider {
     private var provider: (String) -> AnyPublisher<[Photo], Error> {
         switch providerType {
         case .pexels: return pexelsProvider.getPhotos
+        case .pixabay: return pixabayProvider.getPhotos
         }
     }
 
@@ -46,6 +49,7 @@ struct PhotoManager: PhotoProvider {
     }
 
     func getPhotoData(url: String) -> AnyPublisher<Data, Error> {
+        print(url)
         guard let url = URL(string: url) else {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
