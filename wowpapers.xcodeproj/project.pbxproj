@@ -17,7 +17,7 @@
 		5FD2541D21275CEC4A134999 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD255551CBB256D926A47B6 /* NetworkResponse.swift */; };
 		5FD254EF3C0FEEBFC6238423 /* PexelsPhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25D4B698FB092CC496B9C /* PexelsPhotoList.swift */; };
 		5FD256671766207A8BD03507 /* Publisher+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD259D68AD53CADE933B5A8 /* Publisher+Operators.swift */; };
-		5FD2588415E832EEF420FA49 /* Wallpapers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD256CC45C70A61A721C5C5 /* Wallpapers.swift */; };
+		5FD2588415E832EEF420FA49 /* WallpaperResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD256CC45C70A61A721C5C5 /* WallpaperResults.swift */; };
 		5FD258C86EB512FE535E35B1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25B0A426FF98872DF58B3 /* MainViewModel.swift */; };
 		5FD2591898EE972F714128F2 /* Nothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD257DBC961E5B45FD3B3E7 /* Nothing.swift */; };
 		5FD2591D637EF8DAF125B027 /* Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25F2F312729CEE4717C28 /* Alias.swift */; };
@@ -53,7 +53,7 @@
 		5FD255551CBB256D926A47B6 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		5FD256A8F3BC3E35E87FE0DF /* LinearProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgress.swift; sourceTree = "<group>"; };
 		5FD256C367484D2579B98FBF /* Placeholders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Placeholders.swift; sourceTree = "<group>"; };
-		5FD256CC45C70A61A721C5C5 /* Wallpapers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallpapers.swift; sourceTree = "<group>"; };
+		5FD256CC45C70A61A721C5C5 /* WallpaperResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperResults.swift; sourceTree = "<group>"; };
 		5FD256E648FF44B25CE79171 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		5FD2575401F2672599648E7F /* MainContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		5FD257DBC961E5B45FD3B3E7 /* Nothing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nothing.swift; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 			children = (
 				FE30E08125AF61FB0000D409 /* PhotoModel.swift */,
 				FE30E08425AF62560000D409 /* Photographer.swift */,
-				5FD256CC45C70A61A721C5C5 /* Wallpapers.swift */,
+				5FD256CC45C70A61A721C5C5 /* WallpaperResults.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,7 +381,7 @@
 				5FD253FAF61A1DDF828B9446 /* HTTPMethod.swift in Sources */,
 				5FD256671766207A8BD03507 /* Publisher+Operators.swift in Sources */,
 				5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */,
-				5FD2588415E832EEF420FA49 /* Wallpapers.swift in Sources */,
+				5FD2588415E832EEF420FA49 /* WallpaperResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

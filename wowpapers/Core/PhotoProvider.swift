@@ -5,15 +5,13 @@
 import Combine
 import Foundation
 
-typealias PhotoPair = (above: PhotoData, below: PhotoData)
-
-enum ProviderType {
+enum ProviderType : CaseIterable {
     case pexels
 }
 
 protocol PhotoProvider {
 
-    func searchPhotoPair(from category: String) -> AnyPublisher<PhotoPair, Error>
+    func searchPhotoPair(from category: String) -> AnyPublisher<WallpaperResults, Error>
 
 }
 
@@ -22,7 +20,8 @@ struct PhotoManager: PhotoProvider {
     private let pexelsProvider = PexelsDataSource()
 
     private var providerType: ProviderType {
-        .pexels
+        let randomIndex = Int.random(in: 0..<ProviderType.allCases.count)
+        return ProviderType.allCases[randomIndex]
     }
 
     private var provider: (String) -> AnyPublisher<[Photo], Error> {
@@ -31,18 +30,19 @@ struct PhotoManager: PhotoProvider {
         }
     }
 
-    func searchPhotoPair(from category: String) -> AnyPublisher<PhotoPair, Error> {
-        provider(category).flatMap { photos in
-            Publishers.Zip(
-                getPhotoData(url: photos[0].thumbnailSrc),
-                getPhotoData(url: photos[1].thumbnailSrc)
-            ).map { firstURL, secondURL in
-                (
-                    PhotoData(photo: photos[0], data: firstURL),
-                    PhotoData(photo: photos[1], data: secondURL)
-                )
+    func searchPhotoPair(from category: String) -> AnyPublisher<WallpaperResults, Error> {
+        provider(category)
+            .map { photos in
+                (first: photos[0], second: photos[1])
             }
-        }.eraseToAnyPublisher()
+            .flatMap { pair in
+                Publishers.Zip(
+                    getPhotoData(url: pair.first.thumbnailSrc),
+                    getPhotoData(url: pair.second.thumbnailSrc)
+                ).map { firstPhoto, secondPhoto in
+                    WallpaperResults(for: category, provider: .pexels, pair, firstPhoto, secondPhoto)
+                }
+            }.eraseToAnyPublisher()
     }
 
     func getPhotoData(url: String) -> AnyPublisher<Data, Error> {
@@ -50,9 +50,7 @@ struct PhotoManager: PhotoProvider {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { data, response in
-                data
-            }
+            .tryMap { data, response in data }
             .eraseToAnyPublisher()
     }
 

@@ -14,14 +14,14 @@ class MainViewModel: ObservableObject {
     private let photoProvider: PhotoProvider = PhotoManager()
 
     @Published var loading: Bool = true
-    @Published var wallpapers: Resource<PhotoPair> = .waiting
+    @Published var wallpapers: Resource<WallpaperResults> = .waiting
 
     var aboveWallpaper: Resource<PhotoData> {
-        wallpapers.map(\.above)
+        wallpapers.map(\.options.0)
     }
 
     var belowWallpaper: Resource<PhotoData> {
-        wallpapers.map(\.below)
+        wallpapers.map(\.options.1)
     }
 
     init() {
