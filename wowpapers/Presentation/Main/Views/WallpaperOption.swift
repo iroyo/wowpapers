@@ -6,9 +6,12 @@ import SwiftUI
 
 struct WallpaperOption: View {
 
+    private var timer = Timer.publish (every: 1, on: .current, in: .common).autoconnect()
+
+    @State var shouldAnimate = false
+
     @State private var isHovering = false
     private var data: Resource<PhotoData>
-
 
     init(_ data: Resource<PhotoData>) {
         self.data = data
@@ -17,9 +20,14 @@ struct WallpaperOption: View {
     var body: some View {
         content
             .fillParentWith(aspectRatio: 16 / 9)
-            .overlay(Color.black.opacity(isHovering ? 0 : 0.25))
-            .animation(Animation.linear(duration: 0.35), value: isHovering)
+            .overlay(Color.black.opacity(shouldAnimate ? 0 : 0.15))
+            .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
             .onHover { hovering in
+                if hovering {
+                    startDelay()
+                } else {
+                    shouldAnimate = false
+                }
                 isHovering = hovering
             }
     }
@@ -35,6 +43,14 @@ struct WallpaperOption: View {
                 Text("failure")
             }
         case .failed(let error): Text(error.localizedDescription).frame(maxHeight: .infinity)
+        }
+    }
+
+    private func startDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            if isHovering {
+                shouldAnimate = true
+            }
         }
     }
 
