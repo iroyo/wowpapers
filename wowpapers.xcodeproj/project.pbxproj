@@ -32,6 +32,7 @@
 		5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25AD52638A9F140EED157 /* Resource.swift */; };
 		5FD25BEB4ADE4A49EFAA9398 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25B5FDD883F2FFD7C6E6D /* NetworkError.swift */; };
 		5FD25C05679C1A17B35DBE0D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25A7FD6812EB9E7147E83 /* Extensions.swift */; };
+		5FD25D886095BFA7FC0D9E30 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25A314017F2BF44DC649E /* EventMonitor.swift */; };
 		5FD25DBC39625DE6ADE207C6 /* ClipShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25A83CE192AE599EAF1C4 /* ClipShape.swift */; };
 		5FD25DD2AC2B13089A3A24C3 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25D3597C3D03AA7005FE8 /* PhotoDataSource.swift */; };
 		5FD25DDE9EAE5795961123E9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25BA11C712AD26959C7BE /* Endpoint.swift */; };
@@ -68,6 +69,7 @@
 		5FD259D68AD53CADE933B5A8 /* Publisher+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Operators.swift"; sourceTree = "<group>"; };
 		5FD25A20A3E961677A5003D0 /* Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convertible.swift; sourceTree = "<group>"; };
 		5FD25A2CB529973EED2B7969 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		5FD25A314017F2BF44DC649E /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		5FD25A7FD6812EB9E7147E83 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5FD25A83CE192AE599EAF1C4 /* ClipShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipShape.swift; sourceTree = "<group>"; };
 		5FD25AD52638A9F140EED157 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				5FD25A7FD6812EB9E7147E83 /* Extensions.swift */,
+				5FD25A314017F2BF44DC649E /* EventMonitor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				5FD250EE1246FF2936854439 /* PixabayPhotoList.swift in Sources */,
 				5FD25E0D62B816846394A9CA /* PixabayPhoto.swift in Sources */,
 				5FD259F048854D970D41B053 /* PixabayDataSource.swift in Sources */,
+				5FD25D886095BFA7FC0D9E30 /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

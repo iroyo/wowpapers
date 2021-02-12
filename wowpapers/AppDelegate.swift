@@ -11,6 +11,8 @@ import SwiftUI
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    private lazy var monitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown], handler: mouseEventHandler)
+
     private let popover = NSPopover()
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
@@ -26,14 +28,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func togglePopover(_ sender: AnyObject?) {
-        if let button = statusItem.button {
-            if popover.isShown {
-                popover.performClose(sender)
-            } else {
-                popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-                popover.contentViewController?.view.window?.becomeKey()
-            }
+        if popover.isShown {
+            closePopover(sender)
+        } else {
+            openPopover()
         }
+    }
+
+    private func openPopover() {
+        if let button = statusItem.button {
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+            popover.focus()
+            monitor.start()
+        }
+    }
+
+    private func closePopover(_ sender: AnyObject?) {
+        popover.performClose(sender)
+        monitor.stop()
+    }
+
+    private func mouseEventHandler(_ event: NSEvent?) {
+        if popover.isShown  {
+            closePopover(event)
+        }
+    }
+
+}
+
+extension NSPopover {
+
+    func focus() {
+        contentViewController?.view.window?.becomeKey()
     }
 
 }
