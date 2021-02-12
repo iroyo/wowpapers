@@ -10,8 +10,7 @@ import Foundation
 
 class MainViewModel: ObservableObject {
 
-    private var cancellableSet: Set<AnyCancellable> = []
-    private let photoProvider: PhotoProvider = PhotoManager()
+    private let provider: PhotoProvider = PhotoManager()
 
     @Published var loading: Bool = true
     @Published var wallpapers: Resource<WallpaperResults> = .waiting
@@ -29,11 +28,11 @@ class MainViewModel: ObservableObject {
     }
 
     func newWallpaper() {
-        loading = true
-        photoProvider.searchPhotoPair(from: "mountain").sinkToResource { resource in
-            self.loading = false
-            self.wallpapers = resource
-        }.store(in: &cancellableSet)
+        provider.searchPhotoPair(from: "mountain")
+            .onStart { self.loading = true }
+            .onFinish { self.loading = false }
+            .asResource()
+            .assign(to: &self.$wallpapers)
     }
 
     func applyWallpaper() {

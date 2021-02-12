@@ -6,17 +6,28 @@ import Combine
 
 extension Publisher {
 
-    func sinkToResource(_ completion: @escaping (Resource<Output>) -> Void) -> AnyCancellable {
-        sink(
-            receiveCompletion: { result in
-                if case let .failure(error) = result {
-                    completion(.failed(error))
-                }
-            },
-            receiveValue: { output in
-                completion(.loaded(output))
-            }
-        )
+    func onStart(block: @escaping () -> Void) -> Publishers.HandleEvents<Self> {
+        handleEvents(receiveRequest: { _ in block() })
+    }
+
+    func onStart(block: @escaping (Subscribers.Demand) -> Void) -> Publishers.HandleEvents<Self> {
+        handleEvents(receiveRequest: block)
+    }
+
+    func onFinish(block: @escaping () -> Void) -> Publishers.HandleEvents<Self> {
+        handleEvents(receiveOutput: { _ in block() })
+    }
+
+    func onFinish(block: @escaping (Output) -> Void) -> Publishers.HandleEvents<Self> {
+        handleEvents(receiveOutput: block)
+    }
+
+    func asResource<T>() -> AnyPublisher<Resource<T>, Never> where Output == T {
+        map { output -> Resource<T> in
+            Resource.loaded(output)
+        }.catch { error in
+            Just<Resource<T>>(.failed(error))
+        }.eraseToAnyPublisher()
     }
 
     func result<T>() -> AnyPublisher<T, Failure> where Output == NetworkResponse<T> {
