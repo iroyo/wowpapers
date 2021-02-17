@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5FD2501E64124E3E6BD67596 /* WallpaperOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25AE0C1D4B82A285DBBC9 /* WallpaperOption.swift */; };
+		5FD2501E64124E3E6BD67596 /* WallpaperViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25AE0C1D4B82A285DBBC9 /* WallpaperViewer.swift */; };
 		5FD250CB80A06678FFDA0175 /* CommonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD2592A14BCB5517CD11284 /* CommonUI.swift */; };
 		5FD250D45B710FE8783E9337 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5FD25D6FA71F4554AE688987 /* .gitignore */; };
 		5FD250EE1246FF2936854439 /* PixabayPhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD2595EE7CB28E4405D1D4B /* PixabayPhotoList.swift */; };
@@ -28,7 +28,7 @@
 		5FD25A3831EE46A83DB6FDE5 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */; };
 		5FD25A60D77C547AFFE073DC /* Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD256C367484D2579B98FBF /* Placeholders.swift */; };
 		5FD25A7F2F3F8741153BF7F8 /* CircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD250AEA48D040AD1B97219 /* CircularProgress.swift */; };
-		5FD25B6101139B7A2103FF10 /* UpdateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25BD9A1429EA03D30E6A6 /* UpdateButton.swift */; };
+		5FD25B6101139B7A2103FF10 /* WallpaperAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25BD9A1429EA03D30E6A6 /* WallpaperAction.swift */; };
 		5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25AD52638A9F140EED157 /* Resource.swift */; };
 		5FD25BEB4ADE4A49EFAA9398 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25B5FDD883F2FFD7C6E6D /* NetworkError.swift */; };
 		5FD25C05679C1A17B35DBE0D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25A7FD6812EB9E7147E83 /* Extensions.swift */; };
@@ -49,6 +49,7 @@
 		FE30E07525AF5E6E0000D409 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E07425AF5E6E0000D409 /* Constants.swift */; };
 		FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08125AF61FB0000D409 /* PhotoModel.swift */; };
 		FE30E08525AF62560000D409 /* Photographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08425AF62560000D409 /* Photographer.swift */; };
+		FEA479C025DD27B900B16EAB /* WallpaperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA479BF25DD27B900B16EAB /* WallpaperData.swift */; };
 		FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDB6AD025B8AC3C0082147F /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,11 +74,11 @@
 		5FD25A7FD6812EB9E7147E83 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5FD25A83CE192AE599EAF1C4 /* ClipShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipShape.swift; sourceTree = "<group>"; };
 		5FD25AD52638A9F140EED157 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		5FD25AE0C1D4B82A285DBBC9 /* WallpaperOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperOption.swift; sourceTree = "<group>"; };
+		5FD25AE0C1D4B82A285DBBC9 /* WallpaperViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperViewer.swift; sourceTree = "<group>"; };
 		5FD25B0A426FF98872DF58B3 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		5FD25B5FDD883F2FFD7C6E6D /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		5FD25BA11C712AD26959C7BE /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		5FD25BD9A1429EA03D30E6A6 /* UpdateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateButton.swift; sourceTree = "<group>"; };
+		5FD25BD9A1429EA03D30E6A6 /* WallpaperAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperAction.swift; sourceTree = "<group>"; };
 		5FD25C360F7BD9D2DFE12702 /* PixabayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayDataSource.swift; sourceTree = "<group>"; };
 		5FD25C7A6F610B672FB9F3EA /* PexelsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PexelsDataSource.swift; sourceTree = "<group>"; };
 		5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		FE30E07425AF5E6E0000D409 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FE30E08125AF61FB0000D409 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		FE30E08425AF62560000D409 /* Photographer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photographer.swift; sourceTree = "<group>"; };
+		FEA479BF25DD27B900B16EAB /* WallpaperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperData.swift; sourceTree = "<group>"; };
 		FEDB6AD025B8AC3C0082147F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,10 +147,10 @@
 		5FD255F03F46139C58501DCD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5FD253889AC9E349FCC79943 /* Progress */,
 				5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */,
 				FEDB6AD025B8AC3C0082147F /* Colors.swift */,
 				5FD2592A14BCB5517CD11284 /* CommonUI.swift */,
-				5FD253889AC9E349FCC79943 /* Progress */,
 				5FD256C367484D2579B98FBF /* Placeholders.swift */,
 			);
 			path = Common;
@@ -177,8 +179,9 @@
 		5FD2586FC2EDD6C1A87D55E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5FD25AE0C1D4B82A285DBBC9 /* WallpaperOption.swift */,
-				5FD25BD9A1429EA03D30E6A6 /* UpdateButton.swift */,
+				5FD25AE0C1D4B82A285DBBC9 /* WallpaperViewer.swift */,
+				5FD25BD9A1429EA03D30E6A6 /* WallpaperAction.swift */,
+				FEA479BF25DD27B900B16EAB /* WallpaperData.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,13 +189,13 @@
 		5FD25B3EE78CD42DF991F815 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				5FD250F0DBB954738EBC8EB5 /* NetworkManager.swift */,
-				5FD25BA11C712AD26959C7BE /* Endpoint.swift */,
-				5FD25A2CB529973EED2B7969 /* NetworkClient.swift */,
-				5FD25F2F312729CEE4717C28 /* Alias.swift */,
 				5FD25E5F6CC9BFE14208CE95 /* Services */,
 				5FD253CB51D07F37D7C5F8A0 /* Common */,
+				5FD25BA11C712AD26959C7BE /* Endpoint.swift */,
+				5FD25F2F312729CEE4717C28 /* Alias.swift */,
 				5FD256E648FF44B25CE79171 /* HTTPMethod.swift */,
+				5FD25A2CB529973EED2B7969 /* NetworkClient.swift */,
+				5FD250F0DBB954738EBC8EB5 /* NetworkManager.swift */,
 				5FD259D68AD53CADE933B5A8 /* Publisher+Operators.swift */,
 			);
 			path = Network;
@@ -240,7 +243,9 @@
 		FE30E03C25AF51360000D409 /* wowpapers */ = {
 			isa = PBXGroup;
 			children = (
+				5FD257BBB2F98BE36B9607A5 /* Utils */,
 				FE30E05125AF52CB0000D409 /* Core */,
+				5FD257470A5A799C26D062EC /* Data */,
 				FE30E05225AF52D90000D409 /* Presentation */,
 				FE30E03D25AF51360000D409 /* AppDelegate.swift */,
 				FE30E07425AF5E6E0000D409 /* Constants.swift */,
@@ -249,8 +254,6 @@
 				FE30E04625AF51370000D409 /* Main.storyboard */,
 				FE30E04325AF51370000D409 /* Preview Content */,
 				FE30E04A25AF51370000D409 /* wowpapers.entitlements */,
-				5FD257470A5A799C26D062EC /* Data */,
-				5FD257BBB2F98BE36B9607A5 /* Utils */,
 			);
 			path = wowpapers;
 			sourceTree = "<group>";
@@ -376,8 +379,8 @@
 				5FD2512FC9C236C830FBE587 /* MainContentView.swift in Sources */,
 				5FD258C86EB512FE535E35B1 /* MainViewModel.swift in Sources */,
 				5FD25DBC39625DE6ADE207C6 /* ClipShape.swift in Sources */,
-				5FD2501E64124E3E6BD67596 /* WallpaperOption.swift in Sources */,
-				5FD25B6101139B7A2103FF10 /* UpdateButton.swift in Sources */,
+				5FD2501E64124E3E6BD67596 /* WallpaperViewer.swift in Sources */,
+				5FD25B6101139B7A2103FF10 /* WallpaperAction.swift in Sources */,
 				5FD259356EE89C4C96DFF01D /* PhotoProvider.swift in Sources */,
 				5FD25FCDB1D800A01E44754E /* NetworkManager.swift in Sources */,
 				5FD25DDE9EAE5795961123E9 /* Endpoint.swift in Sources */,
@@ -395,6 +398,7 @@
 				5FD25E2CD9DDC07541556A9E /* Convertible.swift in Sources */,
 				5FD253FAF61A1DDF828B9446 /* HTTPMethod.swift in Sources */,
 				5FD256671766207A8BD03507 /* Publisher+Operators.swift in Sources */,
+				FEA479C025DD27B900B16EAB /* WallpaperData.swift in Sources */,
 				5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */,
 				5FD2588415E832EEF420FA49 /* WallpaperResults.swift in Sources */,
 				5FD255ABD21F93965816E859 /* PixabayApi.swift in Sources */,

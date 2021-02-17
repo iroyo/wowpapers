@@ -13,17 +13,25 @@ struct MainContentView: View {
     @StateObject var viewModel = MainViewModel()
 
     var body: some View {
-        ZStack {
-            VStack(spacing: 16) {
-                WallpaperOption(viewModel.aboveWallpaper)
-                    .clipShape(Clipper(.below))
-                    .cornerRadius(8)
-                WallpaperOption(viewModel.belowWallpaper)
-                    .clipShape(Clipper(.above))
-                    .cornerRadius(8)
+        VStack(spacing: 8) {
+            ZStack {
+                VStack(spacing: 16) {
+                    WallpaperViewer(viewModel.aboveWallpaper)
+                        .clipShape(Clipper(.below))
+                        .cornerRadius(8)
+                    WallpaperViewer(viewModel.belowWallpaper)
+                        .clipShape(Clipper(.above))
+                        .cornerRadius(8)
+                }
+                WallpaperAction(isLoading: $viewModel.loading, action: viewModel.newWallpaper)
             }
-            UpdateButton(isLoading: $viewModel.loading, action: viewModel.newWallpaper)
-        }.padding().frame(width: 320)
+            if case let Resource.loaded(data) = viewModel.wallpapers {
+                WallpaperData(result: data)
+            }
+            
+        }
+        .padding()
+        .frame(width: 320)
     }
 }
 

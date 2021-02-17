@@ -27,14 +27,13 @@ struct Photo {
     }
 }
 
-extension Photo {
 
-    enum Origin {
-        case pexels
-        case pixabay
-    }
 
+enum Origin : String {
+    case pexels = "Pexels"
+    case pixabay = "Pixabay"
 }
+
 
 struct PhotoData {
     let photo: Photo

@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-struct UpdateButton: View {
+struct WallpaperAction: View {
 
     @Binding var isLoading: Bool
     let normalFabColor: Color

@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-struct WallpaperOption: View {
+struct WallpaperViewer: View {
 
     private var timer = Timer.publish (every: 1, on: .current, in: .common).autoconnect()
 

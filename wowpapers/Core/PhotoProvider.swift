@@ -5,7 +5,7 @@
 import Combine
 import Foundation
 
-enum ProviderType : CaseIterable {
+private enum ProviderType : CaseIterable {
     case pexels
     case pixabay
 }
@@ -43,13 +43,12 @@ struct PhotoManager: PhotoProvider {
                     getPhotoData(url: pair.first.thumbnailSrc),
                     getPhotoData(url: pair.second.thumbnailSrc)
                 ).map { firstPhoto, secondPhoto in
-                    WallpaperResults(for: category, provider: .pexels, pair, firstPhoto, secondPhoto)
+                    WallpaperResults(for: category, pair, firstPhoto, secondPhoto)
                 }
             }.eraseToAnyPublisher()
     }
 
     func getPhotoData(url: String) -> AnyPublisher<Data, Error> {
-        print(url)
         guard let url = URL(string: url) else {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
