@@ -19,20 +19,25 @@ struct WallpaperData: View {
   
     var body: some View {
         HStack(spacing: 2) {
-            Text("from:")
-            fromLabel
+            fromContent
             Spacer()
             categoryLabel
         }
     }
     
     @ViewBuilder
-    var fromLabel: some View {
+    var fromContent: some View {
         switch state {
         case .none:
-            Text(source).fontWeight(.bold)
+            HStack(spacing: 2) {
+                Text("from:")
+                Text(source).fontWeight(.bold)
+            }
         case .selected(let data):
-            Text(data.photographer.name).fontWeight(.bold)
+            HStack(spacing: 2) {
+                Text("by:")
+                Text(data.photographer.name).fontWeight(.bold)
+            }
         }
     }
     
