@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class MainViewModel: ObservableObject {
-
+    
     private let provider: PhotoProvider = PhotoManager()
 
     @Published var loading: Bool = true
@@ -35,8 +35,12 @@ class MainViewModel: ObservableObject {
             .assign(to: &self.$wallpapers)
     }
 
-    func applyWallpaper() {
+    func applyWallpaper(data: Photo) {
         print("applyWallpaper")
+    }
+    
+    func updateFooter(data: Photo, isHovering: Bool) {
+        
     }
 
 }

@@ -11,6 +11,8 @@ struct WallpaperViewer: View {
     @State private var isHovering = false
     private let data: Resource<PhotoData>
     private let cut: CutConfiguration
+    private let onClick: (Photo) -> Void
+    private let onHover: (Photo, Bool) -> Void
     
     private var yShadow: CGFloat {
         switch cut {
@@ -19,9 +21,16 @@ struct WallpaperViewer: View {
         }
     }
 
-    init(_ data: Resource<PhotoData>, position cut: CutConfiguration) {
+    init(
+        _ data: Resource<PhotoData>,
+        cut: CutConfiguration,
+        onClick: @escaping (Photo) -> Void,
+        onHover: @escaping (Photo, Bool) -> Void
+    ) {
         self.cut = cut
         self.data = data
+        self.onClick = onClick
+        self.onHover = onHover
     }
 
     var body: some View {
@@ -39,6 +48,9 @@ struct WallpaperViewer: View {
                     startDelay()
                 } else {
                     shouldAnimate = false
+                    if case let Resource.loaded(data) = data {
+                        onHover(data.photo, false)
+                    }
                 }
                 isHovering = hovering
             }
@@ -50,7 +62,11 @@ struct WallpaperViewer: View {
         case .waiting: Rectangle().fill(Color.gray)
         case .loaded(let data):
             if let result = NSImage(data: data.data) {
-                ResultImage(image: result, photo: data)
+                Button(action: { onClick(data.photo) }) {
+                    Image(nsImage: result)
+                        .renderingMode(.original)
+                        .resizable()
+                }.buttonStyle(PlainButtonStyle())
             } else {
                 Text("failure")
             }
@@ -58,22 +74,16 @@ struct WallpaperViewer: View {
         }
     }
 
+    // simulate debounce
     private func startDelay() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             if isHovering {
                 shouldAnimate = true
+                if case let Resource.loaded(data) = data {
+                    onHover(data.photo, true)
+                }
             }
         }
     }
 
-}
-
-fileprivate struct ResultImage: View {
-
-    let image: NSImage
-    let photo: PhotoData
-
-    var body: some View {
-        Image(nsImage: image).resizable()
-    }
 }

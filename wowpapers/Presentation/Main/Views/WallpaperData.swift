@@ -17,7 +17,7 @@ struct WallpaperData: View {
     
     var body: some View {
         HStack {
-            Text("from: " + wallpaperSource)
+            WallpaperSource(origin: wallpaperSource)
             Spacer()
             categoryLabel
         }
@@ -36,4 +36,19 @@ struct WallpaperData: View {
                 Circle().frame(width: 6, height: 6).foregroundColor(Color.white).offset(x: 6, y: 0), alignment: .leading
             )
     }
+}
+
+struct WallpaperSource : View {
+    
+    let origin: String
+    
+    var body: some View {
+        HStack(spacing: 2) {
+            Text("from:")
+            Text(origin)
+                .fontWeight(.bold)
+        }
+        
+    }
+    
 }
