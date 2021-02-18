@@ -45,7 +45,9 @@ struct PhotoManager: PhotoProvider {
                 ).map { firstPhoto, secondPhoto in
                     WallpaperResults(for: category, pair, firstPhoto, secondPhoto)
                 }
-            }.eraseToAnyPublisher()
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 
     func getPhotoData(url: String) -> AnyPublisher<Data, Error> {
