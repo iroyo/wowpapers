@@ -10,16 +10,29 @@ import SwiftUI
 struct WallpaperData: View {
     
     let result: WallpaperResults
+    let state: MainViewModel.FooterData
     
-    private var wallpaperSource: String {
+    private var source: String {
         result.origin.rawValue
     }
     
+  
     var body: some View {
-        HStack {
-            WallpaperSource(origin: wallpaperSource)
+        HStack(spacing: 2) {
+            Text("from:")
+            fromLabel
             Spacer()
             categoryLabel
+        }
+    }
+    
+    @ViewBuilder
+    var fromLabel: some View {
+        switch state {
+        case .none:
+            Text(source).fontWeight(.bold)
+        case .selected(let data):
+            Text(data.photographer.name).fontWeight(.bold)
         }
     }
     
@@ -36,19 +49,4 @@ struct WallpaperData: View {
                 Circle().frame(width: 6, height: 6).foregroundColor(Color.white).offset(x: 6, y: 0), alignment: .leading
             )
     }
-}
-
-struct WallpaperSource : View {
-    
-    let origin: String
-    
-    var body: some View {
-        HStack(spacing: 2) {
-            Text("from:")
-            Text(origin)
-                .fontWeight(.bold)
-        }
-        
-    }
-    
 }

@@ -10,9 +10,15 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
+    enum FooterData {
+        case none
+        case selected(Photo)
+    }
+    
     private let provider: PhotoProvider = PhotoManager()
 
     @Published var loading: Bool = true
+    @Published var footerData: FooterData = .none
     @Published var wallpapers: Resource<WallpaperResults> = .waiting
 
     var aboveWallpaper: Resource<PhotoData> {
@@ -40,7 +46,7 @@ class MainViewModel: ObservableObject {
     }
     
     func updateFooter(data: Photo, isHovering: Bool) {
-        
+        footerData = isHovering ? .selected(data) : .none
     }
 
 }

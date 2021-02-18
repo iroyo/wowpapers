@@ -26,7 +26,7 @@ struct MainContentView: View {
                 WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
             }
             if case let Resource.loaded(data) = vm.wallpapers {
-                WallpaperData(result: data)
+                WallpaperData(result: data, state: vm.footerData)
             }
             
         }
