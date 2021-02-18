@@ -43,7 +43,7 @@ struct Clipper: Shape {
 
     private let cut: CutConfiguration
 
-    init(_ cutConfiguration: CutConfiguration) {
+    init(with cutConfiguration: CutConfiguration) {
         cut = cutConfiguration
     }
 

@@ -6,21 +6,33 @@ import SwiftUI
 
 struct WallpaperViewer: View {
 
-    private var timer = Timer.publish (every: 1, on: .current, in: .common).autoconnect()
-
     @State var shouldAnimate = false
 
     @State private var isHovering = false
-    private var data: Resource<PhotoData>
+    private let data: Resource<PhotoData>
+    private let cut: CutConfiguration
+    
+    private var yShadow: CGFloat {
+        switch cut {
+        case .above: return -1
+        case .below: return +2
+        }
+    }
 
-    init(_ data: Resource<PhotoData>) {
+    init(_ data: Resource<PhotoData>, position cut: CutConfiguration) {
+        self.cut = cut
         self.data = data
     }
 
     var body: some View {
-        content
+        let radius: CGFloat = shouldAnimate ? 2 : 0
+        let y = shouldAnimate ? yShadow : 0
+        return content
             .fillParentWith(aspectRatio: 16 / 9)
             .overlay(Color.black.opacity(shouldAnimate ? 0 : 0.15))
+            .clipShape(Clipper(with: cut))
+            .cornerRadius(8)
+            .shadow(color: Color.black.opacity(0.2), radius: radius, x: 0, y: y)
             .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
             .onHover { hovering in
                 if hovering {

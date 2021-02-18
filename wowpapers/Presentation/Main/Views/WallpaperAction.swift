@@ -73,7 +73,6 @@ fileprivate struct UpdateButtonStyle: ButtonStyle {
             .background(color)
             .cornerRadius(corners)
             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: y)
-            .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 1)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
             .animation(isHovering ? animation : nil)
 

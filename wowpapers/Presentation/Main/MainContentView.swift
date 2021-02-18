@@ -16,12 +16,8 @@ struct MainContentView: View {
         VStack(spacing: 8) {
             ZStack {
                 VStack(spacing: 16) {
-                    WallpaperViewer(viewModel.aboveWallpaper)
-                        .clipShape(Clipper(.below))
-                        .cornerRadius(8)
-                    WallpaperViewer(viewModel.belowWallpaper)
-                        .clipShape(Clipper(.above))
-                        .cornerRadius(8)
+                    WallpaperViewer(viewModel.aboveWallpaper, position: .below)
+                    WallpaperViewer(viewModel.belowWallpaper, position: .above)
                 }
                 WallpaperAction(isLoading: $viewModel.loading, action: viewModel.newWallpaper)
             }
