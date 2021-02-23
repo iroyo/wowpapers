@@ -17,7 +17,8 @@ struct MainContentView: View {
     @StateObject var vm = MainViewModel()
     
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 0) {
+            Text("").padding()
             ZStack {
                 VStack(spacing: 16) {
                     getWallpaperViewer(position: .top)
@@ -26,11 +27,10 @@ struct MainContentView: View {
                 WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
             }
             if case let Resource.loaded(data) = vm.wallpapers {
-                WallpaperData(result: data, state: vm.footerData)
+                WallpaperData(result: data, state: vm.footerData).padding()
             }
             
         }
-        .padding()
         .frame(width: 320)
     }
     

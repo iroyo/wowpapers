@@ -13,13 +13,6 @@ struct WallpaperViewer: View {
     private let cut: CutConfiguration
     private let onClick: (Photo) -> Void
     private let onHover: (Photo, Bool) -> Void
-    
-    private var yShadow: CGFloat {
-        switch cut {
-        case .above: return -1
-        case .below: return +2
-        }
-    }
 
     init(
         _ data: Resource<PhotoData>,
@@ -34,23 +27,18 @@ struct WallpaperViewer: View {
     }
 
     var body: some View {
-        let radius: CGFloat = shouldAnimate ? 2 : 0
-        let y = shouldAnimate ? yShadow : 0
+        let clip = Clipper(with: cut)
         return content
             .fillParentWith(aspectRatio: 16 / 9)
             .overlay(Color.black.opacity(shouldAnimate ? 0 : 0.15))
-            .clipShape(Clipper(with: cut))
-            .cornerRadius(8)
-            .shadow(color: Color.black.opacity(0.2), radius: radius, x: 0, y: y)
+            .clipShape(clip)
+            .contentShape(clip)
             .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
             .onHover { hovering in
                 if hovering {
                     startDelay()
                 } else {
                     shouldAnimate = false
-                    if case let Resource.loaded(data) = data {
-                        onHover(data.photo, false)
-                    }
                 }
                 isHovering = hovering
             }
@@ -63,14 +51,22 @@ struct WallpaperViewer: View {
         case .loaded(let data):
             if let result = NSImage(data: data.data) {
                 Button(action: { onClick(data.photo) }) {
-                    Image(nsImage: result)
-                        .renderingMode(.original)
-                        .resizable()
-                }.buttonStyle(PlainButtonStyle())
+                    viewer(for: result, with: data.photo)
+                }
+                .buttonStyle(PlainButtonStyle())
             } else {
                 Text("failure")
             }
         case .failed(let error): Text(error.localizedDescription).frame(maxHeight: .infinity)
+        }
+    }
+    
+    private func viewer(for result: NSImage, with data: Photo) -> some View {
+        ZStack(alignment: .topLeading) {
+            Image(nsImage: result).resizable()
+            if shouldAnimate {
+                PhotographerLabel(data.photographer).padding(12)
+            }
         }
     }
 
@@ -79,11 +75,35 @@ struct WallpaperViewer: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
             if isHovering {
                 shouldAnimate = true
-                if case let Resource.loaded(data) = data {
-                    onHover(data.photo, true)
-                }
             }
         }
     }
 
 }
+
+fileprivate struct PhotographerLabel : View {
+    
+    private let photographer: Photographer
+    
+    init(_ data: Photographer) {
+        photographer = data
+    }
+    
+    var body: some View {
+        HStack(spacing: 2) {
+            Text("by")
+                .foregroundColor(.white)
+                .font(.system(size: 10))
+            Text(photographer.name)
+                .foregroundColor(.white)
+                .font(.system(size: 10))
+                .fontWeight(.bold)
+        }
+        .padding(4)
+        .background(Color.gray)
+        .cornerRadius(4)
+    }
+    
+}
+
+
