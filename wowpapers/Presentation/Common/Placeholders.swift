@@ -24,7 +24,7 @@ struct ImagePlaceholder : View {
 
     var body: some View {
         ZStack {
-            Rectangle().fill(Color.surface)
+            Rectangle().fill(Color.gray)
             LinearProgress(color: color).withTrack()
         }
     }
