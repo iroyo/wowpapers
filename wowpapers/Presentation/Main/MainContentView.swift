@@ -18,7 +18,9 @@ struct MainContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text("Choose one option").fontWeight(.bold).padding()
+            Text("Choose one option")
+                .fontWeight(.bold)
+                .padding(14)
             ZStack {
                 VStack(spacing: 16) {
                     getWallpaperViewer(position: .top)

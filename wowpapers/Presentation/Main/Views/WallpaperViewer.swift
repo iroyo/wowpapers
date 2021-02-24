@@ -65,7 +65,9 @@ struct WallpaperViewer: View {
         ZStack(alignment: .topLeading) {
             Image(nsImage: result).resizable()
             if shouldAnimate {
-                PhotographerLabel(data.photographer).padding(12)
+                PhotographerLabel(data.photographer)
+                    .frame(maxWidth: 110, alignment: .leading)
+                    .padding(12)
             }
         }
     }
@@ -98,10 +100,14 @@ fileprivate struct PhotographerLabel : View {
                 .foregroundColor(.white)
                 .font(.system(size: 10))
                 .fontWeight(.bold)
+                .truncationMode(.tail)
+                .lineLimit(1)
+                
         }
         .padding(4)
         .background(Color.gray)
         .cornerRadius(4)
+        
     }
     
 }

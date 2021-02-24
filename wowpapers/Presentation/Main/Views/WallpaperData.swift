@@ -34,15 +34,12 @@ struct WallpaperData: View {
     
     var categoryLabel: some View {
         Text(result.category)
+            .font(.system(size: 10))
+            .fontWeight(.medium)
             .padding(.vertical, 4)
-            .padding(.trailing, 8)
-            .padding(.leading, 16)
+            .padding(.horizontal, 8)
             .foregroundColor(Color.white)
             .background(Color.accentColor)
-            .font(.system(size: 10))
             .cornerRadius(16)
-            .overlay(
-                Circle().frame(width: 6, height: 6).foregroundColor(Color.white).offset(x: 6, y: 0), alignment: .leading
-            )
     }
 }
