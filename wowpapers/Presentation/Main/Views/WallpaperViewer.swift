@@ -17,8 +17,8 @@ struct WallpaperViewer: View {
     init(
         _ data: Resource<PhotoData>,
         cut: CutConfiguration,
-        onClick: @escaping (Photo) -> Void,
-        onHover: @escaping (Photo, Bool) -> Void
+        onClick: @escaping (Photo) -> Void = {_ in },
+        onHover: @escaping (Photo, Bool) -> Void = {_,_ in }
     ) {
         self.cut = cut
         self.data = data
@@ -30,45 +30,51 @@ struct WallpaperViewer: View {
         let clip = Clipper(with: cut)
         return content
             .fillParentWith(aspectRatio: 16 / 9)
-            .overlay(Color.black.opacity(shouldAnimate ? 0 : 0.15))
             .clipShape(clip)
             .contentShape(clip)
-            .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
-            .onHover { hovering in
-                if hovering {
-                    startDelay()
-                } else {
-                    shouldAnimate = false
-                }
-                isHovering = hovering
-            }
+    }
+    
+    private var rectangle: some View {
+        Rectangle().fill(Color.gray)
     }
 
     @ViewBuilder
     private var content: some View {
         switch data {
-        case .waiting: Rectangle().fill(Color.gray)
-        case .loaded(let data):
-            if let result = NSImage(data: data.data) {
-                Button(action: { onClick(data.photo) }) {
-                    viewer(for: result, with: data.photo)
-                }
-                .buttonStyle(PlainButtonStyle())
-            } else {
-                Text("failure")
-            }
-        case .failed(let error): Text(error.localizedDescription).frame(maxHeight: .infinity)
+        case .waiting: rectangle
+        case .loaded(let data): displayViewer(for: data)
+        case .failed(let error): rectangle.overlay(ErrorLabel(message: error.localizedDescription))
         }
     }
     
-    private func viewer(for result: NSImage, with data: Photo) -> some View {
-        ZStack(alignment: .topLeading) {
-            Image(nsImage: result).resizable()
-            if shouldAnimate {
-                PhotographerLabel(data.photographer)
-                    .frame(maxWidth: 110, alignment: .leading)
-                    .padding(12)
+    @ViewBuilder
+    private func displayViewer(for result: PhotoData) -> some View {
+        if let image = NSImage(data: result.data) {
+            Button {
+                onClick(result.photo)
+            } label: {
+                ZStack(alignment: .topLeading) {
+                    Image(nsImage: image).resizable()
+                    if shouldAnimate {
+                        PhotographerLabel(result.photo.photographer)
+                            .frame(maxWidth: 110, alignment: .leading)
+                            .padding(12)
+                    }
+                }
+                .overlay(Color.black.opacity(shouldAnimate ? 0 : 0.15))
+                .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
+                .onHover { hovering in
+                    if hovering {
+                        startDelay()
+                    } else {
+                        shouldAnimate = false
+                    }
+                    isHovering = hovering
+                }
             }
+            .buttonStyle(PlainButtonStyle())
+        } else {
+            rectangle.overlay(ErrorLabel(message: "Failed loading image"))
         }
     }
 
@@ -81,6 +87,22 @@ struct WallpaperViewer: View {
         }
     }
 
+}
+
+fileprivate struct ErrorLabel : View {
+    
+    let message: String
+    
+    var body: some View {
+        Text(message)
+            .fontWeight(.medium)
+            .lineLimit(1)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 16)
+            .background(Color.white.opacity(0.65))
+            .cornerRadius(16)
+            .padding()
+    }
 }
 
 fileprivate struct PhotographerLabel : View {

@@ -46,8 +46,7 @@ struct MainContentView: View {
         return WallpaperViewer(
             result.data,
             cut: result.configuration,
-            onClick: vm.applyWallpaper,
-            onHover: vm.updateFooter
+            onClick: vm.applyWallpaper
         )
     }
 }
