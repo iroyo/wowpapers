@@ -32,6 +32,7 @@ extension Color {
         return
     }
     
+    static let lightGray = Color("lightGray")
     static let colorOnPrimary = Color("colorOnPrimary")
     static let colorPrimary = Color("colorPrimary")
     static let colorPrimaryLight = Color("colorPrimaryLight")

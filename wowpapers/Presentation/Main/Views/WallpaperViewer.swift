@@ -85,6 +85,8 @@ struct WallpaperViewer: View {
 
 fileprivate struct PhotographerLabel : View {
     
+    @Environment(\.openURL) var openURL
+    
     private let photographer: Photographer
     
     init(_ data: Photographer) {
@@ -92,22 +94,28 @@ fileprivate struct PhotographerLabel : View {
     }
     
     var body: some View {
-        HStack(spacing: 2) {
-            Text("by")
-                .foregroundColor(.white)
-                .font(.system(size: 10))
-            Text(photographer.name)
-                .foregroundColor(.white)
-                .font(.system(size: 10))
-                .fontWeight(.bold)
-                .truncationMode(.tail)
-                .lineLimit(1)
-                
-        }
-        .padding(4)
-        .background(Color.gray)
-        .cornerRadius(4)
-        
+        Button {
+            openURL(URL(string: photographer.url)!)
+        } label: {
+            HStack(spacing: 2) {
+                Text("by")
+                    .foregroundColor(.white)
+                    .font(.system(size: 10))
+                Text(photographer.name)
+                    .foregroundColor(.white)
+                    .font(.system(size: 10))
+                    .fontWeight(.bold)
+                    .truncationMode(.tail)
+                    .lineLimit(1)
+                Image(systemName: "arrow.up.right.square.fill")
+                    .frame(width: 16, height: 16)
+                    .foregroundColor(Color.white)
+            }
+            .padding(.horizontal, 4)
+            .padding(.vertical, 2)
+            .background(Color.lightGray)
+            .cornerRadius(4)            
+        }.buttonStyle(PlainButtonStyle())
     }
     
 }
