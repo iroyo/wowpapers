@@ -39,7 +39,7 @@ struct WallpaperData: View {
             .padding(.vertical, 4)
             .padding(.horizontal, 8)
             .foregroundColor(Color.white)
-            .background(Color.accentColor)
+            .background(Color.accent)
             .cornerRadius(16)
     }
 }

@@ -15,8 +15,8 @@ struct WallpaperAction: View {
 
     init(
         isLoading: Binding<Bool>,
-        normalColor: Color = Color.colorPrimary,
-        hoverColor: Color = Color.colorPrimaryLight,
+        normalColor: Color = Color.primary,
+        hoverColor: Color = Color.primaryLight,
         action: @escaping () -> ()
     ) {
         _isLoading = isLoading
@@ -35,7 +35,7 @@ struct WallpaperAction: View {
                     hovering = isHovered
                 }
             if isLoading {
-                CircularProgress(size: 48, color: Color.colorOnPrimary).withOutline()
+                CircularProgress(size: 48, color: Color.onPrimary).withOutline()
             }
         }.transition(.opacity).animation(Animation.default.delay(0.1), value: isLoading)
     }
@@ -44,7 +44,7 @@ struct WallpaperAction: View {
         Button(action: action) {
             Image(systemName: "shuffle")
                 .frame(width: 16, height: 16)
-                .foregroundColor(Color.colorOnPrimary)
+                .foregroundColor(Color.onPrimary)
         }
     }
 }

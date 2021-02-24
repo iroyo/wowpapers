@@ -32,9 +32,10 @@ extension Color {
         return
     }
     
+    static let accent = Color("colorAccent")
     static let lightGray = Color("lightGray")
-    static let colorOnPrimary = Color("colorOnPrimary")
-    static let colorPrimary = Color("colorPrimary")
-    static let colorPrimaryLight = Color("colorPrimaryLight")
+    static let onPrimary = Color("colorOnPrimary")
+    static let primary = Color("colorPrimary")
+    static let primaryLight = Color("colorPrimaryLight")
     
 }
