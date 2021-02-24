@@ -10,7 +10,6 @@ import SwiftUI
 struct WallpaperData: View {
     
     let result: WallpaperResults
-    let state: MainViewModel.FooterData
     
     private var source: String {
         result.origin.rawValue
@@ -19,25 +18,17 @@ struct WallpaperData: View {
   
     var body: some View {
         HStack(spacing: 2) {
-            fromContent
+            sourceLabel
             Spacer()
             categoryLabel
         }
     }
     
-    @ViewBuilder
-    var fromContent: some View {
-        switch state {
-        case .none:
-            HStack(spacing: 2) {
-                Text("from:")
-                Text(source).fontWeight(.bold)
-            }
-        case .selected(let data):
-            HStack(spacing: 2) {
-                Text("by:")
-                Text(data.photographer.name).fontWeight(.bold)
-            }
+   
+    var sourceLabel: some View {
+        HStack(spacing: 2) {
+            Text("from:")
+            Text(source).fontWeight(.bold)
         }
     }
     

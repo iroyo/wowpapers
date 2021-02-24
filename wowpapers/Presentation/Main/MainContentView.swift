@@ -18,7 +18,7 @@ struct MainContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text("").padding()
+            Text("Choose one option").fontWeight(.bold).padding()
             ZStack {
                 VStack(spacing: 16) {
                     getWallpaperViewer(position: .top)
@@ -27,7 +27,7 @@ struct MainContentView: View {
                 WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
             }
             if case let Resource.loaded(data) = vm.wallpapers {
-                WallpaperData(result: data, state: vm.footerData).padding()
+                WallpaperData(result: data).padding()
             }
             
         }
