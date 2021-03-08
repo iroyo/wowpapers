@@ -28,12 +28,24 @@ struct MainContentView: View {
                 }
                 WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
             }
-            if case let Resource.loaded(data) = vm.wallpapers {
-                WallpaperData(result: data).padding()
-            }
+  
+            ConfigurationBox(title: "Category") {
+                categoryLabel
+            }.padding(12)
             
         }
         .frame(width: 320)
+    }
+    
+    var categoryLabel: some View {
+        Text("Ocean")
+            .font(.system(size: 10))
+            .fontWeight(.medium)
+            .padding(.vertical, 4)
+            .padding(.horizontal, 8)
+            .foregroundColor(Color.white)
+            .background(Color.accent)
+            .cornerRadius(16)
     }
     
     private func getWallpaperViewer(position: ViewerPosition) -> WallpaperViewer {

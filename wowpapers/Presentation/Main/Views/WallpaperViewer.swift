@@ -55,15 +55,14 @@ struct WallpaperViewer: View {
             } label: {
                 ZStack(alignment: .topLeading) {
                     Image(nsImage: image).resizable()
+                        .overlay(Color.black.opacity(shouldAnimate ? 0.15 : 0))
+                        .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
                     if shouldAnimate {
                         PhotographerLabel(result.photo.photographer)
                             .frame(maxWidth: 110, alignment: .leading)
                             .padding(12)
                     }
-                }
-                .overlay(Color.black.opacity(shouldAnimate ? 0 : 0.15))
-                .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
-                .onHover { hovering in
+                }.onHover { hovering in
                     if hovering {
                         startDelay()
                     } else {

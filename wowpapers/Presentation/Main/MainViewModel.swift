@@ -24,7 +24,7 @@ class MainViewModel: ObservableObject {
     }
 
     init() {
-        newWallpaper()
+        //newWallpaper()
     }
 
     func newWallpaper() {

@@ -42,6 +42,7 @@
 		5FD25F910D8D47468E031BFE /* PexelsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25C7A6F610B672FB9F3EA /* PexelsDataSource.swift */; };
 		5FD25FAEED8EB7D94C53FB63 /* LinearProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD256A8F3BC3E35E87FE0DF /* LinearProgress.swift */; };
 		5FD25FCDB1D800A01E44754E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD250F0DBB954738EBC8EB5 /* NetworkManager.swift */; };
+		FE1ED72025EE5F5E00740923 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */; };
 		FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E03D25AF51360000D409 /* AppDelegate.swift */; };
 		FE30E04225AF51370000D409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04125AF51370000D409 /* Assets.xcassets */; };
 		FE30E04525AF51370000D409 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04425AF51370000D409 /* Preview Assets.xcassets */; };
@@ -49,7 +50,7 @@
 		FE30E07525AF5E6E0000D409 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E07425AF5E6E0000D409 /* Constants.swift */; };
 		FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08125AF61FB0000D409 /* PhotoModel.swift */; };
 		FE30E08525AF62560000D409 /* Photographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08425AF62560000D409 /* Photographer.swift */; };
-		FEA479C025DD27B900B16EAB /* WallpaperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA479BF25DD27B900B16EAB /* WallpaperData.swift */; };
+		FE7F04B325F155AB002FC726 /* RoundedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F04B225F155AB002FC726 /* RoundedContainer.swift */; };
 		FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDB6AD025B8AC3C0082147F /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		5FD25F26C42802FB47AFD001 /* PexelsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PexelsApi.swift; sourceTree = "<group>"; };
 		5FD25F2F312729CEE4717C28 /* Alias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alias.swift; sourceTree = "<group>"; };
 		5FD25F9195A83CFD954E02C9 /* PixabayApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayApi.swift; sourceTree = "<group>"; };
+		FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		FE30E03A25AF51360000D409 /* wowpapers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wowpapers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE30E03D25AF51360000D409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE30E04125AF51370000D409 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		FE30E07425AF5E6E0000D409 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FE30E08125AF61FB0000D409 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		FE30E08425AF62560000D409 /* Photographer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photographer.swift; sourceTree = "<group>"; };
-		FEA479BF25DD27B900B16EAB /* WallpaperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperData.swift; sourceTree = "<group>"; };
+		FE7F04B225F155AB002FC726 /* RoundedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedContainer.swift; sourceTree = "<group>"; };
 		FEDB6AD025B8AC3C0082147F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 				FEDB6AD025B8AC3C0082147F /* Colors.swift */,
 				5FD2592A14BCB5517CD11284 /* CommonUI.swift */,
 				5FD256C367484D2579B98FBF /* Placeholders.swift */,
+				FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -160,8 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				5FD25B3EE78CD42DF991F815 /* Network */,
-				5FD25C7A6F610B672FB9F3EA /* PexelsDataSource.swift */,
 				5FD25D3597C3D03AA7005FE8 /* PhotoDataSource.swift */,
+				5FD25C7A6F610B672FB9F3EA /* PexelsDataSource.swift */,
 				5FD25C360F7BD9D2DFE12702 /* PixabayDataSource.swift */,
 			);
 			path = Data;
@@ -181,7 +184,7 @@
 			children = (
 				5FD25AE0C1D4B82A285DBBC9 /* WallpaperViewer.swift */,
 				5FD25BD9A1429EA03D30E6A6 /* WallpaperAction.swift */,
-				FEA479BF25DD27B900B16EAB /* WallpaperData.swift */,
+				FE7F04B225F155AB002FC726 /* RoundedContainer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				5FD25B6101139B7A2103FF10 /* WallpaperAction.swift in Sources */,
 				5FD259356EE89C4C96DFF01D /* PhotoProvider.swift in Sources */,
 				5FD25FCDB1D800A01E44754E /* NetworkManager.swift in Sources */,
+				FE1ED72025EE5F5E00740923 /* VisualEffectView.swift in Sources */,
 				5FD25DDE9EAE5795961123E9 /* Endpoint.swift in Sources */,
 				5FD25F910D8D47468E031BFE /* PexelsDataSource.swift in Sources */,
 				5FD25DD2AC2B13089A3A24C3 /* PhotoDataSource.swift in Sources */,
@@ -395,10 +399,10 @@
 				5FD2541D21275CEC4A134999 /* NetworkResponse.swift in Sources */,
 				5FD25BEB4ADE4A49EFAA9398 /* NetworkError.swift in Sources */,
 				5FD2591898EE972F714128F2 /* Nothing.swift in Sources */,
+				FE7F04B325F155AB002FC726 /* RoundedContainer.swift in Sources */,
 				5FD25E2CD9DDC07541556A9E /* Convertible.swift in Sources */,
 				5FD253FAF61A1DDF828B9446 /* HTTPMethod.swift in Sources */,
 				5FD256671766207A8BD03507 /* Publisher+Operators.swift in Sources */,
-				FEA479C025DD27B900B16EAB /* WallpaperData.swift in Sources */,
 				5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */,
 				5FD2588415E832EEF420FA49 /* WallpaperResults.swift in Sources */,
 				5FD255ABD21F93965816E859 /* PixabayApi.swift in Sources */,
