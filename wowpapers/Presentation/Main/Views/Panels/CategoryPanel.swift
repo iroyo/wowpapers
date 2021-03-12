@@ -14,7 +14,7 @@ struct CategoryPanel : View {
     
     var body: some View {
         WallpaperData(action: action) {
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text("Category").titlePanel()
                 CategoryChip(name: "Ocean")
             }

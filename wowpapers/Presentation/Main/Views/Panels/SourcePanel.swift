@@ -13,7 +13,18 @@ struct SourcePanel: View {
     	
     var body: some View {
         WallpaperData(action: action) {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            HStack(spacing: 8) {
+                Image("iconPexels")
+                    .resizable()
+                    .padding(2)
+                    .frame(width: 32, height: 32)
+                    .background(Color.accent)
+                    .clipShape(Circle())
+                VStack(alignment: .leading) {
+                    Text("Source").titlePanel()
+                    Text("Pexels")
+                }
+            }
         }
     }
 }
