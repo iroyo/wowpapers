@@ -17,37 +17,47 @@ struct MainContentView: View {
     @StateObject var vm = MainViewModel()
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text("Choose one option")
-                .fontWeight(.bold)
-                .padding(14)
-            ZStack {
-                VStack(spacing: 16) {
-                    getWallpaperViewer(position: .top)
-                    getWallpaperViewer(position: .bottom)
-                }
-                WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
+        ZStack(alignment: .bottom) {
+            VStack(spacing: 0) {
+                Text("Choose one option")
+                    .fontWeight(.bold)
+                    .padding(14)
+                
+                wallpaperChooser
+                
+                HStack(spacing: 12) {
+                    if vm.panelMode.isExpanded(for: .category) {
+                        Color.clear.frame(maxWidth: .infinity)
+                    } else {
+                        CategoryPanel(action: vm.openCategoryPanel)
+                            .frame(height: 60)
+                            .roundedCard()
+                    }
+                    if vm.panelMode.isExpanded(for: .source) {
+                        Color.clear.frame(maxWidth: .infinity)
+                    } else {
+                        SourcePanel(action: vm.openSourcePanel)
+                            .frame(height: 60)
+                            .roundedCard()
+                    }
+                }.padding(12)
+
             }
-  
-            ConfigurationBox(title: "Category") {
-                categoryLabel
-            }.padding(12)
-            
+         
         }
         .frame(width: 320)
     }
     
-    var categoryLabel: some View {
-        Text("Ocean")
-            .font(.system(size: 10))
-            .fontWeight(.medium)
-            .padding(.vertical, 4)
-            .padding(.horizontal, 8)
-            .foregroundColor(Color.white)
-            .background(Color.accent)
-            .cornerRadius(16)
+    var wallpaperChooser: some View {
+        ZStack {
+            VStack(spacing: 16) {
+                getWallpaperViewer(position: .top)
+                getWallpaperViewer(position: .bottom)
+            }
+            WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
+        }
     }
-    
+        
     private func getWallpaperViewer(position: ViewerPosition) -> WallpaperViewer {
         var result: (data: Resource<PhotoData>, configuration: CutConfiguration) {
             switch position {

@@ -51,6 +51,9 @@
 		FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08125AF61FB0000D409 /* PhotoModel.swift */; };
 		FE30E08525AF62560000D409 /* Photographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08425AF62560000D409 /* Photographer.swift */; };
 		FE7F04B325F155AB002FC726 /* RoundedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F04B225F155AB002FC726 /* RoundedContainer.swift */; };
+		FECF9E3E25FA0DEC00B079CC /* WallpaperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */; };
+		FECF9E4125FA343C00B079CC /* CategoryPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E4025FA343C00B079CC /* CategoryPanel.swift */; };
+		FECF9E4725FAE5FC00B079CC /* SourcePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */; };
 		FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDB6AD025B8AC3C0082147F /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +105,9 @@
 		FE30E08125AF61FB0000D409 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		FE30E08425AF62560000D409 /* Photographer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photographer.swift; sourceTree = "<group>"; };
 		FE7F04B225F155AB002FC726 /* RoundedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedContainer.swift; sourceTree = "<group>"; };
+		FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperData.swift; sourceTree = "<group>"; };
+		FECF9E4025FA343C00B079CC /* CategoryPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPanel.swift; sourceTree = "<group>"; };
+		FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcePanel.swift; sourceTree = "<group>"; };
 		FEDB6AD025B8AC3C0082147F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,9 +188,11 @@
 		5FD2586FC2EDD6C1A87D55E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5FD25AE0C1D4B82A285DBBC9 /* WallpaperViewer.swift */,
-				5FD25BD9A1429EA03D30E6A6 /* WallpaperAction.swift */,
+				FECF9E4425FAE29200B079CC /* Panels */,
 				FE7F04B225F155AB002FC726 /* RoundedContainer.swift */,
+				5FD25BD9A1429EA03D30E6A6 /* WallpaperAction.swift */,
+				FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */,
+				5FD25AE0C1D4B82A285DBBC9 /* WallpaperViewer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +306,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		FECF9E4425FAE29200B079CC /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				FECF9E4025FA343C00B079CC /* CategoryPanel.swift */,
+				FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */,
+			);
+			path = Panels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,6 +391,7 @@
 				FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */,
 				FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */,
 				FE30E07525AF5E6E0000D409 /* Constants.swift in Sources */,
+				FECF9E4725FAE5FC00B079CC /* SourcePanel.swift in Sources */,
 				5FD25A3831EE46A83DB6FDE5 /* AsyncImage.swift in Sources */,
 				5FD250CB80A06678FFDA0175 /* CommonUI.swift in Sources */,
 				5FD25A7F2F3F8741153BF7F8 /* CircularProgress.swift in Sources */,
@@ -399,6 +417,7 @@
 				5FD2541D21275CEC4A134999 /* NetworkResponse.swift in Sources */,
 				5FD25BEB4ADE4A49EFAA9398 /* NetworkError.swift in Sources */,
 				5FD2591898EE972F714128F2 /* Nothing.swift in Sources */,
+				FECF9E3E25FA0DEC00B079CC /* WallpaperData.swift in Sources */,
 				FE7F04B325F155AB002FC726 /* RoundedContainer.swift in Sources */,
 				5FD25E2CD9DDC07541556A9E /* Convertible.swift in Sources */,
 				5FD253FAF61A1DDF828B9446 /* HTTPMethod.swift in Sources */,
@@ -408,6 +427,7 @@
 				5FD255ABD21F93965816E859 /* PixabayApi.swift in Sources */,
 				5FD250EE1246FF2936854439 /* PixabayPhotoList.swift in Sources */,
 				5FD25E0D62B816846394A9CA /* PixabayPhoto.swift in Sources */,
+				FECF9E4125FA343C00B079CC /* CategoryPanel.swift in Sources */,
 				5FD259F048854D970D41B053 /* PixabayDataSource.swift in Sources */,
 				5FD25D886095BFA7FC0D9E30 /* EventMonitor.swift in Sources */,
 			);

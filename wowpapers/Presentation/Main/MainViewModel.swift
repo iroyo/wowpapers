@@ -10,9 +10,38 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
+    enum PanelType {
+        case source, category
+    }
+    
+    enum PanelMode {
+        case closed
+        case expanded(PanelType)
+        
+        func isClosed() -> Bool {
+            switch self {
+            case .closed: return true
+            default: return false
+            }
+        }
+                
+        func isExpanded(for type: PanelType) -> Bool {
+            switch self {
+            case .expanded(let result):
+                if case type = result {
+                    return true
+                } else {
+                    return false
+                }
+            default: return false
+            }
+        }
+    }
+    
     private let provider: PhotoProvider = PhotoManager()
 
     @Published var loading: Bool = true
+    @Published var panelMode: PanelMode = .closed
     @Published var wallpapers: Resource<WallpaperResults> = .waiting
 
     var aboveWallpaper: Resource<PhotoData> {
@@ -25,6 +54,14 @@ class MainViewModel: ObservableObject {
 
     init() {
         //newWallpaper()
+    }
+    
+    func openCategoryPanel() {
+        panelMode = .expanded(.category)
+    }
+    
+    func openSourcePanel() {
+        panelMode = .expanded(.source)
     }
 
     func newWallpaper() {
