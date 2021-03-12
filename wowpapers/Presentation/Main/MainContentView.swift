@@ -26,19 +26,11 @@ struct MainContentView: View {
                 wallpaperChooser
                 
                 HStack(spacing: 12) {
-                    if vm.panelMode.isExpanded(for: .category) {
-                        Color.clear.frame(maxWidth: .infinity)
-                    } else {
+                    buildPanel(type: .category) {
                         CategoryPanel(action: vm.openCategoryPanel)
-                            .frame(height: 60)
-                            .roundedCard()
                     }
-                    if vm.panelMode.isExpanded(for: .source) {
-                        Color.clear.frame(maxWidth: .infinity)
-                    } else {
+                    buildPanel(type: .source) { 
                         SourcePanel(action: vm.openSourcePanel)
-                            .frame(height: 60)
-                            .roundedCard()
                     }
                 }.padding(12)
 
@@ -55,6 +47,17 @@ struct MainContentView: View {
                 getWallpaperViewer(position: .bottom)
             }
             WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
+        }
+    }
+    
+    @ViewBuilder
+    private func buildPanel<Content : View>(type: MainViewModel.PanelType, @ViewBuilder content: @escaping () -> Content) -> some View {
+        if vm.panelMode.isExpanded(for: type) {
+            Color.clear.frame(maxWidth: .infinity)
+        } else {
+            content()
+                .frame(height: 60)
+                .roundedCard()
         }
     }
         
