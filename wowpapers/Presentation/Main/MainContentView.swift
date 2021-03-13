@@ -25,16 +25,7 @@ struct MainContentView: View {
                     .padding(14)
                 
                 wallpaperChooser
-                
-                HStack(spacing: 12) {
-                    buildPanel(type: .category) {
-                        CategoryPanel(action: openCategory)
-                    }
-                    buildPanel(type: .source) {
-                        SourcePanel(action: openSource)
-                    }
-                }.padding(12)
-
+                wallpaperPanels.padding(12)
             }
             
             if let type = vm.panelMode.expandedType() {
@@ -53,15 +44,9 @@ struct MainContentView: View {
         .frame(width: 320)
     }
     
-    private func openCategory() {
-        withAnimation(.scaleUp) {
-            vm.panelMode = .expanded(.category)
-        }
-    }
-    
-    private func openSource() {
-        withAnimation(.scaleUp) {
-            vm.panelMode = .expanded(.source)
+    private func open(_ type: MainViewModel.PanelType) -> () -> Void {
+        return {
+            withAnimation(.scaleUp) { vm.panelMode = .expanded(type) }
         }
     }
     
@@ -71,13 +56,24 @@ struct MainContentView: View {
         }
     }
     
-    var wallpaperChooser: some View {
+    private var wallpaperChooser: some View {
         ZStack {
             VStack(spacing: 16) {
                 getWallpaperViewer(position: .top)
                 getWallpaperViewer(position: .bottom)
             }
             WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
+        }
+    }
+    
+    private var wallpaperPanels: some View {
+        HStack(spacing: 12) {
+            buildPanel(type: .category) {
+                CategoryPanel(onClick: open(.category))
+            }
+            buildPanel(type: .source) {
+                SourcePanel(onClick: open(.source))
+            }
         }
     }
     

@@ -9,10 +9,10 @@ import SwiftUI
 
 struct SourcePanel: View {
     
-    let action: () -> Void
+    let onClick: () -> Void
     	
     var body: some View {
-        WallpaperData(action: action) {
+        WallpaperData(action: onClick) {
             HStack(spacing: 8) {
                 Image("iconPexels")
                     .resizable()
