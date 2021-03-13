@@ -50,7 +50,11 @@
 		FE30E07525AF5E6E0000D409 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E07425AF5E6E0000D409 /* Constants.swift */; };
 		FE30E08225AF61FB0000D409 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08125AF61FB0000D409 /* PhotoModel.swift */; };
 		FE30E08525AF62560000D409 /* Photographer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E08425AF62560000D409 /* Photographer.swift */; };
+		FE4BD0AC25FD512900237C05 /* CategoryChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4BD0AB25FD512900237C05 /* CategoryChip.swift */; };
 		FE7F04B325F155AB002FC726 /* RoundedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F04B225F155AB002FC726 /* RoundedContainer.swift */; };
+		FE87185925FB892A00E79338 /* CategoryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87185825FB892A00E79338 /* CategoryConfiguration.swift */; };
+		FE87185D25FB8C2500E79338 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87185C25FB8C2500E79338 /* Transitions.swift */; };
+		FE87186325FB8FA200E79338 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87186225FB8FA200E79338 /* Animations.swift */; };
 		FECF9E3E25FA0DEC00B079CC /* WallpaperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */; };
 		FECF9E4125FA343C00B079CC /* CategoryPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E4025FA343C00B079CC /* CategoryPanel.swift */; };
 		FECF9E4725FAE5FC00B079CC /* SourcePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */; };
@@ -104,7 +108,11 @@
 		FE30E07425AF5E6E0000D409 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FE30E08125AF61FB0000D409 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		FE30E08425AF62560000D409 /* Photographer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photographer.swift; sourceTree = "<group>"; };
+		FE4BD0AB25FD512900237C05 /* CategoryChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryChip.swift; sourceTree = "<group>"; };
 		FE7F04B225F155AB002FC726 /* RoundedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedContainer.swift; sourceTree = "<group>"; };
+		FE87185825FB892A00E79338 /* CategoryConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryConfiguration.swift; sourceTree = "<group>"; };
+		FE87185C25FB8C2500E79338 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
+		FE87186225FB8FA200E79338 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperData.swift; sourceTree = "<group>"; };
 		FECF9E4025FA343C00B079CC /* CategoryPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPanel.swift; sourceTree = "<group>"; };
 		FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcePanel.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 		5FD255F03F46139C58501DCD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FE4BD0AF25FD53B800237C05 /* Motion */,
 				5FD253889AC9E349FCC79943 /* Progress */,
 				5FD25CB9335A0E6AA2016767 /* AsyncImage.swift */,
 				FEDB6AD025B8AC3C0082147F /* Colors.swift */,
@@ -306,10 +315,29 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		FE4BD0AA25FD510F00237C05 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FE87185825FB892A00E79338 /* CategoryConfiguration.swift */,
+				FECF9E4025FA343C00B079CC /* CategoryPanel.swift */,
+				FE4BD0AB25FD512900237C05 /* CategoryChip.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FE4BD0AF25FD53B800237C05 /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				FE87186225FB8FA200E79338 /* Animations.swift */,
+				FE87185C25FB8C2500E79338 /* Transitions.swift */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
 		FECF9E4425FAE29200B079CC /* Panels */ = {
 			isa = PBXGroup;
 			children = (
-				FECF9E4025FA343C00B079CC /* CategoryPanel.swift */,
+				FE4BD0AA25FD510F00237C05 /* Category */,
 				FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */,
 			);
 			path = Panels;
@@ -400,6 +428,7 @@
 				5FD2512FC9C236C830FBE587 /* MainContentView.swift in Sources */,
 				5FD258C86EB512FE535E35B1 /* MainViewModel.swift in Sources */,
 				5FD25DBC39625DE6ADE207C6 /* ClipShape.swift in Sources */,
+				FE87186325FB8FA200E79338 /* Animations.swift in Sources */,
 				5FD2501E64124E3E6BD67596 /* WallpaperViewer.swift in Sources */,
 				5FD25B6101139B7A2103FF10 /* WallpaperAction.swift in Sources */,
 				5FD259356EE89C4C96DFF01D /* PhotoProvider.swift in Sources */,
@@ -408,6 +437,7 @@
 				5FD25DDE9EAE5795961123E9 /* Endpoint.swift in Sources */,
 				5FD25F910D8D47468E031BFE /* PexelsDataSource.swift in Sources */,
 				5FD25DD2AC2B13089A3A24C3 /* PhotoDataSource.swift in Sources */,
+				FE87185D25FB8C2500E79338 /* Transitions.swift in Sources */,
 				5FD25322C10640EA85FB46E0 /* NetworkClient.swift in Sources */,
 				5FD2591D637EF8DAF125B027 /* Alias.swift in Sources */,
 				5FD25C05679C1A17B35DBE0D /* Extensions.swift in Sources */,
@@ -419,11 +449,13 @@
 				5FD2591898EE972F714128F2 /* Nothing.swift in Sources */,
 				FECF9E3E25FA0DEC00B079CC /* WallpaperData.swift in Sources */,
 				FE7F04B325F155AB002FC726 /* RoundedContainer.swift in Sources */,
+				FE4BD0AC25FD512900237C05 /* CategoryChip.swift in Sources */,
 				5FD25E2CD9DDC07541556A9E /* Convertible.swift in Sources */,
 				5FD253FAF61A1DDF828B9446 /* HTTPMethod.swift in Sources */,
 				5FD256671766207A8BD03507 /* Publisher+Operators.swift in Sources */,
 				5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */,
 				5FD2588415E832EEF420FA49 /* WallpaperResults.swift in Sources */,
+				FE87185925FB892A00E79338 /* CategoryConfiguration.swift in Sources */,
 				5FD255ABD21F93965816E859 /* PixabayApi.swift in Sources */,
 				5FD250EE1246FF2936854439 /* PixabayPhotoList.swift in Sources */,
 				5FD25E0D62B816846394A9CA /* PixabayPhoto.swift in Sources */,

@@ -14,6 +14,7 @@ struct MainContentView: View {
         case top, bottom
     }
 
+    @Namespace var nspace
     @StateObject var vm = MainViewModel()
     
     var body: some View {
@@ -27,17 +28,47 @@ struct MainContentView: View {
                 
                 HStack(spacing: 12) {
                     buildPanel(type: .category) {
-                        CategoryPanel(action: vm.openCategoryPanel)
+                        CategoryPanel(action: openCategory)
                     }
-                    buildPanel(type: .source) { 
-                        SourcePanel(action: vm.openSourcePanel)
+                    buildPanel(type: .source) {
+                        SourcePanel(action: openSource)
                     }
                 }.padding(12)
 
             }
+            
+            if let type = vm.panelMode.expandedType() {
+                switch type {
+                case .category:
+                    CategoryConfiguration(closeCallback: closeModal)
+                        .matchedGeometryEffect(id: type, in: nspace)
+                        .zIndex(4)
+                        .transition(.hero)
+                case .source:
+                    Text("source")
+                }
+            }
          
         }
         .frame(width: 320)
+    }
+    
+    private func openCategory() {
+        withAnimation(.scaleUp) {
+            vm.panelMode = .expanded(.category)
+        }
+    }
+    
+    private func openSource() {
+        withAnimation(.scaleUp) {
+            vm.panelMode = .expanded(.source)
+        }
+    }
+    
+    private func closeModal() {
+        withAnimation(.scaleDown) {
+            vm.panelMode = .closed
+        }
     }
     
     var wallpaperChooser: some View {
@@ -56,6 +87,8 @@ struct MainContentView: View {
             Color.clear.frame(maxWidth: .infinity)
         } else {
             content()
+                .matchedGeometryEffect(id: type, in: nspace)
+                .transition(.invisible)
                 .frame(height: 60)
                 .roundedCard()
         }

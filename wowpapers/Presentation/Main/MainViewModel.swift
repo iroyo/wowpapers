@@ -10,7 +10,7 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
-    enum PanelType {
+    enum PanelType: Hashable {
         case source, category
     }
     
@@ -18,10 +18,10 @@ class MainViewModel: ObservableObject {
         case closed
         case expanded(PanelType)
         
-        func isClosed() -> Bool {
+        func expandedType() -> PanelType? {
             switch self {
-            case .closed: return true
-            default: return false
+            case .expanded(let result): return result
+            default: return nil
             }
         }
                 
@@ -56,14 +56,6 @@ class MainViewModel: ObservableObject {
         //newWallpaper()
     }
     
-    func openCategoryPanel() {
-        panelMode = .expanded(.category)
-    }
-    
-    func openSourcePanel() {
-        panelMode = .expanded(.source)
-    }
-
     func newWallpaper() {
         provider.searchPhotoPair(from: "mountain")
             .onStart { self.loading = true }
