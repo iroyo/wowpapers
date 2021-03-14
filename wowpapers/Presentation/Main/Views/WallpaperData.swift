@@ -27,7 +27,7 @@ struct WallpaperData<Content> : View where Content : View {
         }
         .padding(10)
         .contentShape(Rectangle())
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .onTapGesture(perform: action)
         .onHover { isHovering in
             self.isHovering = isHovering

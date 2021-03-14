@@ -10,12 +10,13 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
-    enum PanelType: Hashable {
-        case source, category
+    enum PanelType: String, Hashable  {
+        case source = "source"
+        case category = "category"
     }
     
     enum PanelMode {
-        case closed
+        case close(PanelType? = nil)
         case expanded(PanelType)
         
         func expandedType() -> PanelType? {
@@ -41,7 +42,7 @@ class MainViewModel: ObservableObject {
     private let provider: PhotoProvider = PhotoManager()
 
     @Published var loading: Bool = true
-    @Published var panelMode: PanelMode = .closed
+    @Published var panelMode: PanelMode = .close()
     @Published var wallpapers: Resource<WallpaperResults> = .waiting
 
     var aboveWallpaper: Resource<PhotoData> {

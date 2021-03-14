@@ -9,21 +9,27 @@ import SwiftUI
 
 struct CategoryConfiguration: View {
     
-    let closeCallback: () -> Void
+    private let closeCallback: () -> Void
     
     @State private var scale: CGFloat = 0
+    @State private var category: String = ""
+    
+    init(_ callback: @escaping () -> Void) {
+        closeCallback = callback
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Category").titlePanel()
             CategoryChip(name: "Ocean")
+            CategoryChip(name: "Meme")
+            CategoryChip(name: "Yeye")
         }
         .padding(10)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .overlay(closeButton, alignment: .topTrailing)
-        .roundedCard()
         .onAppear {
-            withAnimation(Animation.spring().delay(0.35)) {
+            withAnimation(Animation.spring().delay(0.65)) {
                 scale = 1
             }
         }

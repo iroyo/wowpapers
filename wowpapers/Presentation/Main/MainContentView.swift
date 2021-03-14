@@ -29,31 +29,34 @@ struct MainContentView: View {
             }
             
             if let type = vm.panelMode.expandedType() {
-                switch type {
-                case .category:
-                    CategoryConfiguration(closeCallback: closeModal)
-                        .matchedGeometryEffect(id: type, in: nspace)
-                        .zIndex(4)
-                        .transition(.hero)
-                case .source:
-                    Text("source")
+                ZStack {
+                    extendedPanel(type).roundedCard()
                 }
+                .matchedGeometryEffect(id: type, in: nspace)
+                .transition(.invisible)
+                .frame(height: 120)
+                .zIndex(4)
             }
          
         }
         .frame(width: 320)
     }
     
-    private func open(_ type: MainViewModel.PanelType) -> () -> Void {
+    private func callback(for mode: MainViewModel.PanelMode, animation: Animation) -> () -> Void {
         return {
-            withAnimation(.scaleUp) { vm.panelMode = .expanded(type) }
+            withAnimation(animation) { vm.panelMode = mode }
         }
     }
     
-    private func closeModal() {
-        withAnimation(.scaleDown) {
-            vm.panelMode = .closed
+    private func extendedPanel(_ type: MainViewModel.PanelType) -> some View {
+        let closeCallback = callback(for: .close(type), animation: .scaleDown)
+        switch type {
+        case MainViewModel.PanelType.category:
+            return CategoryConfiguration(closeCallback)
+        default:
+            return CategoryConfiguration(closeCallback)
         }
+        
     }
     
     private var wallpaperChooser: some View {
@@ -69,10 +72,10 @@ struct MainContentView: View {
     private var wallpaperPanels: some View {
         HStack(spacing: 12) {
             buildPanel(type: .category) {
-                CategoryPanel(onClick: open(.category))
+                CategoryPanel(onClick: callback(for: .expanded(.category), animation: .scaleUp))
             }
             buildPanel(type: .source) {
-                SourcePanel(onClick: open(.source))
+                SourcePanel(onClick: callback(for: .expanded(.source), animation: .scaleUp))
             }
         }
     }
@@ -82,11 +85,26 @@ struct MainContentView: View {
         if vm.panelMode.isExpanded(for: type) {
             Color.clear.frame(maxWidth: .infinity)
         } else {
-            content()
-                .matchedGeometryEffect(id: type, in: nspace)
-                .transition(.invisible)
-                .frame(height: 60)
-                .roundedCard()
+            ZStack {
+                content().roundedCard()
+            }
+            .matchedGeometryEffect(id: type, in: nspace)
+            .transition(.hero)
+            .frame(height: 60)
+            .zIndex(getIndex(type))
+        }
+    }
+    
+    private func getIndex(_ type: MainViewModel.PanelType) -> Double {
+        switch vm.panelMode {
+        case .expanded(_):
+            return 1.0
+        case .close(let value):
+            if let closedType = value {
+                return closedType == type ? 4.0 : 2.0
+            } else {
+                return 2.0
+            }
         }
     }
         
