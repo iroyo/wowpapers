@@ -29,6 +29,7 @@ struct MainContentView: View {
             }
             
             if let type = vm.panelMode.expandedType() {
+                Rectangle().fill(Color.clear)
                 ZStack {
                     extendedPanel(type).roundedCard()
                 }
@@ -71,22 +72,22 @@ struct MainContentView: View {
     
     private var wallpaperPanels: some View {
         HStack(spacing: 12) {
-            buildPanel(type: .category) {
-                CategoryPanel(onClick: callback(for: .expanded(.category), animation: .scaleUp))
+            buildPanel(type: .category) { callback in
+                CategoryPanel(onClick: callback)
             }
-            buildPanel(type: .source) {
-                SourcePanel(onClick: callback(for: .expanded(.source), animation: .scaleUp))
+            buildPanel(type: .source) { callback in
+                SourcePanel(onClick: callback)
             }
         }
     }
     
     @ViewBuilder
-    private func buildPanel<Content : View>(type: MainViewModel.PanelType, @ViewBuilder content: @escaping () -> Content) -> some View {
+    private func buildPanel<Content : View>(type: MainViewModel.PanelType, @ViewBuilder content: @escaping (@escaping () -> Void) -> Content) -> some View {
         if vm.panelMode.isExpanded(for: type) {
             Color.clear.frame(maxWidth: .infinity)
         } else {
             ZStack {
-                content().roundedCard()
+                content(callback(for: .expanded(type), animation: .scaleUp)).roundedCard()
             }
             .matchedGeometryEffect(id: type, in: nspace)
             .transition(.hero)
