@@ -9,7 +9,13 @@ import SwiftUI
 
 struct CategoryChip : View {
     
-    let name: String
+    private let name: String
+    private let callback: (String) -> Void
+    
+    init(name: String, callback: @escaping (String) -> Void = {_ in}) {
+        self.name = name
+        self.callback = callback
+    }
     
     var body: some View {
         Text(name)
@@ -20,6 +26,9 @@ struct CategoryChip : View {
             .foregroundColor(Color.white)
             .background(Color.accent)
             .cornerRadius(16)
+            .onTapGesture {
+                callback(name)
+            }
     }
     
 }
