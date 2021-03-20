@@ -42,6 +42,8 @@
 		5FD25F910D8D47468E031BFE /* PexelsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25C7A6F610B672FB9F3EA /* PexelsDataSource.swift */; };
 		5FD25FAEED8EB7D94C53FB63 /* LinearProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD256A8F3BC3E35E87FE0DF /* LinearProgress.swift */; };
 		5FD25FCDB1D800A01E44754E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD250F0DBB954738EBC8EB5 /* NetworkManager.swift */; };
+		FE0655C22606778F001E6EE9 /* QueryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0655C12606778F001E6EE9 /* QueryRepository.swift */; };
+		FE0655C526068712001E6EE9 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0655C426068712001E6EE9 /* CategoryViewModel.swift */; };
 		FE1ED72025EE5F5E00740923 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */; };
 		FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E03D25AF51360000D409 /* AppDelegate.swift */; };
 		FE30E04225AF51370000D409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04125AF51370000D409 /* Assets.xcassets */; };
@@ -56,10 +58,19 @@
 		FE87185D25FB8C2500E79338 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87185C25FB8C2500E79338 /* Transitions.swift */; };
 		FE87186325FB8FA200E79338 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87186225FB8FA200E79338 /* Animations.swift */; };
 		FE97D42A2600AC4400E20591 /* ConfigurationBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE97D4292600AC4400E20591 /* ConfigurationBox.swift */; };
+		FE9AC9762604AF700085BDE4 /* QueryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9AC9752604AF700085BDE4 /* QueryProvider.swift */; };
+		FE9AC9792604BD790085BDE4 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9AC9782604BD790085BDE4 /* DependencyProvider.swift */; };
+		FE9AC97D2604C2690085BDE4 /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9AC97C2604C2690085BDE4 /* QueryManager.swift */; };
+		FEBCA4A82603981100C36AEF /* PanelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBCA4A72603981100C36AEF /* PanelMode.swift */; };
+		FEBCA4AB2603983300C36AEF /* PanelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBCA4AA2603983300C36AEF /* PanelType.swift */; };
 		FECF9E3E25FA0DEC00B079CC /* WallpaperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */; };
 		FECF9E4125FA343C00B079CC /* CategoryPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E4025FA343C00B079CC /* CategoryPanel.swift */; };
 		FECF9E4725FAE5FC00B079CC /* SourcePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */; };
 		FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDB6AD025B8AC3C0082147F /* Colors.swift */; };
+		FEDDF896260369A4007A2AFE /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDDF895260369A4007A2AFE /* Persistance.swift */; };
+		FEDDF89F260374ED007A2AFE /* wowpapers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEDDF89D260374ED007A2AFE /* wowpapers.xcdatamodeld */; };
+		FEDDF8A32603758B007A2AFE /* Query+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDDF8A12603758B007A2AFE /* Query+CoreDataClass.swift */; };
+		FEDDF8A42603758B007A2AFE /* Query+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDDF8A22603758B007A2AFE /* Query+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +109,8 @@
 		5FD25F26C42802FB47AFD001 /* PexelsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PexelsApi.swift; sourceTree = "<group>"; };
 		5FD25F2F312729CEE4717C28 /* Alias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alias.swift; sourceTree = "<group>"; };
 		5FD25F9195A83CFD954E02C9 /* PixabayApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixabayApi.swift; sourceTree = "<group>"; };
+		FE0655C12606778F001E6EE9 /* QueryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryRepository.swift; sourceTree = "<group>"; };
+		FE0655C426068712001E6EE9 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		FE30E03A25AF51360000D409 /* wowpapers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wowpapers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE30E03D25AF51360000D409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,10 +128,19 @@
 		FE87185C25FB8C2500E79338 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		FE87186225FB8FA200E79338 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		FE97D4292600AC4400E20591 /* ConfigurationBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationBox.swift; sourceTree = "<group>"; };
+		FE9AC9752604AF700085BDE4 /* QueryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryProvider.swift; sourceTree = "<group>"; };
+		FE9AC9782604BD790085BDE4 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
+		FE9AC97C2604C2690085BDE4 /* QueryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManager.swift; sourceTree = "<group>"; };
+		FEBCA4A72603981100C36AEF /* PanelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelMode.swift; sourceTree = "<group>"; };
+		FEBCA4AA2603983300C36AEF /* PanelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelType.swift; sourceTree = "<group>"; };
 		FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperData.swift; sourceTree = "<group>"; };
 		FECF9E4025FA343C00B079CC /* CategoryPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPanel.swift; sourceTree = "<group>"; };
 		FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcePanel.swift; sourceTree = "<group>"; };
 		FEDB6AD025B8AC3C0082147F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		FEDDF895260369A4007A2AFE /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		FEDDF89E260374ED007A2AFE /* wowpapers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wowpapers.xcdatamodel; sourceTree = "<group>"; };
+		FEDDF8A12603758B007A2AFE /* Query+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FEDDF8A22603758B007A2AFE /* Query+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Query+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,10 +201,12 @@
 		5FD257470A5A799C26D062EC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				FEDDF8A9260376FE007A2AFE /* Local */,
 				5FD25B3EE78CD42DF991F815 /* Network */,
 				5FD25D3597C3D03AA7005FE8 /* PhotoDataSource.swift */,
 				5FD25C7A6F610B672FB9F3EA /* PexelsDataSource.swift */,
 				5FD25C360F7BD9D2DFE12702 /* PixabayDataSource.swift */,
+				FEDDF895260369A4007A2AFE /* Persistance.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -269,6 +293,7 @@
 				FE30E05125AF52CB0000D409 /* Core */,
 				5FD257470A5A799C26D062EC /* Data */,
 				FE30E05225AF52D90000D409 /* Presentation */,
+				FE9AC9782604BD790085BDE4 /* DependencyProvider.swift */,
 				FE30E03D25AF51360000D409 /* AppDelegate.swift */,
 				FE30E07425AF5E6E0000D409 /* Constants.swift */,
 				FE30E04125AF51370000D409 /* Assets.xcassets */,
@@ -276,6 +301,7 @@
 				FE30E04625AF51370000D409 /* Main.storyboard */,
 				FE30E04325AF51370000D409 /* Preview Content */,
 				FE30E04A25AF51370000D409 /* wowpapers.entitlements */,
+				FEDDF89D260374ED007A2AFE /* wowpapers.xcdatamodeld */,
 			);
 			path = wowpapers;
 			sourceTree = "<group>";
@@ -292,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				FE30E06025AF53A20000D409 /* Models */,
+				FE9AC9752604AF700085BDE4 /* QueryProvider.swift */,
 				5FD2583C713CE4A3170FE275 /* PhotoProvider.swift */,
 				5FD25AD52638A9F140EED157 /* Resource.swift */,
 			);
@@ -321,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				FE87185825FB892A00E79338 /* CategoryConfiguration.swift */,
+				FE0655C426068712001E6EE9 /* CategoryViewModel.swift */,
 				FECF9E4025FA343C00B079CC /* CategoryPanel.swift */,
 				FE4BD0AB25FD512900237C05 /* CategoryChip.swift */,
 			);
@@ -336,14 +364,35 @@
 			path = Motion;
 			sourceTree = "<group>";
 		};
+		FEBCA4AD2603A52700C36AEF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		FECF9E4425FAE29200B079CC /* Panels */ = {
 			isa = PBXGroup;
 			children = (
+				FEBCA4AD2603A52700C36AEF /* Source */,
 				FE4BD0AA25FD510F00237C05 /* Category */,
-				FECF9E4625FAE5FC00B079CC /* SourcePanel.swift */,
 				FE97D4292600AC4400E20591 /* ConfigurationBox.swift */,
+				FEBCA4A72603981100C36AEF /* PanelMode.swift */,
+				FEBCA4AA2603983300C36AEF /* PanelType.swift */,
 			);
 			path = Panels;
+			sourceTree = "<group>";
+		};
+		FEDDF8A9260376FE007A2AFE /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				FEDDF8A12603758B007A2AFE /* Query+CoreDataClass.swift */,
+				FEDDF8A22603758B007A2AFE /* Query+CoreDataProperties.swift */,
+				FE9AC97C2604C2690085BDE4 /* QueryManager.swift */,
+				FE0655C12606778F001E6EE9 /* QueryRepository.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,11 +475,14 @@
 				5FD25A3831EE46A83DB6FDE5 /* AsyncImage.swift in Sources */,
 				5FD250CB80A06678FFDA0175 /* CommonUI.swift in Sources */,
 				5FD25A7F2F3F8741153BF7F8 /* CircularProgress.swift in Sources */,
+				FEDDF8A42603758B007A2AFE /* Query+CoreDataProperties.swift in Sources */,
 				5FD25FAEED8EB7D94C53FB63 /* LinearProgress.swift in Sources */,
 				5FD25A60D77C547AFFE073DC /* Placeholders.swift in Sources */,
 				5FD2512FC9C236C830FBE587 /* MainContentView.swift in Sources */,
 				5FD258C86EB512FE535E35B1 /* MainViewModel.swift in Sources */,
+				FEDDF896260369A4007A2AFE /* Persistance.swift in Sources */,
 				5FD25DBC39625DE6ADE207C6 /* ClipShape.swift in Sources */,
+				FEBCA4AB2603983300C36AEF /* PanelType.swift in Sources */,
 				FE87186325FB8FA200E79338 /* Animations.swift in Sources */,
 				5FD2501E64124E3E6BD67596 /* WallpaperViewer.swift in Sources */,
 				5FD25B6101139B7A2103FF10 /* WallpaperAction.swift in Sources */,
@@ -438,13 +490,17 @@
 				5FD25FCDB1D800A01E44754E /* NetworkManager.swift in Sources */,
 				FE1ED72025EE5F5E00740923 /* VisualEffectView.swift in Sources */,
 				5FD25DDE9EAE5795961123E9 /* Endpoint.swift in Sources */,
+				FEBCA4A82603981100C36AEF /* PanelMode.swift in Sources */,
+				FEDDF89F260374ED007A2AFE /* wowpapers.xcdatamodeld in Sources */,
 				5FD25F910D8D47468E031BFE /* PexelsDataSource.swift in Sources */,
 				5FD25DD2AC2B13089A3A24C3 /* PhotoDataSource.swift in Sources */,
 				FE87185D25FB8C2500E79338 /* Transitions.swift in Sources */,
 				5FD25322C10640EA85FB46E0 /* NetworkClient.swift in Sources */,
 				5FD2591D637EF8DAF125B027 /* Alias.swift in Sources */,
+				FE9AC9762604AF700085BDE4 /* QueryProvider.swift in Sources */,
 				5FD25C05679C1A17B35DBE0D /* Extensions.swift in Sources */,
 				5FD253FE9A9A09810CB542E7 /* PexelsApi.swift in Sources */,
+				FE9AC97D2604C2690085BDE4 /* QueryManager.swift in Sources */,
 				5FD25F0808D2015122AAEA41 /* PexelsPhoto.swift in Sources */,
 				5FD254EF3C0FEEBFC6238423 /* PexelsPhotoList.swift in Sources */,
 				5FD2541D21275CEC4A134999 /* NetworkResponse.swift in Sources */,
@@ -457,13 +513,17 @@
 				5FD25E2CD9DDC07541556A9E /* Convertible.swift in Sources */,
 				5FD253FAF61A1DDF828B9446 /* HTTPMethod.swift in Sources */,
 				5FD256671766207A8BD03507 /* Publisher+Operators.swift in Sources */,
+				FEDDF8A32603758B007A2AFE /* Query+CoreDataClass.swift in Sources */,
 				5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */,
+				FE9AC9792604BD790085BDE4 /* DependencyProvider.swift in Sources */,
 				5FD2588415E832EEF420FA49 /* WallpaperResults.swift in Sources */,
 				FE87185925FB892A00E79338 /* CategoryConfiguration.swift in Sources */,
+				FE0655C526068712001E6EE9 /* CategoryViewModel.swift in Sources */,
 				5FD255ABD21F93965816E859 /* PixabayApi.swift in Sources */,
 				5FD250EE1246FF2936854439 /* PixabayPhotoList.swift in Sources */,
 				5FD25E0D62B816846394A9CA /* PixabayPhoto.swift in Sources */,
 				FECF9E4125FA343C00B079CC /* CategoryPanel.swift in Sources */,
+				FE0655C22606778F001E6EE9 /* QueryRepository.swift in Sources */,
 				5FD259F048854D970D41B053 /* PixabayDataSource.swift in Sources */,
 				5FD25D886095BFA7FC0D9E30 /* EventMonitor.swift in Sources */,
 			);
@@ -668,6 +728,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FEDDF89D260374ED007A2AFE /* wowpapers.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FEDDF89E260374ED007A2AFE /* wowpapers.xcdatamodel */,
+			);
+			currentVersion = FEDDF89E260374ED007A2AFE /* wowpapers.xcdatamodel */;
+			path = wowpapers.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FE30E03225AF51360000D409 /* Project object */;
 }

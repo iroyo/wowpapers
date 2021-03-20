@@ -30,7 +30,7 @@ struct ConfigurationBox<Content> : View where Content : View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .overlay(closeButton, alignment: .topTrailing)
         .onAppear {
-            withAnimation(Animation.spring().delay(0.65)) {
+            withAnimation(Animation.spring().delay(0.75)) {
                 scale = 1
             }
         }

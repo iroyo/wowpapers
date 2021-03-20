@@ -14,8 +14,8 @@ struct MainContentView: View {
         case top, bottom
     }
 
+    @StateObject var vm: MainViewModel
     @Namespace var nspace
-    @StateObject var vm = MainViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -35,7 +35,7 @@ struct MainContentView: View {
                 }
                 .matchedGeometryEffect(id: type, in: nspace)
                 .transition(.invisible)
-                .frame(height: 120)
+                .frame(height: 180)
                 .zIndex(4)
             }
          
@@ -43,16 +43,16 @@ struct MainContentView: View {
         .frame(width: 320)
     }
     
-    private func callback(for mode: MainViewModel.PanelMode, animation: Animation) -> () -> Void {
+    private func callback(for mode: PanelMode, animation: Animation) -> () -> Void {
         return {
             withAnimation(animation) { vm.panelMode = mode }
         }
     }
     
-    private func extendedPanel(_ type: MainViewModel.PanelType) -> some View {
+    private func extendedPanel(_ type: PanelType) -> some View {
         let closeCallback = callback(for: .close(type), animation: .scaleDown)
         switch type {
-        case MainViewModel.PanelType.category:
+        case PanelType.category:
             return CategoryConfiguration(closeCallback)
         default:
             return CategoryConfiguration(closeCallback)
@@ -82,7 +82,7 @@ struct MainContentView: View {
     }
     
     @ViewBuilder
-    private func buildPanel<Content : View>(type: MainViewModel.PanelType, @ViewBuilder content: @escaping (@escaping () -> Void) -> Content) -> some View {
+    private func buildPanel<Content : View>(type: PanelType, @ViewBuilder content: @escaping (@escaping () -> Void) -> Content) -> some View {
         if vm.panelMode.isExpanded(for: type) {
             Color.clear.frame(maxWidth: .infinity)
         } else {
@@ -96,7 +96,7 @@ struct MainContentView: View {
         }
     }
     
-    private func getIndex(_ type: MainViewModel.PanelType) -> Double {
+    private func getIndex(_ type: PanelType) -> Double {
         switch vm.panelMode {
         case .expanded(_):
             return 1.0
@@ -117,15 +117,10 @@ struct MainContentView: View {
             }
         }
         return WallpaperViewer(
-            result.data,
+            shouldHover: vm.panelMode.isClosed(),
             cut: result.configuration,
+            data: result.data,
             onClick: vm.applyWallpaper
         )
-    }
-}
-
-struct WowContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainContentView()
     }
 }

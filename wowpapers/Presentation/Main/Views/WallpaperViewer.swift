@@ -9,21 +9,22 @@ struct WallpaperViewer: View {
     @State var shouldAnimate = false
 
     @State private var isHovering = false
+    
     private let data: Resource<PhotoData>
     private let cut: CutConfiguration
+    private let hoverIsEnabled: Bool
     private let onClick: (Photo) -> Void
-    private let onHover: (Photo, Bool) -> Void
 
     init(
-        _ data: Resource<PhotoData>,
+        shouldHover: Bool,
         cut: CutConfiguration,
-        onClick: @escaping (Photo) -> Void = {_ in },
-        onHover: @escaping (Photo, Bool) -> Void = {_,_ in }
+        data: Resource<PhotoData>,
+        onClick: @escaping (Photo) -> Void = {_ in }
     ) {
         self.cut = cut
         self.data = data
         self.onClick = onClick
-        self.onHover = onHover
+        self.hoverIsEnabled = shouldHover
     }
 
     var body: some View {
@@ -63,12 +64,14 @@ struct WallpaperViewer: View {
                             .padding(12)
                     }
                 }.onHover { hovering in
-                    if hovering {
-                        startDelay()
-                    } else {
-                        shouldAnimate = false
+                    if hoverIsEnabled {
+                        if hovering {
+                            startDelay()
+                        } else {
+                            shouldAnimate = false
+                        }
+                        isHovering = hovering
                     }
-                    isHovering = hovering
                 }
             }
             .buttonStyle(PlainButtonStyle())

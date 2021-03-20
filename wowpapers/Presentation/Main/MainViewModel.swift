@@ -10,36 +10,8 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     
-    enum PanelType: String, Hashable  {
-        case source = "source"
-        case category = "category"
-    }
-    
-    enum PanelMode {
-        case close(PanelType? = nil)
-        case expanded(PanelType)
-        
-        func expandedType() -> PanelType? {
-            switch self {
-            case .expanded(let result): return result
-            default: return nil
-            }
-        }
-                
-        func isExpanded(for type: PanelType) -> Bool {
-            switch self {
-            case .expanded(let result):
-                if case type = result {
-                    return true
-                } else {
-                    return false
-                }
-            default: return false
-            }
-        }
-    }
-    
-    private let provider: PhotoProvider = PhotoManager()
+    private let photoProvider: PhotoProvider
+    private let queryProvider: QueryProvider
 
     @Published var loading: Bool = true
     @Published var panelMode: PanelMode = .close()
@@ -53,12 +25,19 @@ class MainViewModel: ObservableObject {
         wallpapers.map(\.options.1)
     }
 
-    init() {
+    init(photoProvider: PhotoProvider, queryProvider: QueryProvider) {
+        self.photoProvider = photoProvider
+        self.queryProvider = queryProvider
+        if queryProvider.hasQueries() {
+            panelMode = .close()
+        } else {
+            panelMode = .expanded(.category)
+        }
         //newWallpaper()
     }
     
     func newWallpaper() {
-        provider.searchPhotoPair(from: "mountain")
+        photoProvider.searchPhotoPair(from: "mountain")
             .onStart { self.loading = true }
             .onFinish { self.loading = false }
             .asResource()

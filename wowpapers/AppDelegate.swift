@@ -15,9 +15,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     private let popover = NSPopover()
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    private let controller = PersistenceController.shared
+    
+    private let di: DependencyProvider
+    
+    override init() {
+        di = DependencyProvider(context: self.controller.container.viewContext)
+    }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        popover.contentViewController = NSHostingController(rootView: MainContentView())
+        let viewModel = MainViewModel(photoProvider: di.photoProvider, queryProvider: di.queryProvider)
+        let view = MainContentView(vm: viewModel)
+        
+        popover.contentViewController = NSHostingController(rootView: view)
         popover.contentSize = NSSize(width: 320, height: 360)
         popover.behavior = .transient
         popover.animates = false
