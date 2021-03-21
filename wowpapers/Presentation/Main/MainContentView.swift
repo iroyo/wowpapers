@@ -69,6 +69,8 @@ struct MainContentView: View {
                 getWallpaperViewer(position: .bottom)
             }
             WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
+        }.onAppear {
+            vm.newWallpaper()
         }
     }
     

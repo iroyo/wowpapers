@@ -33,11 +33,10 @@ class MainViewModel: ObservableObject {
         } else {
             panelMode = .expanded(.category)
         }
-        //newWallpaper()
     }
     
     func newWallpaper() {
-        photoProvider.searchPhotoPair(from: "mountain")
+        photoProvider.searchPhotoPair(from: queryProvider.getQuery())
             .onStart { self.loading = true }
             .onFinish { self.loading = false }
             .asResource()
