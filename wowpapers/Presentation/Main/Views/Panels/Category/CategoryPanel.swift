@@ -16,7 +16,7 @@ struct CategoryPanel : View {
         WallpaperData(action: onClick) {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Category").titlePanel()
-                CategoryChip(name: "Ocean")
+                CategoryText(name: "Ocean").chip()
             }
         }
     }

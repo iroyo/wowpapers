@@ -22,11 +22,27 @@ fileprivate struct FillParent : ViewModifier {
 
 }
 
+fileprivate struct Chip : ViewModifier {
+    
+    func body(content: Content) -> some View {
+        content
+            .padding(.vertical, 4)
+            .padding(.horizontal, 8)
+            .background(Color.accent)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
 extension View {
 
     func fillParentWith(aspectRatio: CGFloat) -> some View {
         self.modifier(FillParent(aspectRatio: aspectRatio))
     }
+    
+    func chip() -> some View {
+        self.modifier(Chip())
+    }
+    
 }
 
 extension NSTextField {

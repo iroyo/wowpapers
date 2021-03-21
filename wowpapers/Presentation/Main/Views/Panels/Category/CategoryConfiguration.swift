@@ -24,6 +24,12 @@ struct CategoryConfiguration: View {
                 .background(Color.gray.opacity(0.25))
                 .cornerRadius(6)
             
+            HStack {
+                ForEach(vm.queries, id: \.self) { data in
+                    ClickableCategoryChip(category: data, onClick: vm.remove)
+                }
+            }
+            
             Spacer()
             Button {
                 print("")
