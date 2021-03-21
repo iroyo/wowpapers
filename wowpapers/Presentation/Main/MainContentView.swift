@@ -31,7 +31,9 @@ struct MainContentView: View {
             }
             
             if let type = vm.panelMode.expandedType() {
-                Rectangle().fill(Color.clear)
+                Rectangle().fill(Color.white.opacity(0.25)).contentShape(Rectangle()).onTapGesture {
+                    print("capture clicks")
+                }
                 ZStack {
                     extendedPanel(type).roundedCard()
                 }
@@ -68,7 +70,11 @@ struct MainContentView: View {
                 getWallpaperViewer(position: .top)
                 getWallpaperViewer(position: .bottom)
             }
-            WallpaperAction(isLoading: $vm.loading, action: vm.newWallpaper)
+            WallpaperAction(
+                shouldHover: vm.panelMode.isClosed(),
+                isLoading: $vm.loading,
+                action: vm.newWallpaper
+            )
         }.onAppear {
             vm.newWallpaper()
         }

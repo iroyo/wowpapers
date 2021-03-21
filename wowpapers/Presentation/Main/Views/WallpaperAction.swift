@@ -7,13 +7,15 @@ import SwiftUI
 struct WallpaperAction: View {
 
     @Binding var isLoading: Bool
-    let normalFabColor: Color
-    let hoverFabColor: Color
-    let action: () -> Void
+    private let hoverIsEnabled: Bool
+    private let normalFabColor: Color
+    private let hoverFabColor: Color
+    private let action: () -> Void
 
     @State private var hovering: Bool = false
 
     init(
+        shouldHover: Bool,
         isLoading: Binding<Bool>,
         normalColor: Color = Color.primary,
         hoverColor: Color = Color.primaryLight,
@@ -23,6 +25,7 @@ struct WallpaperAction: View {
         normalFabColor = normalColor
         hoverFabColor = hoverColor
         self.action = action
+        self.hoverIsEnabled = shouldHover
     }
 
     var body: some View {
@@ -32,7 +35,7 @@ struct WallpaperAction: View {
             icon.buttonStyle(style)
                 .disabled(isLoading)
                 .onHover { isHovered in
-                    hovering = isHovered
+                    if hoverIsEnabled { hovering = isHovered }
                 }
             if isLoading {
                 CircularProgress(size: 48, color: Color.onPrimary).withOutline()
