@@ -24,8 +24,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        let viewModel = MainViewModel(photoProvider: di.photoProvider, queryProvider: di.queryProvider)
-        let view = MainContentView(vm: viewModel)
+        let factory = ViewModelFactory(di: di)
+        let view = MainContentView(vm: factory.get()).environment(\.factory, factory)
         
         popover.contentViewController = NSHostingController(rootView: view)
         popover.contentSize = NSSize(width: 320, height: 360)

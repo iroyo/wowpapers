@@ -25,10 +25,10 @@ class MainViewModel: ObservableObject {
         wallpapers.map(\.options.1)
     }
 
-    init(photoProvider: PhotoProvider, queryProvider: QueryProvider) {
+    init(_ hasQueries: Bool, photoProvider: PhotoProvider, queryProvider: QueryProvider) {
         self.photoProvider = photoProvider
         self.queryProvider = queryProvider
-        if queryProvider.hasQueries() {
+        if hasQueries {
             panelMode = .close()
         } else {
             panelMode = .expanded(.category)

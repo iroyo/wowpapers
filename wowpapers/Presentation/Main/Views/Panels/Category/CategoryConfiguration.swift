@@ -35,8 +35,12 @@ struct CategoryConfiguration: View {
                     .padding(.vertical, 12)
                     .background(Color.primary)
                     .cornerRadius(10)
-            }.buttonStyle(PlainButtonStyle())
+            }
+            .buttonStyle(PlainButtonStyle())
+            .disabled(vm.isDisabled)
 
+        }.onAppear {
+            vm.updateQueries()
         }
     }
     

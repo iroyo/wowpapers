@@ -10,15 +10,43 @@ import Foundation
 
 class CategoryViewModel: ObservableObject {
     
-    @Published var inputData: String = ""
+    private let queryRepository: QueryRepository
     
+    @Published var inputData: String = ""
+    @Published var queries: [Query] = []
+    
+    var isDisabled: Bool {
+        queries.count == 0
+    }
+    
+    init(queryRepository: QueryRepository) {
+        self.queryRepository = queryRepository
+    }
     
     func onEditChanged(isEditing: Bool) {
         
     }
     
     func onCommit() {
-
+        let name = inputData.trimmingCharacters(in: .whitespaces)
+        action(queryRepository.addQuery(with: name)) {
+            inputData = ""
+        }
+    }
+    
+    func remove(_ query: Query) {
+        action(queryRepository.remove(query: query))
+    }
+    
+    func updateQueries() {
+        queries = queryRepository.getQueries()
+    }
+    
+    private func action(_ isSuccessful: Bool, onSuccess: () -> Void = {}) {
+        if isSuccessful {
+            onSuccess()
+            updateQueries()
+        }
     }
     
 }

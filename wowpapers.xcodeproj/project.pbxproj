@@ -61,6 +61,7 @@
 		FE9AC9762604AF700085BDE4 /* QueryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9AC9752604AF700085BDE4 /* QueryProvider.swift */; };
 		FE9AC9792604BD790085BDE4 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9AC9782604BD790085BDE4 /* DependencyProvider.swift */; };
 		FE9AC97D2604C2690085BDE4 /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9AC97C2604C2690085BDE4 /* QueryManager.swift */; };
+		FE9CC90826075CE5005C5498 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9CC90726075CE5005C5498 /* ViewModelFactory.swift */; };
 		FEBCA4A82603981100C36AEF /* PanelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBCA4A72603981100C36AEF /* PanelMode.swift */; };
 		FEBCA4AB2603983300C36AEF /* PanelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBCA4AA2603983300C36AEF /* PanelType.swift */; };
 		FECF9E3E25FA0DEC00B079CC /* WallpaperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */; };
@@ -131,6 +132,7 @@
 		FE9AC9752604AF700085BDE4 /* QueryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryProvider.swift; sourceTree = "<group>"; };
 		FE9AC9782604BD790085BDE4 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		FE9AC97C2604C2690085BDE4 /* QueryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryManager.swift; sourceTree = "<group>"; };
+		FE9CC90726075CE5005C5498 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		FEBCA4A72603981100C36AEF /* PanelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelMode.swift; sourceTree = "<group>"; };
 		FEBCA4AA2603983300C36AEF /* PanelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelType.swift; sourceTree = "<group>"; };
 		FECF9E3D25FA0DEC00B079CC /* WallpaperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperData.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 		FE30E05225AF52D90000D409 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				FE9CC90726075CE5005C5498 /* ViewModelFactory.swift */,
 				5FD255F03F46139C58501DCD /* Common */,
 				5FD2534005D875DC91FDF0AF /* Main */,
 			);
@@ -504,6 +507,7 @@
 				5FD25F0808D2015122AAEA41 /* PexelsPhoto.swift in Sources */,
 				5FD254EF3C0FEEBFC6238423 /* PexelsPhotoList.swift in Sources */,
 				5FD2541D21275CEC4A134999 /* NetworkResponse.swift in Sources */,
+				FE9CC90826075CE5005C5498 /* ViewModelFactory.swift in Sources */,
 				5FD25BEB4ADE4A49EFAA9398 /* NetworkError.swift in Sources */,
 				5FD2591898EE972F714128F2 /* Nothing.swift in Sources */,
 				FE97D42A2600AC4400E20591 /* ConfigurationBox.swift in Sources */,

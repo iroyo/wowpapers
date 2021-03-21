@@ -13,6 +13,8 @@ struct MainContentView: View {
     private enum ViewerPosition {
         case top, bottom
     }
+    
+    @Environment(\.factory) var factory: ViewModelFactory
 
     @StateObject var vm: MainViewModel
     @Namespace var nspace
@@ -53,9 +55,9 @@ struct MainContentView: View {
         let closeCallback = callback(for: .close(type), animation: .scaleDown)
         switch type {
         case PanelType.category:
-            return CategoryConfiguration(closeCallback)
+            return CategoryConfiguration(vm: factory.get(), closeCallback: closeCallback)
         default:
-            return CategoryConfiguration(closeCallback)
+            return CategoryConfiguration(vm: factory.get(), closeCallback: closeCallback)
         }
         
     }
