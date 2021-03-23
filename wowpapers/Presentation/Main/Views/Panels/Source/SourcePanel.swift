@@ -9,20 +9,21 @@ import SwiftUI
 
 struct SourcePanel: View {
     
+    let source: Origin
     let onClick: () -> Void
     	
     var body: some View {
         WallpaperData(action: onClick) {
             HStack(spacing: 8) {
-                Image("iconPexels")
+                Image(source.icon)
                     .resizable()
-                    .padding(2)
-                    .frame(width: 32, height: 32)
+                    .padding(4)
+                    .frame(width: 38, height: 38)
                     .background(Color.accent)
                     .clipShape(Circle())
                 VStack(alignment: .leading) {
                     Text("Source").titlePanel()
-                    Text("Pexels")
+                    Text(source.rawValue)
                 }
             }
         }

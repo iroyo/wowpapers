@@ -97,7 +97,7 @@ struct MainContentView: View {
                 CategoryPanel(query: result.category, onClick: callback)
             }
             buildPanel(type: .source) { callback in
-                SourcePanel(onClick: callback)
+                SourcePanel(source: result.origin, onClick: callback)
             }
         }
     }

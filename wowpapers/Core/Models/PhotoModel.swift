@@ -32,6 +32,13 @@ struct Photo {
 enum Origin : String {
     case pexels = "Pexels"
     case pixabay = "Pixabay"
+    
+    var icon: String {
+        switch self {
+        case .pexels: return "iconPexels"
+        case .pixabay: return "iconPixabay"
+        }
+    }
 }
 
 
