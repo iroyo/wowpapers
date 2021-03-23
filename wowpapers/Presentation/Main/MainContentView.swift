@@ -31,8 +31,8 @@ struct MainContentView: View {
             }
             
             if let type = vm.panelMode.expandedType() {
-                Rectangle().fill(Color.white.opacity(0.25)).contentShape(Rectangle()).onTapGesture {
-                    print("capture clicks")
+                Color.clear.contentShape(Rectangle()).onTapGesture {
+                   callback(for: .close(type), animation: .scaleDown)()
                 }
                 ZStack {
                     extendedPanel(type).roundedCard()
@@ -75,6 +75,9 @@ struct MainContentView: View {
                 isLoading: $vm.loading,
                 action: vm.newWallpaper
             )
+            if !vm.panelMode.isClosed() {
+                Rectangle().fill(Color.white.opacity(0.25))
+            }
         }.onAppear {
             vm.newWallpaper()
         }

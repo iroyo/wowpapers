@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct CategoryConfiguration: View {
-        
+     
+    @State private var ready = false
     @StateObject var vm: CategoryViewModel
     
     let closeCallback: () -> Void
     
     var body: some View {
-        ConfigurationBox(name: "Category", closeCallback) {
+        ConfigurationBox(name: "Category") {
             Spacer().frame(height: 8)
             TextField("Add new category", text: $vm.inputData, onEditingChanged: vm.onEditChanged, onCommit: vm.onCommit)
                 .font(Font.system(size: 12, weight: .semibold, design: .default))
@@ -24,15 +25,16 @@ struct CategoryConfiguration: View {
                 .background(Color.gray.opacity(0.25))
                 .cornerRadius(6)
             
-            HStack {
-                ForEach(vm.queries, id: \.self) { data in
+            if ready {
+                FlexibleView(vm.queries) { data in
                     ClickableCategoryChip(category: data, onClick: vm.remove)
                 }
             }
             
             Spacer()
+
             Button {
-                print("")
+                closeCallback()
             } label: {
                 Text("Apply")
                     .fontWeight(.semibold)
@@ -47,6 +49,9 @@ struct CategoryConfiguration: View {
 
         }.onAppear {
             vm.updateQueries()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                ready = true
+            }
         }
     }
     

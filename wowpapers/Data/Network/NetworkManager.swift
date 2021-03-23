@@ -46,6 +46,11 @@ struct NetworkManager<T: Encodable> {
             return Fail(error: error).eraseToAnyPublisher()
         }
         let started = Date()
+        
+        if let url = request.url {
+            print(url.absoluteString)
+        }
+        
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { (data: Data, response: URLResponse) -> NetworkResponse<R> in
                 guard let response = response as? HTTPURLResponse else {
