@@ -27,7 +27,15 @@ struct MainContentView: View {
                     .padding(14)
                 
                 wallpaperChooser
-                wallpaperPanels.padding(12)
+                
+                if case let Resource.loaded(value) = vm.wallpapers {
+                    wallpaperPanels(with: value).padding(12)
+                } else {
+                    HStack(spacing: 12) {
+                        Color.clear.frame(height: 60).roundedCard()
+                        Color.clear.frame(height: 60).roundedCard()
+                    }.padding(12)
+                }
             }
             
             if let type = vm.panelMode.expandedType() {
@@ -83,10 +91,10 @@ struct MainContentView: View {
         }
     }
     
-    private var wallpaperPanels: some View {
+    private func wallpaperPanels(with result: WallpaperResults) -> some View {
         HStack(spacing: 12) {
             buildPanel(type: .category) { callback in
-                CategoryPanel(onClick: callback)
+                CategoryPanel(query: result.category, onClick: callback)
             }
             buildPanel(type: .source) { callback in
                 SourcePanel(onClick: callback)

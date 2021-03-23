@@ -10,13 +10,14 @@ import SwiftUI
 
 struct CategoryPanel : View {
     
+    let query: String
     let onClick: () -> Void
     
     var body: some View {
         WallpaperData(action: onClick) {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Category").titlePanel()
-                CategoryText(name: "Ocean").chip()
+                CategoryText(name: query).chip()
             }
         }
     }
