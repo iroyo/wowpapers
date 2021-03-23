@@ -13,7 +13,7 @@ enum PixabayApi: Endpoint {
         "image_type": "photo"
     ]
     private static var page: String {
-        String(Int.random(in: 0...100))
+        String(Int.random(in: 1...100))
     }
 
     static var networkClient = NetworkClient(baseURL: "https://pixabay.com")

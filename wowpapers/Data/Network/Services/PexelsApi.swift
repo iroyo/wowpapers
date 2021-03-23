@@ -10,7 +10,7 @@ enum PexelsApi: Endpoint {
     private static let headers = ["Authorization": Constants.PEXELS_KEY]
     private static var defaultParams = ["orientation": "landscape"]
     private static var page: String {
-        String(Int.random(in: 0...100))
+        String(Int.random(in: 1...100))
     }
 
     static var networkClient = NetworkClient(baseURL: "https://api.pexels.com", headers: headers)
