@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class CategoryViewModel: ObservableObject {
+class QueryViewModel: ObservableObject {
     
     private let queryRepository: QueryRepository
     private let notifyQueryCount: (Bool) -> Void

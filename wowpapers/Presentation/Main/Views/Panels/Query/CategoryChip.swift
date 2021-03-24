@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CategoryText : View {
+struct QueryText : View {
     
     private let size: CGFloat
     private let name: String
@@ -27,7 +27,7 @@ struct CategoryText : View {
     
 }
 
-struct ClickableCategoryChip : View {
+struct ClickableQueryChip : View {
     
     let category: Query
     let onClick: (Query) -> Void
@@ -37,7 +37,7 @@ struct ClickableCategoryChip : View {
             Image(systemName: "xmark")
                 .font(Font.system(size: 10, weight: .bold, design: .default))
                 .foregroundColor(.white)
-            CategoryText(name: category.name.capitalized, size: 12)
+            QueryText(name: category.name.capitalized, size: 12)
         }.onTapGesture {
             onClick(category)
         }.chip()

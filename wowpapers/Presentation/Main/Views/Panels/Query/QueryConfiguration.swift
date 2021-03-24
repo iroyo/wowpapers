@@ -1,5 +1,5 @@
 //
-//  CategoryConfiguration.swift
+//  QueryConfiguration.swift
 //  wowpapers
 //
 //  Created by Isaac Royo Raso on 12/3/21.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct CategoryConfiguration: View {
+struct QueryConfiguration: View {
      
     @State private var ready = false
-    @StateObject var vm: CategoryViewModel
+    @StateObject var vm: QueryViewModel
     
     let closeCallback: () -> Void
     
     var body: some View {
-        ConfigurationBox(name: "Category") {
+        ConfigurationBox(name: "Query") {
             Spacer().frame(height: 8)
             TextField("Add new category", text: $vm.inputData, onEditingChanged: vm.onEditChanged, onCommit: vm.onCommit)
                 .font(Font.system(size: 12, weight: .semibold, design: .default))
@@ -27,7 +27,7 @@ struct CategoryConfiguration: View {
             
             if ready {
                 FlexibleView(vm.queries) { data in
-                    ClickableCategoryChip(category: data, onClick: vm.remove)
+                    ClickableQueryChip(category: data, onClick: vm.remove)
                 }
             }
             

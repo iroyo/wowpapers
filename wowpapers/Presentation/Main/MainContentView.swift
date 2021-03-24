@@ -68,9 +68,9 @@ struct MainContentView: View {
         let closeCallback = callback(for: .close(type), animation: .scaleDown)
         switch type {
         case PanelType.category:
-            return CategoryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
+            return QueryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
         default:
-            return CategoryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
+            return QueryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
         }
         
     }
@@ -97,7 +97,7 @@ struct MainContentView: View {
     private func wallpaperPanels(with result: WallpaperResults) -> some View {
         HStack(spacing: 12) {
             buildPanel(type: .category) { callback in
-                CategoryPanel(query: result.category, onClick: callback)
+                QueryPanel(query: result.category, onClick: callback)
             }
             buildPanel(type: .source) { callback in
                 SourcePanel(source: result.origin, onClick: callback)
