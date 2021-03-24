@@ -11,6 +11,7 @@ import Foundation
 class CategoryViewModel: ObservableObject {
     
     private let queryRepository: QueryRepository
+    private let notifyQueryCount: (Bool) -> Void
     
     @Published var inputData: String = ""
     @Published var queries: [Query] = []
@@ -19,8 +20,9 @@ class CategoryViewModel: ObservableObject {
         queries.count == 0
     }
     
-    init(queryRepository: QueryRepository) {
+    init(queryRepository: QueryRepository, queryCallback: @escaping (Bool) -> Void) {
         self.queryRepository = queryRepository
+        self.notifyQueryCount = queryCallback
     }
     
     func onEditChanged(isEditing: Bool) {
@@ -40,6 +42,8 @@ class CategoryViewModel: ObservableObject {
     
     func updateQueries() {
         queries = queryRepository.getQueries()
+        print("is disabled \(isDisabled)")
+        notifyQueryCount(isDisabled)
     }
     
     private func action(_ isSuccessful: Bool, onSuccess: () -> Void = {}) {

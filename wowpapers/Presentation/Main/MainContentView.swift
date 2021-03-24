@@ -16,6 +16,7 @@ struct MainContentView: View {
     
     @Environment(\.factory) var factory: ViewModelFactory
 
+    @State private var dismissDisabled = false
     @StateObject var vm: MainViewModel
     @Namespace var nspace
     
@@ -40,14 +41,16 @@ struct MainContentView: View {
             
             if let type = vm.panelMode.expandedType() {
                 Color.clear.contentShape(Rectangle()).onTapGesture {
-                   callback(for: .close(type), animation: .scaleDown)()
+                    if !dismissDisabled {
+                        callback(for: .close(type), animation: .scaleDown)()
+                    }
                 }
                 ZStack {
                     extendedPanel(type).roundedCard()
                 }
                 .matchedGeometryEffect(id: type, in: nspace)
                 .transition(.invisible)
-                .frame(height: 180)
+                .frame(height: 200)
                 .zIndex(4)
             }
          
@@ -65,9 +68,9 @@ struct MainContentView: View {
         let closeCallback = callback(for: .close(type), animation: .scaleDown)
         switch type {
         case PanelType.category:
-            return CategoryConfiguration(vm: factory.get(), closeCallback: closeCallback)
+            return CategoryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
         default:
-            return CategoryConfiguration(vm: factory.get(), closeCallback: closeCallback)
+            return CategoryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
         }
         
     }
@@ -143,5 +146,9 @@ struct MainContentView: View {
             data: result.data,
             onClick: vm.applyWallpaper
         )
+    }
+    
+    private func notifyQueryCount(isDisabled: Bool) {
+        self.dismissDisabled = isDisabled
     }
 }

@@ -23,8 +23,8 @@ struct ViewModelFactory {
         )
     }
     
-    func get() -> CategoryViewModel {
-        CategoryViewModel(queryRepository: di.queryRepository)
+    func get(queryCallback: @escaping (Bool) -> Void) -> CategoryViewModel {
+        CategoryViewModel(queryRepository: di.queryRepository, queryCallback: queryCallback)
     }
 }
 
