@@ -17,7 +17,11 @@ class DependencyProvider {
     
     lazy var queryRepository = QueryRepository(context: context)
     
-    lazy var photoProvider: PhotoProvider = PhotoManager()
     lazy var queryProvider: QueryProvider = QueryManager(repository: queryRepository)
+    lazy var photoProvider: PhotoProvider = PhotoManager(
+        pexelsProvider: PexelsDataSource(),
+        pixabayProvider: PixabayDataSource()
+    )
+
     
 }

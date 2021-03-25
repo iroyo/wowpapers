@@ -18,8 +18,8 @@ protocol PhotoProvider {
 
 struct PhotoManager: PhotoProvider {
 
-    private let pexelsProvider = PexelsDataSource()
-    private let pixabayProvider = PixabayDataSource()
+    let pexelsProvider: PhotoDataSource
+    let pixabayProvider: PhotoDataSource
 
     private var providerType: ProviderType {
         let randomIndex = Int.random(in: 0..<ProviderType.allCases.count)
