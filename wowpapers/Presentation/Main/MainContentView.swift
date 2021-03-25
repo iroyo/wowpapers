@@ -64,13 +64,14 @@ struct MainContentView: View {
         }
     }
     
+    @ViewBuilder
     private func extendedPanel(_ type: PanelType) -> some View {
         let closeCallback = callback(for: .close(type), animation: .scaleDown)
         switch type {
         case PanelType.category:
-            return QueryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
-        default:
-            return QueryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
+            QueryConfiguration(vm: factory.get(queryCallback: notifyQueryCount), closeCallback: closeCallback)
+        case PanelType.source:
+            SourceConfiguration()
         }
         
     }

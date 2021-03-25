@@ -27,7 +27,7 @@ extension AnyTransition {
         
         
         func body(content: Content) -> some View {
-            content.opacity(1)
+            content.opacity(pct <= 0.5 ? 0 : 1)
         }
     }
     
@@ -50,7 +50,7 @@ extension AnyTransition {
         
         
         func body(content: Content) -> some View {
-            content.opacity(pct == 1 ? 1 : 0)
+            content.opacity(pct >= 0.5 ? 1 : 0)
         }
     }
 }
