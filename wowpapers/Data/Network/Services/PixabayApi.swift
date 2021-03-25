@@ -9,7 +9,7 @@ enum PixabayApi: Endpoint {
 
     private static var defaultParams = [
         "key" : Constants.PIXABAY_KEY,
-        "orientation": "landscape",
+        "orientation": "horizontal",
         "image_type": "photo"
     ]
     private static var page: String {
