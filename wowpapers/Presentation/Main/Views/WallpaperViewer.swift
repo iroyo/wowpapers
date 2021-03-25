@@ -56,9 +56,16 @@ struct WallpaperViewer: View {
             } label: {
                 ZStack(alignment: .topLeading) {
                     Image(nsImage: image).resizable()
-                        .overlay(Color.black.opacity(shouldAnimate ? 0.15 : 0))
                         .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
                     if shouldAnimate {
+                        Color.black.opacity(0.5).overlay(
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(Font.system(size: 24))
+                                .foregroundColor(Color.primary)
+                                .background(Color.white)
+                                .clipShape(Circle())
+                        )
+                        
                         PhotographerLabel(result.photo.photographer)
                             .frame(maxWidth: 110, alignment: .leading)
                             .padding(12)
