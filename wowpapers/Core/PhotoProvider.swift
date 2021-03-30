@@ -28,13 +28,14 @@ struct PhotoManager: PhotoProvider {
 
     private var provider: (String) -> AnyPublisher<[Photo], Error> {
         switch providerType {
-        case .pexels: return pexelsProvider.getPhotos
-        case .pixabay: return pixabayProvider.getPhotos
+        case .pexels: return pexelsProvider.getRandomPhotos
+        case .pixabay: return pixabayProvider.getRandomPhotos
         }
     }
 
     func searchPhotoPair(from category: String) -> AnyPublisher<WallpaperResults, Error> {
-        provider(category)
+        print("Category: \(category)")
+        return provider(category)
             .map { photos in
                 (first: photos[0], second: photos[1])
             }

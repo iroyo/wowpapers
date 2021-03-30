@@ -55,6 +55,10 @@
 		FE4BD0AC25FD512900237C05 /* CategoryChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4BD0AB25FD512900237C05 /* CategoryChip.swift */; };
 		FE527D3C2609E58300ABCCF8 /* FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE527D3B2609E58300ABCCF8 /* FlexibleView.swift */; };
 		FE611014260CF0C1009BC6F7 /* SourceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE611013260CF0C1009BC6F7 /* SourceConfiguration.swift */; };
+		FE7C49922612162E00862F06 /* PageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C49912612162E00862F06 /* PageProvider.swift */; };
+		FE7C499526122A9000862F06 /* PageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C499426122A9000862F06 /* PageRepository.swift */; };
+		FE7C499D26122B0100862F06 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C499926122B0100862F06 /* Page+CoreDataClass.swift */; };
+		FE7C499E26122B0100862F06 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C499A26122B0100862F06 /* Page+CoreDataProperties.swift */; };
 		FE7F04B325F155AB002FC726 /* RoundedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F04B225F155AB002FC726 /* RoundedContainer.swift */; };
 		FE87185925FB892A00E79338 /* QueryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87185825FB892A00E79338 /* QueryConfiguration.swift */; };
 		FE87185D25FB8C2500E79338 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87185C25FB8C2500E79338 /* Transitions.swift */; };
@@ -128,6 +132,10 @@
 		FE4BD0AB25FD512900237C05 /* CategoryChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryChip.swift; sourceTree = "<group>"; };
 		FE527D3B2609E58300ABCCF8 /* FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleView.swift; sourceTree = "<group>"; };
 		FE611013260CF0C1009BC6F7 /* SourceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceConfiguration.swift; sourceTree = "<group>"; };
+		FE7C49912612162E00862F06 /* PageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProvider.swift; sourceTree = "<group>"; };
+		FE7C499426122A9000862F06 /* PageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRepository.swift; sourceTree = "<group>"; };
+		FE7C499926122B0100862F06 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FE7C499A26122B0100862F06 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FE7F04B225F155AB002FC726 /* RoundedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedContainer.swift; sourceTree = "<group>"; };
 		FE87185825FB892A00E79338 /* QueryConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryConfiguration.swift; sourceTree = "<group>"; };
 		FE87185C25FB8C2500E79338 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
@@ -327,6 +335,7 @@
 				FE30E06025AF53A20000D409 /* Models */,
 				FE9AC9752604AF700085BDE4 /* QueryProvider.swift */,
 				5FD2583C713CE4A3170FE275 /* PhotoProvider.swift */,
+				FE7C49912612162E00862F06 /* PageProvider.swift */,
 				5FD25AD52638A9F140EED157 /* Resource.swift */,
 			);
 			path = Core;
@@ -396,10 +405,13 @@
 		FEDDF8A9260376FE007A2AFE /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				FE7C499926122B0100862F06 /* Page+CoreDataClass.swift */,
+				FE7C499A26122B0100862F06 /* Page+CoreDataProperties.swift */,
 				FEDDF8A12603758B007A2AFE /* Query+CoreDataClass.swift */,
 				FEDDF8A22603758B007A2AFE /* Query+CoreDataProperties.swift */,
 				FE9AC97C2604C2690085BDE4 /* QueryManager.swift */,
 				FE0655C12606778F001E6EE9 /* QueryRepository.swift */,
+				FE7C499426122A9000862F06 /* PageRepository.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -475,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7C499526122A9000862F06 /* PageRepository.swift in Sources */,
 				FE30E08525AF62560000D409 /* Photographer.swift in Sources */,
 				FEDB6AD125B8AC3C0082147F /* Colors.swift in Sources */,
 				FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */,
@@ -492,6 +505,7 @@
 				5FD258C86EB512FE535E35B1 /* MainViewModel.swift in Sources */,
 				FEDDF896260369A4007A2AFE /* Persistance.swift in Sources */,
 				5FD25DBC39625DE6ADE207C6 /* ClipShape.swift in Sources */,
+				FE7C499E26122B0100862F06 /* Page+CoreDataProperties.swift in Sources */,
 				FEBCA4AB2603983300C36AEF /* PanelType.swift in Sources */,
 				FE87186325FB8FA200E79338 /* Animations.swift in Sources */,
 				5FD2501E64124E3E6BD67596 /* WallpaperViewer.swift in Sources */,
@@ -502,6 +516,7 @@
 				FE1ED72025EE5F5E00740923 /* VisualEffectView.swift in Sources */,
 				5FD25DDE9EAE5795961123E9 /* Endpoint.swift in Sources */,
 				FEBCA4A82603981100C36AEF /* PanelMode.swift in Sources */,
+				FE7C499D26122B0100862F06 /* Page+CoreDataClass.swift in Sources */,
 				FEDDF89F260374ED007A2AFE /* wowpapers.xcdatamodeld in Sources */,
 				5FD25F910D8D47468E031BFE /* PexelsDataSource.swift in Sources */,
 				5FD25DD2AC2B13089A3A24C3 /* PhotoDataSource.swift in Sources */,
@@ -528,6 +543,7 @@
 				FEDDF8A32603758B007A2AFE /* Query+CoreDataClass.swift in Sources */,
 				5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */,
 				FE9AC9792604BD790085BDE4 /* DependencyProvider.swift in Sources */,
+				FE7C49922612162E00862F06 /* PageProvider.swift in Sources */,
 				5FD2588415E832EEF420FA49 /* WallpaperResults.swift in Sources */,
 				FE87185925FB892A00E79338 /* QueryConfiguration.swift in Sources */,
 				FE0655C526068712001E6EE9 /* QueryViewModel.swift in Sources */,

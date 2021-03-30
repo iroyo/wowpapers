@@ -12,16 +12,12 @@ enum PixabayApi: Endpoint {
         "orientation": "horizontal",
         "image_type": "photo"
     ]
-    private static var page: String {
-        String(Int.random(in: 1...100))
-    }
-
     static var networkClient = NetworkClient(baseURL: "https://pixabay.com")
 
-    static func searchRandomPhotos(query: String) -> NetworkPublisher<PixabayPhotoList> {
+    static func searchPhotos(query: String, _ offset: Int, _ limit: Int = 2) -> NetworkPublisher<PixabayPhotoList> {
         makeRequest(to: "/api/", params: defaultParams.plus([
-            "per_page": "3",
-            "page": page,
+            "per_page": String(limit),
+            "page": String(offset),
             "q": query,
         ]))
     }

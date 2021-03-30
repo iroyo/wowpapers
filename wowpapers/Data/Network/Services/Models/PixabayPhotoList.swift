@@ -9,5 +9,6 @@ import Foundation
 
 struct PixabayPhotoList: Decodable {
     let hits: [PixabayPhoto]
+    let totalHits: Int
     let total: Int
 }
