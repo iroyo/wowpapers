@@ -58,7 +58,7 @@ struct WallpaperViewer: View {
                     Image(nsImage: image).resizable()
                         .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
                     if shouldAnimate {
-                        Color.black.opacity(0.5).overlay(
+                        Color.black.opacity(0.25).overlay(
                             Image(systemName: "checkmark.circle.fill")
                                 .font(Font.system(size: 24))
                                 .foregroundColor(Color.primary)
@@ -103,7 +103,8 @@ fileprivate struct ErrorLabel : View {
     let message: String
     
     var body: some View {
-        Text(message)
+        print(message)
+        return Text(message)
             .fontWeight(.medium)
             .lineLimit(1)
             .padding(.vertical, 8)
