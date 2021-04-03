@@ -54,21 +54,13 @@ struct WallpaperViewer: View {
             Button {
                 onClick(result.photo)
             } label: {
-                ZStack(alignment: .topLeading) {
-                    Image(nsImage: image).resizable()
+                ZStack {
+                    Image(nsImage: image)
+                        .resizable()
                         .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
                     if shouldAnimate {
-                        Color.black.opacity(0.25).overlay(
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(Font.system(size: 24))
-                                .foregroundColor(Color.primary)
-                                .background(Color.white)
-                                .clipShape(Circle())
-                        )
-                        
-                        PhotographerLabel(result.photo.photographer)
-                            .frame(maxWidth: 110, alignment: .leading)
-                            .padding(12)
+                        Color.black.opacity(0.25)
+                        PhotoAction(result: result)
                     }
                 }.onHover { hovering in
                     if hoverIsEnabled {
@@ -115,6 +107,20 @@ fileprivate struct ErrorLabel : View {
     }
 }
 
+fileprivate struct PhotoAction : View {
+    
+    let result: PhotoData
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            Button("Apply") {
+                
+            }
+            PhotographerLabel(result.photo.photographer)
+        }
+    }
+}
+
 fileprivate struct PhotographerLabel : View {
     
     @Environment(\.openURL) var openURL
@@ -139,14 +145,9 @@ fileprivate struct PhotographerLabel : View {
                     .fontWeight(.bold)
                     .truncationMode(.tail)
                     .lineLimit(1)
-                Image(systemName: "arrow.up.right.square.fill")
-                    .frame(width: 16, height: 16)
-                    .foregroundColor(Color.white)
             }
             .padding(.horizontal, 4)
             .padding(.vertical, 2)
-            .background(Color.lightGray)
-            .cornerRadius(4)            
         }.buttonStyle(PlainButtonStyle())
     }
     

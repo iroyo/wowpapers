@@ -27,11 +27,11 @@ struct SemiCircle: Shape {
     func path(in rect: CGRect) -> Path {
         Path { path in
             let yBase = rect.height - smallRadius
-            let yApex = yBase - radius + 12
+            let yApex = yBase - radius + 10
             let negativeX = rect.midX - radius
             let positiveX = rect.midX + radius
             path.addArc(center: CGPoint(x: negativeX - smallRadius, y: yBase), radius: smallRadius, startAngle: .degrees(-270), endAngle: .degrees(-360), clockwise: true)
-            path.addCurve(to: CGPoint(x: positiveX, y: yBase), control1: CGPoint(x: negativeX + 36, y: yApex), control2: CGPoint(x: positiveX - 36, y: yApex))
+            path.addCurve(to: CGPoint(x: positiveX, y: yBase), control1: CGPoint(x: negativeX + 40, y: yApex), control2: CGPoint(x: positiveX - 40, y: yApex))
             path.addArc(center: CGPoint(x: positiveX + smallRadius, y: yBase), radius: smallRadius, startAngle: .degrees(-180), endAngle: .degrees(-270), clockwise: true)
             path.closeSubpath()
         }
