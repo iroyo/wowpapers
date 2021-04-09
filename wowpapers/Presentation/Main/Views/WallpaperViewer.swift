@@ -129,7 +129,7 @@ fileprivate struct PhotographerLabel : View {
     
     @Environment(\.openURL) var openURL
     
-    @State private var colorText = Color.white
+    @State private var hovering = false
     
     private let photographer: Photographer
     
@@ -141,24 +141,30 @@ fileprivate struct PhotographerLabel : View {
         Button {
             openURL(URL(string: photographer.url)!)
         } label: {
-            HStack(spacing: 2) {
+            HStack(spacing: 4) {
                 Text("by")
-                    .foregroundColor(colorText)
+                    .foregroundColor(.white)
                     .font(.system(size: 10))
                 Text(photographer.name)
-                    .foregroundColor(colorText)
+                    .foregroundColor(.white)
                     .font(.system(size: 10))
                     .fontWeight(.bold)
                     .truncationMode(.tail)
                     .lineLimit(1)
             }
             .padding(.vertical, 2)
+            .padding(.horizontal, 20)
+            .overlay(
+                Image(systemName: "arrow.up.right.square.fill")
+                    .frame(width: 16, height: 16)
+                    .foregroundColor(Color.white)
+                    .opacity(hovering ? 1 : 0),
+                alignment: .trailing
+            )
         }
         .buttonStyle(PlainButtonStyle())
         .onHover { hovering in
-            withAnimation {
-                colorText = hovering ? Color.white.opacity(0.65) : Color.white
-            }
+            self.hovering = hovering
         }
     }
     

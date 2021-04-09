@@ -44,7 +44,9 @@ class MainViewModel: ObservableObject {
     }
 
     func applyWallpaper(data: Photo) {
-        print("applyWallpaper")
+        if case let Resource.loaded(data) = wallpapers {
+            print(data.category)
+         }
     }
 
 }
