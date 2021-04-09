@@ -51,29 +51,24 @@ struct WallpaperViewer: View {
     @ViewBuilder
     private func displayViewer(for result: PhotoData) -> some View {
         if let image = NSImage(data: result.data) {
-            Button {
-                onClick(result.photo)
-            } label: {
-                ZStack {
-                    Image(nsImage: image)
-                        .resizable()
-                        .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
-                    if shouldAnimate {
-                        Color.black.opacity(0.25)
-                        PhotoAction(result: result)
+            ZStack {
+                Image(nsImage: image)
+                    .resizable()
+                    .animation(Animation.linear(duration: 0.15), value: shouldAnimate)
+                if shouldAnimate {
+                    Color.black.opacity(0.25)
+                    PhotoAction(data: result.photo, callback: onClick)
+                }
+            }.onHover { hovering in
+                if hoverIsEnabled {
+                    if hovering {
+                        startDelay()
+                    } else {
+                        shouldAnimate = false
                     }
-                }.onHover { hovering in
-                    if hoverIsEnabled {
-                        if hovering {
-                            startDelay()
-                        } else {
-                            shouldAnimate = false
-                        }
-                        isHovering = hovering
-                    }
+                    isHovering = hovering
                 }
             }
-            .buttonStyle(PlainButtonStyle())
         } else {
             rectangle.overlay(ErrorLabel(message: "Failed loading image"))
         }
@@ -109,14 +104,23 @@ fileprivate struct ErrorLabel : View {
 
 fileprivate struct PhotoAction : View {
     
-    let result: PhotoData
+    let data: Photo
+    let callback: (Photo) -> Void
     
     var body: some View {
-        VStack(spacing: 8) {
-            Button("Apply") {
-                
-            }
-            PhotographerLabel(result.photo.photographer)
+        VStack(spacing: 4) {
+            Button(action: {
+                callback(data)
+            }, label: {
+                Text("Apply")
+                    .foregroundColor(Color.primary)
+                    .fontWeight(.bold)
+                    .padding(.vertical, 6)
+                    .padding(.horizontal, 24)
+                    .background(VisualEffectView(material: .popover, blendingMode: .withinWindow))
+                    .cornerRadius(24)
+            }).buttonStyle(PlainButtonStyle())
+            PhotographerLabel(data.photographer)
         }
     }
 }
@@ -124,6 +128,8 @@ fileprivate struct PhotoAction : View {
 fileprivate struct PhotographerLabel : View {
     
     @Environment(\.openURL) var openURL
+    
+    @State private var colorText = Color.white
     
     private let photographer: Photographer
     
@@ -137,18 +143,23 @@ fileprivate struct PhotographerLabel : View {
         } label: {
             HStack(spacing: 2) {
                 Text("by")
-                    .foregroundColor(.white)
+                    .foregroundColor(colorText)
                     .font(.system(size: 10))
                 Text(photographer.name)
-                    .foregroundColor(.white)
+                    .foregroundColor(colorText)
                     .font(.system(size: 10))
                     .fontWeight(.bold)
                     .truncationMode(.tail)
                     .lineLimit(1)
             }
-            .padding(.horizontal, 4)
             .padding(.vertical, 2)
-        }.buttonStyle(PlainButtonStyle())
+        }
+        .buttonStyle(PlainButtonStyle())
+        .onHover { hovering in
+            withAnimation {
+                colorText = hovering ? Color.white.opacity(0.65) : Color.white
+            }
+        }
     }
     
 }
