@@ -12,6 +12,7 @@ class MainViewModel: ObservableObject {
     
     private let photoProvider: PhotoProvider
     private let queryProvider: QueryProvider
+    private let wallpaperProvider: WallpaperProvider
 
     @Published var loading: Bool = true
     @Published var panelMode: PanelMode = .close()
@@ -25,9 +26,15 @@ class MainViewModel: ObservableObject {
         wallpapers.map(\.options.1)
     }
 
-    init(_ hasQueries: Bool, photoProvider: PhotoProvider, queryProvider: QueryProvider) {
+    init(
+        _ hasQueries: Bool,
+        photoProvider: PhotoProvider,
+        queryProvider: QueryProvider,
+        wallpaperProvider: WallpaperProvider
+    ) {
         self.photoProvider = photoProvider
         self.queryProvider = queryProvider
+        self.wallpaperProvider = wallpaperProvider
         if hasQueries {
             panelMode = .close()
         } else {
@@ -43,9 +50,11 @@ class MainViewModel: ObservableObject {
             .assign(to: &self.$wallpapers)
     }
 
-    func applyWallpaper(data: Photo) {
+    func applyWallpaper(photo: Photo) {
         if case let Resource.loaded(data) = wallpapers {
             print(data.category)
+            print(photo.originalSrc)
+            wallpaperProvider.applyWallpaper(from: photo.originalSrc)
          }
     }
 

@@ -19,7 +19,8 @@ struct ViewModelFactory {
         MainViewModel(
             di.queryRepository.hasQueries(),
             photoProvider: di.photoProvider,
-            queryProvider: di.queryProvider
+            queryProvider: di.queryProvider,
+            wallpaperProvider: di.wallpaperProvider
         )
     }
     

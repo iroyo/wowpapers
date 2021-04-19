@@ -41,6 +41,7 @@
 		FE0655C22606778F001E6EE9 /* QueryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0655C12606778F001E6EE9 /* QueryRepository.swift */; };
 		FE0655C526068712001E6EE9 /* QueryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0655C426068712001E6EE9 /* QueryViewModel.swift */; };
 		FE1ED72025EE5F5E00740923 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */; };
+		FE2A5A2F262DF832000D9CCD /* WallpaperProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2A5A2E262DF832000D9CCD /* WallpaperProvider.swift */; };
 		FE30E03E25AF51360000D409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE30E03D25AF51360000D409 /* AppDelegate.swift */; };
 		FE30E04225AF51370000D409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04125AF51370000D409 /* Assets.xcassets */; };
 		FE30E04525AF51370000D409 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE30E04425AF51370000D409 /* Preview Assets.xcassets */; };
@@ -114,6 +115,7 @@
 		FE0655C12606778F001E6EE9 /* QueryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryRepository.swift; sourceTree = "<group>"; };
 		FE0655C426068712001E6EE9 /* QueryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewModel.swift; sourceTree = "<group>"; };
 		FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		FE2A5A2E262DF832000D9CCD /* WallpaperProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperProvider.swift; sourceTree = "<group>"; };
 		FE30E03A25AF51360000D409 /* wowpapers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wowpapers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE30E03D25AF51360000D409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE30E04125AF51370000D409 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				FE9AC9752604AF700085BDE4 /* QueryProvider.swift */,
 				5FD2583C713CE4A3170FE275 /* PhotoProvider.swift */,
 				FE7C49912612162E00862F06 /* PageProvider.swift */,
+				FE2A5A2E262DF832000D9CCD /* WallpaperProvider.swift */,
 				5FD25AD52638A9F140EED157 /* Resource.swift */,
 			);
 			path = Core;
@@ -507,6 +510,7 @@
 				5FD25DBC39625DE6ADE207C6 /* ClipShape.swift in Sources */,
 				FE7C499E26122B0100862F06 /* Page+CoreDataProperties.swift in Sources */,
 				FEBCA4AB2603983300C36AEF /* PanelType.swift in Sources */,
+				FE2A5A2F262DF832000D9CCD /* WallpaperProvider.swift in Sources */,
 				FE87186325FB8FA200E79338 /* Animations.swift in Sources */,
 				5FD2501E64124E3E6BD67596 /* WallpaperViewer.swift in Sources */,
 				5FD25B6101139B7A2103FF10 /* WallpaperAction.swift in Sources */,
