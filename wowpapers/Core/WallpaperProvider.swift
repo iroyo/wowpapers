@@ -27,19 +27,20 @@ struct WallpaperManager : WallpaperProvider {
                 guard let location = location else {
                     return
                 }
-
-                if let screen = NSScreen.main {
-                    do {
-                        let extensionFile = response?.suggestedFilename?.components(separatedBy: ".").last ?? defaultExtension
-                        let fileName = "photo-\(UUID().uuidString).\(extensionFile)"
-                        let fileUrl = documentDir.appendingPathComponent(fileName)
-                        try clearAllData(from: documentDir)
-                        try FileManager.default.moveItem(at: location, to: fileUrl)
+          
+                do {
+                    let extensionFile = response?.suggestedFilename?.components(separatedBy: ".").last ?? defaultExtension
+                    let fileName = "photo-\(UUID().uuidString).\(extensionFile)"
+                    let fileUrl = documentDir.appendingPathComponent(fileName)
+                    try clearAllData(from: documentDir)
+                    try FileManager.default.moveItem(at: location, to: fileUrl)
+                    for screen in NSScreen.screens {
                         try NSWorkspace.shared.setDesktopImageURL(fileUrl, for: screen, options: [:])
-                    } catch {
-                        print(error)
                     }
+                } catch {
+                    print(error)
                 }
+                
             }.resume()
         }
     }

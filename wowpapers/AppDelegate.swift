@@ -35,9 +35,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Create the status item
         statusItem.button?.image = NSImage(named: "Icon")
         statusItem.button?.action = #selector(togglePopover)
+        
+        // TODO: only enable if space sync is activated
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(spaceChanged), name: NSWorkspace.activeSpaceDidChangeNotification, object: NSWorkspace.shared)
+    }
+    
+    @objc private func spaceChanged() {
+        do {
+            let documentDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let photoURL = try FileManager.default.contentsOfDirectory(at: documentDir, includingPropertiesForKeys: nil, options: .skipsHiddenFiles).first!
+            
+            for screen in NSScreen.screens {
+                let url = NSWorkspace.shared.desktopImageURL(for: screen)
+                if url != photoURL {
+                    try NSWorkspace.shared.setDesktopImageURL(photoURL, for: screen, options: [:])
+                }
+            }
+        } catch {
+            
+        }
     }
 
-    @objc func togglePopover(_ sender: AnyObject?) {
+    @objc private func togglePopover(_ sender: AnyObject?) {
         if popover.isShown {
             closePopover(sender)
         } else {
