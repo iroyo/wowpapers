@@ -16,9 +16,12 @@ protocol WallpaperProvider {
 
 struct WallpaperManager : WallpaperProvider {
     
+    private let defaultExtension = "jpg"
+    
+    
     func applyWallpaper(from link: String) {
         if let url = URL(string: link) {
-            let cacheDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let documentDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             
             URLSession.shared.downloadTask(with: url) { location, response, error in
                 guard let location = location else {
@@ -27,14 +30,24 @@ struct WallpaperManager : WallpaperProvider {
 
                 if let screen = NSScreen.main {
                     do {
-                        let fileUrl = cacheDir.appendingPathComponent((UUID().uuidString))
-                        try FileManager.default.moveItem(atPath: location.path, toPath: fileUrl.path)
+                        let extensionFile = response?.suggestedFilename?.components(separatedBy: ".").last ?? defaultExtension
+                        let fileName = "photo-\(UUID().uuidString).\(extensionFile)"
+                        let fileUrl = documentDir.appendingPathComponent(fileName)
+                        try clearAllData(from: documentDir)
+                        try FileManager.default.moveItem(at: location, to: fileUrl)
                         try NSWorkspace.shared.setDesktopImageURL(fileUrl, for: screen, options: [:])
                     } catch {
                         print(error)
                     }
                 }
             }.resume()
+        }
+    }
+    
+    private func clearAllData(from url: URL) throws {
+        let urlFiles = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+        for urlFile in urlFiles {
+            try FileManager.default.removeItem(at: urlFile)
         }
     }
     
