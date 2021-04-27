@@ -38,6 +38,8 @@
 		5FD25F910D8D47468E031BFE /* PexelsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD25C7A6F610B672FB9F3EA /* PexelsDataSource.swift */; };
 		5FD25FAEED8EB7D94C53FB63 /* LinearProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD256A8F3BC3E35E87FE0DF /* LinearProgress.swift */; };
 		5FD25FCDB1D800A01E44754E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD250F0DBB954738EBC8EB5 /* NetworkManager.swift */; };
+		FE0115BD26380FB800AEFC5B /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0115BB26380FB800AEFC5B /* Page+CoreDataClass.swift */; };
+		FE0115BE26380FB800AEFC5B /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0115BC26380FB800AEFC5B /* Page+CoreDataProperties.swift */; };
 		FE0655C22606778F001E6EE9 /* QueryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0655C12606778F001E6EE9 /* QueryRepository.swift */; };
 		FE0655C526068712001E6EE9 /* QueryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0655C426068712001E6EE9 /* QueryViewModel.swift */; };
 		FE1ED72025EE5F5E00740923 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */; };
@@ -54,8 +56,6 @@
 		FE611014260CF0C1009BC6F7 /* SourceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE611013260CF0C1009BC6F7 /* SourceConfiguration.swift */; };
 		FE7C49922612162E00862F06 /* PageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C49912612162E00862F06 /* PageProvider.swift */; };
 		FE7C499526122A9000862F06 /* PageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C499426122A9000862F06 /* PageRepository.swift */; };
-		FE7C499D26122B0100862F06 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C499926122B0100862F06 /* Page+CoreDataClass.swift */; };
-		FE7C499E26122B0100862F06 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C499A26122B0100862F06 /* Page+CoreDataProperties.swift */; };
 		FE7F04B325F155AB002FC726 /* RoundedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F04B225F155AB002FC726 /* RoundedContainer.swift */; };
 		FE87185925FB892A00E79338 /* QueryConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87185825FB892A00E79338 /* QueryConfiguration.swift */; };
 		FE87185D25FB8C2500E79338 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87185C25FB8C2500E79338 /* Transitions.swift */; };
@@ -112,6 +112,8 @@
 		5FD25EDFA09A7ED945FDBD5D /* PexelsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PexelsPhoto.swift; sourceTree = "<group>"; };
 		5FD25F26C42802FB47AFD001 /* PexelsApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PexelsApi.swift; sourceTree = "<group>"; };
 		5FD25F2F312729CEE4717C28 /* Alias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alias.swift; sourceTree = "<group>"; };
+		FE0115BB26380FB800AEFC5B /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FE0115BC26380FB800AEFC5B /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FE0655C12606778F001E6EE9 /* QueryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryRepository.swift; sourceTree = "<group>"; };
 		FE0655C426068712001E6EE9 /* QueryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewModel.swift; sourceTree = "<group>"; };
 		FE1ED71F25EE5F5E00740923 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
@@ -131,8 +133,6 @@
 		FE611013260CF0C1009BC6F7 /* SourceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceConfiguration.swift; sourceTree = "<group>"; };
 		FE7C49912612162E00862F06 /* PageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProvider.swift; sourceTree = "<group>"; };
 		FE7C499426122A9000862F06 /* PageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRepository.swift; sourceTree = "<group>"; };
-		FE7C499926122B0100862F06 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		FE7C499A26122B0100862F06 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FE7F04B225F155AB002FC726 /* RoundedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedContainer.swift; sourceTree = "<group>"; };
 		FE87185825FB892A00E79338 /* QueryConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryConfiguration.swift; sourceTree = "<group>"; };
 		FE87185C25FB8C2500E79338 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
@@ -405,8 +405,8 @@
 		FEDDF8A9260376FE007A2AFE /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				FE7C499926122B0100862F06 /* Page+CoreDataClass.swift */,
-				FE7C499A26122B0100862F06 /* Page+CoreDataProperties.swift */,
+				FE0115BB26380FB800AEFC5B /* Page+CoreDataClass.swift */,
+				FE0115BC26380FB800AEFC5B /* Page+CoreDataProperties.swift */,
 				FEDDF8A12603758B007A2AFE /* Query+CoreDataClass.swift */,
 				FEDDF8A22603758B007A2AFE /* Query+CoreDataProperties.swift */,
 				FE9AC97C2604C2690085BDE4 /* QueryManager.swift */,
@@ -508,7 +508,6 @@
 				5FD258C86EB512FE535E35B1 /* MainViewModel.swift in Sources */,
 				FEDDF896260369A4007A2AFE /* Persistance.swift in Sources */,
 				5FD25DBC39625DE6ADE207C6 /* ClipShape.swift in Sources */,
-				FE7C499E26122B0100862F06 /* Page+CoreDataProperties.swift in Sources */,
 				FEBCA4AB2603983300C36AEF /* PanelType.swift in Sources */,
 				FE2A5A2F262DF832000D9CCD /* WallpaperProvider.swift in Sources */,
 				FE87186325FB8FA200E79338 /* Animations.swift in Sources */,
@@ -520,7 +519,6 @@
 				FE1ED72025EE5F5E00740923 /* VisualEffectView.swift in Sources */,
 				5FD25DDE9EAE5795961123E9 /* Endpoint.swift in Sources */,
 				FEBCA4A82603981100C36AEF /* PanelMode.swift in Sources */,
-				FE7C499D26122B0100862F06 /* Page+CoreDataClass.swift in Sources */,
 				FEDDF89F260374ED007A2AFE /* wowpapers.xcdatamodeld in Sources */,
 				5FD25F910D8D47468E031BFE /* PexelsDataSource.swift in Sources */,
 				5FD25DD2AC2B13089A3A24C3 /* PhotoDataSource.swift in Sources */,
@@ -529,6 +527,7 @@
 				5FD2591D637EF8DAF125B027 /* Alias.swift in Sources */,
 				FE9AC9762604AF700085BDE4 /* QueryProvider.swift in Sources */,
 				5FD25C05679C1A17B35DBE0D /* Extensions.swift in Sources */,
+				FE0115BD26380FB800AEFC5B /* Page+CoreDataClass.swift in Sources */,
 				5FD253FE9A9A09810CB542E7 /* PexelsApi.swift in Sources */,
 				FE9AC97D2604C2690085BDE4 /* QueryManager.swift in Sources */,
 				5FD25F0808D2015122AAEA41 /* PexelsPhoto.swift in Sources */,
@@ -547,6 +546,7 @@
 				FEDDF8A32603758B007A2AFE /* Query+CoreDataClass.swift in Sources */,
 				5FD25B873CA2A134DEABB2CB /* Resource.swift in Sources */,
 				FE9AC9792604BD790085BDE4 /* DependencyProvider.swift in Sources */,
+				FE0115BE26380FB800AEFC5B /* Page+CoreDataProperties.swift in Sources */,
 				FE7C49922612162E00862F06 /* PageProvider.swift in Sources */,
 				5FD2588415E832EEF420FA49 /* WallpaperResults.swift in Sources */,
 				FE87185925FB892A00E79338 /* QueryConfiguration.swift in Sources */,

@@ -2,7 +2,7 @@
 //  Page+CoreDataProperties.swift
 //  wowpapers
 //
-//  Created by Isaac Royo Raso on 29/3/21.
+//  Created by Isaac Royo Raso on 27/4/21.
 //
 //
 
