@@ -18,7 +18,7 @@ struct SourcePanel: View {
                 Image(source.icon)
                     .resizable()
                     .padding(4)
-                    .frame(width: 38, height: 38)
+                    .frame(width: 36, height: 36)
                     .background(Color.accent)
                     .clipShape(Circle())
                 VStack(alignment: .leading) {
