@@ -26,7 +26,7 @@ struct UnsplashPhoto : Decodable, Convertible {
             color: color,
             width: width,
             height: height,
-            originalSrc: urls.raw,
+            originalSrc: urls.full,
             thumbnailSrc: urls.small,
             photographer: Photographer(url: user.links.html, name: user.name),
             origin: .unsplash
